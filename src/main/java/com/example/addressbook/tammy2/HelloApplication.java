@@ -12,7 +12,7 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-//chris
+
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
@@ -23,8 +23,9 @@ public class HelloApplication extends Application {
 
         //Load image and set as image view
         ImageView imageView = new ImageView();
-        imageView.setImage(new Image("file:1.png"));
-        imageView.setFitWidth(100);
+        imageView.setImage(new Image(getClass().getResource("/assets/1.png").toString()));
+        imageView.setFitWidth(500);
+        imageView.setCache(true);
         imageView.setPreserveRatio(true);
 
         bPane.setTop(new TextField("Top"));
@@ -34,7 +35,7 @@ public class HelloApplication extends Application {
         bPane.setCenter(imageView);
 
         //Creating a scene object
-        Scene scene = new Scene(bPane, 500, 500);
+        Scene scene = new Scene(bPane, 1000, 600);
 
         //Setting title to the Stage
         stage.setTitle("BorderPane Example");

@@ -14,19 +14,19 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.ProgressBar?>
 <BorderPane fx:controller="com.example.addressbook.tammy2.HomeController" xmlns:fx="http://javafx.com/fxml"
-            prefHeight="200" prefWidth="320">
+            prefHeight="200" prefWidth="320" styleClass="body">
     <top>
-        <Text text="Homepage"/>
+        <Text styleClass="pageTitle" text="Homepage"/>
     </top>
 
     <left>
-        <VBox>
-            <Label fx:id="userName"/>
-            <Label fx:id="creditsLabel"/>
-            <Label fx:id="streakLabel"/>
+        <VBox fx:id = "buttonsVbox">
+            <Label styleClass="heading1" fx:id="userName"/>
+            <Label styleClass="heading2" fx:id="creditsLabel"/>
+            <Label styleClass="heading2" fx:id="streakLabel"/>
             <Button onAction="#handleLogButtonClicked" text = "Log"/>
             <Button onAction="#handleMemoriesButtonClicked" text = "Memories"/>
-            <HBox>
+            <HBox fx:id = "buttonsHbox">
                 <Button onAction="#handleHelpButtonClicked" text = "?"/>
                 <Button onAction="#handleMenuButtonClicked" text = "Menu"/>
             </HBox>
@@ -34,25 +34,23 @@
     </left>
 
     <center>
-        <ImageView fx:id="tammyImage"
-                   disable="false"
-                   pickOnBounds="true"
-                   preserveRatio="true" />
+        <VBox fx:id = "imageVbox">
+            <ImageView id = "tammyImage" fx:id="tammyImage"/>
+            <Label id="tammyName" fx:id="tammyName"/>
+        </VBox>
     </center>
 
     <right>
-        <VBox>
-            <Label>Vitals:</Label>
-            <Label>Water:</Label>
+        <VBox fx:id= "vitalsVbox">
+            <Label styleClass="heading1" >Vitals:</Label>
+            <Label styleClass="heading2" >Water:</Label>
             <ProgressBar fx:id = "waterProgressBar"></ProgressBar>
-            <Label>Food:</Label>
+            <Label styleClass="heading2" >Food:</Label>
             <ProgressBar fx:id = "foodProgressBar"></ProgressBar>
-            <Label>Happiness:</Label>
+            <Label styleClass="heading2" >Happiness:</Label>
             <ProgressBar fx:id = "happinessProgressBar"></ProgressBar>
         </VBox>
     </right>
-    <bottom>
-        <Label fx:id="tammyName"/>
-    </bottom>
+
 
 </BorderPane>

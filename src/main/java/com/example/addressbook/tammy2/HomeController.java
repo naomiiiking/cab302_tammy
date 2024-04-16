@@ -6,6 +6,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
@@ -19,34 +21,53 @@ public class HomeController {
     @FXML
     private Label streakLabel;
     @FXML
+    private VBox buttonsVbox;
+    @FXML
+    private HBox buttonsHbox;
+    @FXML
     private ImageView tammyImage;
+    @FXML
+    private VBox imageVbox;
+    @FXML
     private String tammyImageAddress = "/assets/1.png";
+    @FXML
+    private Label tammyName;
+    @FXML
+    private VBox vitalsVbox;
     @FXML
     private ProgressBar waterProgressBar;
     @FXML
     private ProgressBar foodProgressBar;
     @FXML
     private ProgressBar happinessProgressBar;
-    @FXML
-    private Label tammyName;
+
 
     public void initialize() {
         // Initialize Menu Section
         userName.setText("Welcome back: Naomi");
         creditsLabel.setText("Credits: $20");
         streakLabel.setText("Streak: 45 days");
+        buttonsVbox.setSpacing(5);
+        buttonsHbox.setSpacing(5);
 
-        // Initialize Tammy Image
+        // Initialize Tammy Image and Name
         Image image = new Image(getClass().getResourceAsStream(tammyImageAddress));
         tammyImage.setImage(image);
+        tammyName.setText("Mr Bean");
+        imageVbox.setSpacing(5);
 
         // Initialize Vitals Progressbars
+        vitalsVbox.setSpacing(5);
         waterProgressBar.setProgress(0.5);
+        waterProgressBar.setMinHeight(30);
+        waterProgressBar.setMinWidth(200);
         foodProgressBar.setProgress(0.75);
+        foodProgressBar.setMinHeight(30);
+        foodProgressBar.setMinWidth(200);
         happinessProgressBar.setProgress(0.25);
+        happinessProgressBar.setMinHeight(30);
+        happinessProgressBar.setMinWidth(200);
 
-        // Initialize Tammy Name
-        tammyName.setText("Mr Bean");
     }
 
     // Functions for handling page navigation

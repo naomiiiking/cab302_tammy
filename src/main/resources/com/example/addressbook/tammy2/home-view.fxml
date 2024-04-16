@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ProgressBar?>
+<BorderPane fx:controller="com.example.addressbook.tammy2.HomeController" xmlns:fx="http://javafx.com/fxml"
+            prefHeight="200" prefWidth="320">
+    <top>
+        <Text text="Homepage"/>
+    </top>
+
+    <left>
+        <VBox>
+            <Label fx:id="userName"/>
+            <Label fx:id="creditsLabel"/>
+            <Label fx:id="streakLabel"/>
+            <Button onAction="#handleLogButtonClicked" text = "Log"/>
+            <Button onAction="#handleMemoriesButtonClicked" text = "Memories"/>
+            <HBox>
+                <Button onAction="#handleHelpButtonClicked" text = "?"/>
+                <Button onAction="#handleMenuButtonClicked" text = "Menu"/>
+            </HBox>
+        </VBox>
+    </left>
+
+    <center>
+        <ImageView fx:id="tammyImage"
+                   disable="false"
+                   pickOnBounds="true"
+                   preserveRatio="true" />
+    </center>
+
+    <right>
+        <VBox>
+            <Label>Vitals:</Label>
+            <Label>Water:</Label>
+            <ProgressBar fx:id = "waterProgressBar"></ProgressBar>
+            <Label>Food:</Label>
+            <ProgressBar fx:id = "foodProgressBar"></ProgressBar>
+            <Label>Happiness:</Label>
+            <ProgressBar fx:id = "happinessProgressBar"></ProgressBar>
+        </VBox>
+    </right>
+    <bottom>
+        <Label fx:id="tammyName"/>
+    </bottom>
+
+</BorderPane>

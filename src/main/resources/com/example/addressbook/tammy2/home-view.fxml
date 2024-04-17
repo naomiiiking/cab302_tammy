@@ -21,7 +21,7 @@
 
     <left>
         <VBox fx:id = "buttonsVbox">
-            <Label styleClass="heading1" fx:id="userName"/>
+            <Label styleClass="heading1" fx:id="userNameLabel"/>
             <Label styleClass="heading2" fx:id="creditsLabel"/>
             <Label styleClass="heading2" fx:id="streakLabel"/>
             <Button onAction="#handleLogButtonClicked" text = "Log"/>

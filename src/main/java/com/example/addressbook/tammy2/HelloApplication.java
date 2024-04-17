@@ -17,10 +17,11 @@ import javafx.scene.control.TextField;
 
 
 import java.io.IOException;
-
+import java.util.Scanner;
 
 public class HelloApplication extends Application {
     private static Stage mainStage;
+
     @Override
     //Start function will open with displayHomepage for now
     public void start(Stage mainStage) throws Exception {

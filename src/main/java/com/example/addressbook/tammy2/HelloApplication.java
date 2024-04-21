@@ -27,14 +27,22 @@ public class HelloApplication extends Application {
     //Start function will open with displayHomepage for now
     public void start(Stage mainStage) throws Exception {
         this.mainStage = mainStage;
-        showHomePage();
+        showAuthenPage();
     }
 
-    public void showHomePage() throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("home-view.fxml"));
+    public void showAuthenPage() throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("authen-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1100, 750);
         String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
         scene.getStylesheets().add(stylesheet);
+        mainStage.setTitle("Tammy");
+        mainStage.setScene(scene);
+        mainStage.show();
+    }
+
+    public static void showHomePage() throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("home-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1100, 750);
         mainStage.setTitle("Tammy");
         mainStage.setScene(scene);
         mainStage.show();

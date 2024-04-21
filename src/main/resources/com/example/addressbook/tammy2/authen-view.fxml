@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:controller="com.example.addressbook.tammy2.AuthenController" xmlns:fx="http://javafx.com/fxml"
+            prefHeight="200" prefWidth="320" styleClass="body">
+    <top>
+        <HBox fx:id = "topButtons" >
+            <Button onAction="#handleLoginButtonClicked" text = "Log In"/>
+            <Button onAction="#handleRegisterButtonClicked" text = "Register"/>
+        </HBox>
+    </top>
+
+    <center>
+        <!-- Login content -->
+        <VBox fx:id = "logInContent">
+            <Label styleClass="heading1">Username: </Label>
+            <TextField fx:id="loginUserNameInput"/>
+
+            <Label styleClass="heading1">Password: </Label>
+            <PasswordField fx:id="loginPasswordInput"/>
+
+            <Button text="Submit"/>
+        </VBox>
+
+        <!-- Register content -->
+        <VBox fx:id="registerContent">
+            <Label styleClass="heading1">Username: </Label>
+            <TextField fx:id="registerUserNameInput"/>
+
+            <Label styleClass="heading1">Password: </Label>
+            <PasswordField fx:id="registerPasswordInput" />
+
+            <Label styleClass="heading1">Tammy name: </Label>
+            <TextField fx:id="tammyNameInput"/>
+
+            <Label styleClass="heading1">Tammy type: </Label>
+            <HBox fx:id="tammyType">
+                <RadioButton fx:id="sleepTammy" text="Sleep" toggleGroup="$tammyTypeInput"/>
+                <RadioButton fx:id="studyTammy" text="Study" toggleGroup="$tammyTypeInput"/>
+                <RadioButton fx:id="fitnessTammy" text="Fitness" toggleGroup="$tammyTypeInput"/>
+            </HBox>
+
+            <Label styleClass="heading1">Tammy species: </Label>
+            <HBox fx:id="tammySpecies">
+                <RadioButton fx:id="rabbitTammy" text="Rabbit" toggleGroup="$tammySpeciesInput"/>
+                <RadioButton fx:id="shellTammy" text="Shell" toggleGroup="$tammySpeciesInput"/>
+                <RadioButton fx:id="fishTammy" text="Fish" toggleGroup="$tammySpeciesInput"/>
+            </HBox>
+
+            <Button text="Submit"/>
+        </VBox>
+    </center>
+</BorderPane>

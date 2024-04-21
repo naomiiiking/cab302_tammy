@@ -10,6 +10,7 @@ public class Main {
         UserAccountDAO userAccountDAO = new UserAccountDAO();
         userAccountDAO.createTable();
 
+
         // Insert some new records
     //        userAccountDAO.insert(new UserAccount("LauraG", "lauraagallowayy@gmail.com", "CAB203"));
     //        userAccountDAO.insert(new UserAccount("JaneS", "JaneS23@hotmail.com", "CAB203!"));
@@ -67,16 +68,44 @@ public class Main {
 
     public static void registerUser() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter username:");
-        String username = scanner.nextLine();
+
+        // Get username
+        String username;
+        do {
+            System.out.println("Enter username (must be at least 4 characters long):");
+            username = scanner.nextLine();
+            if (username.length() < 4) {
+                System.out.println("Username must be at least 4 characters long.");
+            }
+        } while (username.length() < 4);
+
+        // Get email
         System.out.println("Enter email:");
         String email = scanner.nextLine();
-        System.out.println("Enter password:");
-        String password = scanner.nextLine();
 
+        // Get password
+        String password;
+        do {
+            System.out.println("Enter password (must be at least 6 characters long):");
+            password = scanner.nextLine();
+            if (password.length() < 6) {
+                System.out.println("Password must be at least 6 characters long.");
+            }
+        } while (password.length() < 6);
+
+        // Check if the username is already registered
+        List<UserAccount> accounts = UserAccountDAO.getAll();
+        for (UserAccount acc : accounts) {
+            if (acc.getUsername().equals(username)) {
+                System.out.println("Username already exists. Please login instead.");
+                loginUser();
+                return;
+            }
+        }
+
+        // Register the user
         UserAccount userAccount = new UserAccount(username, email, password);
         UserAccountDAO.insert(userAccount);
-
         System.out.println("User registered successfully!");
     }
 

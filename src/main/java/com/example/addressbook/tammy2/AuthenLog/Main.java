@@ -10,34 +10,7 @@ public class Main {
         UserAccountDAO userAccountDAO = new UserAccountDAO();
         userAccountDAO.createTable();
 
-        // Insert some new records
-    //        userAccountDAO.insert(new UserAccount("LauraG", "lauraagallowayy@gmail.com", "CAB203"));
-    //        userAccountDAO.insert(new UserAccount("JaneS", "JaneS23@hotmail.com", "CAB203!"));
-    //        userAccountDAO.insert(new UserAccount("AliceM", "Smith", "CAB302&"));
 
-            // Retrieve all records
-    //        List<UserAccount> accounts = UserAccountDAO.getAll();
-    //        for (UserAccount acc : accounts) {
-    //            System.out.println(acc);
-    //        }
-
-    //        // Retrieve a record by ID
-    //        UserAccount account = UserAccountDAO.getById(2);
-    //        System.out.println(account);
-
-//        // Retrieve a record by ID
-//        UserAccount account = UserAccountDAO.getById(3);
-//        System.out.println("Before update:");
-//        System.out.println(account);
-
-        // Update a record
-
-//        account.setEmail("1234smith@hotmail.com.au");
-//        UserAccountDAO.update(account);
-//        System.out.println("After update email:");
-//        System.out.println(UserAccountDAO.getById(3));
-//
-//        UserAccountDAO.close();
 
 
         Scanner scanner = new Scanner(System.in);
@@ -99,40 +72,5 @@ public class Main {
 
     }
 
-    // Inside the Main class
 
-//    public static void loginUser() {
-//        Scanner scanner = new Scanner(System.in);
-//        System.out.println("Enter username:");
-//        String username = scanner.nextLine();
-//        System.out.println("Enter password:");
-//        String password = scanner.nextLine();
-//
-//        // Check if the username and password match any entry in the database
-//        List<UserAccount> accounts = UserAccountDAO.getAll();
-//        for (UserAccount acc : accounts) {
-//            if (acc.getUsername().equals(username) && acc.getPassword().equals(password)) {
-//                System.out.println("Login successful!");
-//                openHomePage();
-//                return;
-//            }
-//        }
-//        System.out.println("Invalid username or password.");
-//    }
-//
-//    public static void openHomePage() {
-//        // Close the login window
-//        // Launch the home page window
-//        HomePage homePage = new HomePage();
-//        try {
-//            homePage.start(new Stage());
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//// Inside the switch case in the main method
-//case 2:
-//    loginUser();
-//    break;
 }

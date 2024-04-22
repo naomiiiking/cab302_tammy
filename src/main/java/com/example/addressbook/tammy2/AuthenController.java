@@ -145,7 +145,7 @@ public class AuthenController {
         UserAccountDAO.close();
 
         // Load homepage
-        showHomePage();
+        showHomePage(UserAccount.getUsername());
     }
 
     // Login submit button clicked
@@ -160,7 +160,7 @@ public class AuthenController {
         List<UserAccount> accounts = UserAccountDAO.getAll();
         for (UserAccount acc : accounts) {
             if (UserAccount.getUsername().equals(loginUserNameInput.getText()) && UserAccount.getPassword().equals(loginPasswordInput.getText())) {
-                showHomePage();
+                showHomePage(UserAccount.getUsername());
                 return;
             }
             else {

@@ -30,4 +30,12 @@ public class ProgressTracker {
         // Return progress as a string
         return "Progress: " + elapsedTime + " time passed.";
     }
+
+    public int getCurrency() {
+        return currency;
+    }
+
+    public void updateCurrency(int amount) {
+        currency += amount;
+    }
 }

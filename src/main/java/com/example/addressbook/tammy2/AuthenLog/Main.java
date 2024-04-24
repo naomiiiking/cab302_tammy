@@ -12,8 +12,8 @@ public class Main {
         UserAccountDAO userAccountDAO = new UserAccountDAO();
         userAccountDAO.createTable();
 
-<<<<<<< HEAD
-=======
+
+
         // Create a scanner object to read user input
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to User Registration and Login System!");
@@ -140,15 +140,15 @@ public class Main {
     //        userAccountDAO.insert(new UserAccount("LauraG", "lauraagallowayy@gmail.com", "CAB203"));
     //        userAccountDAO.insert(new UserAccount("JaneS", "JaneS23@hotmail.com", "CAB203!"));
     //        userAccountDAO.insert(new UserAccount("AliceM", "Smith", "CAB302&"));
->>>>>>> master
 
 
 
 
 
-<<<<<<< HEAD
-}
-=======
+
+
+
+
 //    public static void loginUser() {
 //        Scanner scanner = new Scanner(System.in);
 //        System.out.println("Enter username:");
@@ -183,4 +183,4 @@ public class Main {
 //case 2:
 //    loginUser();
 //    break;
->>>>>>> master
+

@@ -1,10 +1,12 @@
 package tammy;
 
+
+
 public class FitnessTam extends Tammys{
 
     public FitnessTam(String name, int OwnerID){
         super(name,OwnerID);
-        Characteristic = GetType();
+        //Characteristic = GetType();
     }
     @Override
     public String ShowMood() {
@@ -17,7 +19,7 @@ public class FitnessTam extends Tammys{
     }
 
     public void takeDmg(){
-        health -= 20;
+        setHealth(-20);
     }
 
 

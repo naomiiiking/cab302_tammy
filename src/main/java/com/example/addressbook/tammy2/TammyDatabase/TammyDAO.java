@@ -12,7 +12,7 @@ public class TammyDAO implements ITammyDAO{
     private final Connection connection;
 
     public TammyDAO() {
-        connection = DatabaseConnection.getInstance();
+        connection = TammyDatabaseConnection.getInstance();
         createTable();
     }
 

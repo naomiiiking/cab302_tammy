@@ -30,7 +30,7 @@ public class HelloApplication extends Application {
         showHomePage();
     }
 
-    public void showHomePage() throws Exception {
+    public static void showHomePage() throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("home-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1100, 750);
         String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
@@ -43,6 +43,8 @@ public class HelloApplication extends Application {
     public static void showLogPage() throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("log-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 750);
+        String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
+        scene.getStylesheets().add(stylesheet);
         mainStage.setTitle("Tammy");
         mainStage.setScene(scene);
         mainStage.show();

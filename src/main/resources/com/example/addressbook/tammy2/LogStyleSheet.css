@@ -1,0 +1,28 @@
+/* Styling for all page bodies*/
+.body {
+    -fx-padding: 40;
+}
+
+/* Page title */
+.pageTitle {
+    -fx-font: 60 arial;
+    -fx-padding: 0,0,1000,0;
+}
+
+/* Heading 1 */
+.heading1 {
+    -fx-font: 30 arial;
+}
+
+/* All buttons are blue, rounded and have white text */
+.button {
+    -fx-background-color: #0096FF;
+    -fx-text-fill: white;
+    -fx-border-radius: 5;
+    -fx-font: 20 arial;
+
+}
+
+.heading2 {
+    -fx-font: 15 arial;
+}

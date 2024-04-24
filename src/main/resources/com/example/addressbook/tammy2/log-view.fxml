@@ -5,11 +5,30 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+
+
+<BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.addressbook.tammy2.LogController"
-            prefHeight="400.0" prefWidth="600.0">
-    <Label fx:id="logName"></Label>
+            prefHeight="400.0" prefWidth="600.0"
+            styleClass="body">
+    <top>
+        <Text styleClass="pageTitle" text="Log Hours"/>
+    </top>
 
-</AnchorPane>
+    <center>
+        <VBox fx:id = "buttonsVbox">
+            <Label styleClass="heading1" fx:id="userNameLabel"/>
+            <Label styleClass="heading2" fx:id="creditsLabel"/>
+            <Label styleClass="heading2" fx:id="streakLabel"/>
+            <Button text = "Log"/>
+            <Button text = "Memories"/>
+            <HBox fx:id = "buttonsHbox">
+                <Button text = "?"/>
+                <Button text = "Menu"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

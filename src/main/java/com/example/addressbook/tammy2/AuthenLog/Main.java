@@ -12,6 +12,8 @@ public class Main {
         UserAccountDAO userAccountDAO = new UserAccountDAO();
         userAccountDAO.createTable();
 
+<<<<<<< HEAD
+=======
         // Create a scanner object to read user input
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to User Registration and Login System!");
@@ -138,35 +140,15 @@ public class Main {
     //        userAccountDAO.insert(new UserAccount("LauraG", "lauraagallowayy@gmail.com", "CAB203"));
     //        userAccountDAO.insert(new UserAccount("JaneS", "JaneS23@hotmail.com", "CAB203!"));
     //        userAccountDAO.insert(new UserAccount("AliceM", "Smith", "CAB302&"));
-
-            // Retrieve all records
-    //        List<UserAccount> accounts = UserAccountDAO.getAll();
-    //        for (UserAccount acc : accounts) {
-    //            System.out.println(acc);
-    //        }
-
-    //        // Retrieve a record by ID
-    //        UserAccount account = UserAccountDAO.getById(2);
-    //        System.out.println(account);
-
-//        // Retrieve a record by ID
-//        UserAccount account = UserAccountDAO.getById(3);
-//        System.out.println("Before update:");
-//        System.out.println(account);
-
-        // Update a record
-
-//        account.setEmail("1234smith@hotmail.com.au");
-//        UserAccountDAO.update(account);
-//        System.out.println("After update email:");
-//        System.out.println(UserAccountDAO.getById(3));
-//
-//        UserAccountDAO.close();
+>>>>>>> master
 
 
 
-    // Inside the Main class
 
+
+<<<<<<< HEAD
+}
+=======
 //    public static void loginUser() {
 //        Scanner scanner = new Scanner(System.in);
 //        System.out.println("Enter username:");
@@ -201,3 +183,4 @@ public class Main {
 //case 2:
 //    loginUser();
 //    break;
+>>>>>>> master

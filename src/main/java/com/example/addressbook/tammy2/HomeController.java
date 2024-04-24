@@ -14,7 +14,7 @@ public class HomeController {
 
     @FXML
     private Label userNameLabel;
-    private String username =  new String("Naomi"); //Replace this with query to get username from database
+    private static String username; //Replace this with query to get username from database
     @FXML
     private Label creditsLabel;
     private int credits =  20; //Replace this with query to get credits from database
@@ -42,6 +42,9 @@ public class HomeController {
     @FXML
     private ProgressBar happinessProgressBar;
 
+    public static void setUsername(String UserName){
+        username = UserName;
+    }
 
     public void initialize() {
         // Initialize Menu Section

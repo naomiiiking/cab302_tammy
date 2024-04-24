@@ -1,5 +1,6 @@
 package com.example.addressbook.tammy2.TammyDatabase;
 
+import com.example.addressbook.tammy2.AuthenLog.DatabaseConnection;
 import tammy.Tammys;
 
 import java.sql.Connection;
@@ -11,7 +12,7 @@ public class TammyDAO implements ITammyDAO{
     private final Connection connection;
 
     public TammyDAO() {
-        connection = TammyDatabaseConnection.getInstance();
+        connection = DatabaseConnection.getInstance();
         createTable();
     }
 

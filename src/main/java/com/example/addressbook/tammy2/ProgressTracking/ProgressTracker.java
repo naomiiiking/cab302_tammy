@@ -38,4 +38,8 @@ public class ProgressTracker {
     public void updateCurrency(int amount) {
         currency += amount;
     }
+
+    public List<String> getLogs() {
+        return logs;
+    }
 }

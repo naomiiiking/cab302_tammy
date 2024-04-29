@@ -53,15 +53,17 @@ public class HelloApplication extends Application {
         mainStage.show();
     }
 
-    public static void showHelpPage() throws Exception {
+    public static void showHelpPage(String username) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("help-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 750);
+        String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
+        scene.getStylesheets().add(stylesheet);
         mainStage.setTitle("Tammy");
         mainStage.setScene(scene);
         mainStage.show();
     }
 
-    public static void showMenuPage() throws Exception {
+    public static void showMenuPage(String username) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menu-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 750);
         mainStage.setTitle("Tammy");

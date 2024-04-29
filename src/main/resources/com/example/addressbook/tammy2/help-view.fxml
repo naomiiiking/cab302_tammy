@@ -6,9 +6,25 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.addressbook.tammy2.HelpController"
-            prefHeight="400.0" prefWidth="600.0">
-<Label fx:id="pageName"></Label>
-</AnchorPane>
+<?import javafx.scene.text.Text?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.addressbook.tammy2.HelpController"
+      prefHeight="400.0" prefWidth="600.0">
+
+    <!-- Help content -->
+    <VBox fx:id="helpPage" styleClass="body">
+        <Label styleClass="heading1">Help</Label>
+
+        <Label styleClass="heading2" fx:id="usernameLabel"/>
+
+        <!-- Maybe I am just really tired but I can not figure out for the life of me why this wont wrap? -->
+        <Text fx:id="helpText">Feeling a bit lost? The Tammy app is made to help you get back on track
+            Now that you have created your Tammy, keep it happy through food, water and pats -
+            all of which you can buy at the store! To get credits, fill out your logs daily
+            to keep track of your progress!</Text>
+
+        <Button text="Back" onAction="#handleBackButton"/>
+    </VBox>
+
+</VBox>

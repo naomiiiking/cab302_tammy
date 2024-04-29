@@ -6,6 +6,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
 
@@ -100,7 +102,7 @@ public class HomeController {
     @FXML
     private void handleHelpButtonClicked(){
         try {
-            HelloApplication.showHelpPage();
+            HelloApplication.showHelpPage(username);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -111,7 +113,7 @@ public class HomeController {
     @FXML
     private void handleMenuButtonClicked(){
         try {
-            HelloApplication.showMenuPage();
+            HelloApplication.showMenuPage(username);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {

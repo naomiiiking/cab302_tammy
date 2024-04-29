@@ -1,4 +1,5 @@
 package com.example.addressbook.tammy2;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.ComboBox;
@@ -105,6 +106,17 @@ public class LogController {
 
     @FXML
     private void handleSubmitButtonClicked(){
+        try {
+            HelloApplication.showHomePage();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    private void handleCancelButtonClicked(){
         try {
             HelloApplication.showHomePage();
         } catch (IOException e) {

@@ -53,6 +53,7 @@
                 <Label styleClass="heading1" fx:id="addedCredit"/>
             </HBox>
             <Button text="Submit Log" onAction="#handleSubmitButtonClicked"/>
+            <Button text="Cancel" onAction="#handleCancelButtonClicked"/>
         </VBox>
     </center>
 </BorderPane>

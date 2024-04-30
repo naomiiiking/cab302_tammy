@@ -84,9 +84,9 @@ public class TammyTest {
     }
     @Test
     public void testSetSpecies(){
-        tammys.setCharacteristic("Fish");
+        tammys.setSpecies("Fish");
         assertEquals("Fish",tammys.getSpecies());
-        tammys.setCharacteristic("Shell");
+        tammys.setSpecies("Shell");
         assertEquals("Shell",tammys.getSpecies());
     }
 }

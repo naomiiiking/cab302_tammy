@@ -2,7 +2,6 @@ package com.example.addressbook.tammy2.AuthenLog;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.sql.Connection;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,8 +10,6 @@ public class Main {
         // Initialize the UserAccountDAO and create the table if it doesn't exist
         UserAccountDAO userAccountDAO = new UserAccountDAO();
         userAccountDAO.createTable();
-
-
 
         // Create a scanner object to read user input
         Scanner scanner = new Scanner(System.in);
@@ -131,6 +128,8 @@ public class Main {
             return null;
         }
     }
+
+
 }
 
 

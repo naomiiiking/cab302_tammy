@@ -9,6 +9,7 @@ public class UserAccountDAO {
 
     public UserAccountDAO() {
         connection = DatabaseConnection.getInstance();
+
     }
 
     public void createTable() {
@@ -101,6 +102,7 @@ public class UserAccountDAO {
 
         return null;
     }
+
 
     public static void close() {
         try {

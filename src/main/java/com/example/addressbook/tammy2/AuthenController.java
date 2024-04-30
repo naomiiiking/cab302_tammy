@@ -2,11 +2,13 @@ package com.example.addressbook.tammy2;
 
 import com.example.addressbook.tammy2.AuthenLog.UserAccount;
 import com.example.addressbook.tammy2.AuthenLog.UserAccountDAO;
+import com.example.addressbook.tammy2.TammyDatabase.TammyDAO;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import com.example.addressbook.tammy2.tammy.Tammys;
 
 import java.util.List;
 
@@ -53,6 +55,11 @@ public class AuthenController {
     @FXML
     private ToggleGroup tammySpeciesInput;
 
+    private TammyDAO tammyDAO;
+
+    public AuthenController(){
+        tammyDAO = new TammyDAO();
+    }
 
     public void initialize(){
         // Top buttons
@@ -139,12 +146,17 @@ public class AuthenController {
                 showMissingInfoAlert();
         }
 
-
         UserAccount userAccount = new UserAccount(registerUserNameInput.getText(), registerUserEmailInput.getText(), registerPasswordInput.getText());
         UserAccountDAO.insert(userAccount);
+
+        Tammys tammy = new Tammys(1,tammyNameInput.getText(),tammyTypeInput.getSelectedToggle().toString(), tammySpeciesInput.getSelectedToggle().toString());
+        System.out.println(tammySpeciesInput.getSelectedToggle().toString());
+        tammyDAO.addTammy(tammy);
+
         UserAccountDAO.close();
 
         // Load homepage
+
         showHomePage(UserAccount.getUsername());
     }
 

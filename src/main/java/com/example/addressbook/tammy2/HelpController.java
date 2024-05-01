@@ -18,6 +18,9 @@ public class HelpController {
     private VBox helpPage;
 
     private static String username;
+    public static void setUsername(String UserName){
+        username = UserName;
+    }
 
     void initialize() {
         usernameLabel.setText(username);

@@ -168,8 +168,8 @@ public class AuthenController {
         UserAccountDAO.close();
 
         // Load homepage
-
-        //showHomePage(UserAccount.getUsername());
+        userSession.put("loggedInUser", userAccount);
+        showHomePage();
     }
 
     // Login submit button clicked

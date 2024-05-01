@@ -35,3 +35,6 @@
     -fx-padding: 0 20 0 0;
 }
 
+.settingsBody{
+    -fx-padding: 50 0 50 150;
+}

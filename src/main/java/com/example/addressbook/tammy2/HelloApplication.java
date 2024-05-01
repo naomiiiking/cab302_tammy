@@ -42,6 +42,8 @@ public class HelloApplication extends Application {
     public static void showLogPage() throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("log-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 750);
+        String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
+        scene.getStylesheets().add(stylesheet);
         mainStage.setTitle("Tammy");
         mainStage.setScene(scene);
         mainStage.show();
@@ -50,22 +52,29 @@ public class HelloApplication extends Application {
     public static void showMemoriesPage() throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("memories-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 750);
+        String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
+        scene.getStylesheets().add(stylesheet);
         mainStage.setTitle("Tammy");
         mainStage.setScene(scene);
         mainStage.show();
     }
 
-    public static void showHelpPage() throws Exception {
+    public static void showHelpPage(String UserName) throws Exception {
+        MenuController.setUsername(UserName);
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("help-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 750);
+        String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
+        scene.getStylesheets().add(stylesheet);
         mainStage.setTitle("Tammy");
         mainStage.setScene(scene);
         mainStage.show();
     }
 
-    public static void showMenuPage() throws Exception {
+    public static void showMenuPage(String username) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menu-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 750);
+        String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
+        scene.getStylesheets().add(stylesheet);
         mainStage.setTitle("Tammy");
         mainStage.setScene(scene);
         mainStage.show();

@@ -7,6 +7,13 @@ public class UserAccount {
     private static String email;
     private static String password;
 
+    /**
+     * User account contructor
+     * @param id user's ID
+     * @param username username
+     * @param email user's email
+     * @param password user's hashed password
+     */
     public UserAccount(int id, String username, String email, String password){
         this.id = id;
         this.username = username;
@@ -14,6 +21,12 @@ public class UserAccount {
         this.password = password;
     }
 
+    /**
+     * User account contructor without ID
+     * @param username username
+     * @param email user's email
+     * @param password user's hashed password
+     */
     public UserAccount( String username, String email, String password){
         // id is auto-incremented - have created a construct with and without it
         this.username = username;
@@ -21,6 +34,10 @@ public class UserAccount {
         this.password = password;
     }
 
+    /**
+     * Get user ID
+     * @return user's ID
+     */
     public static int getID() {
         return ID;
     }

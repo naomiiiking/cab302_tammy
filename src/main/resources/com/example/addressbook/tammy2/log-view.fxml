@@ -5,11 +5,54 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.collections.FXCollections?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+<BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.addressbook.tammy2.LogController"
-            prefHeight="400.0" prefWidth="600.0">
-    <Label fx:id="logName"></Label>
+            prefHeight="400.0" prefWidth="600.0"
+            styleClass="body">
+    <top>
+        <Text styleClass="pageTitle" text="Log Hours"/>
+    </top>
 
-</AnchorPane>
+    <center>
+
+        <VBox fx:id="buttonsVbox">
+            <Label fx:id="date" layoutX="50" layoutY="50" styleClass="pageTitle">
+                <font>
+                    <Font size="16.0"/>
+                </font>
+            </Label>
+            <HBox fx:id="comboboxHbox">
+                <Label styleClass="heading1" fx:id="StartLabel"/>
+                <ComboBox fx:id="timeComboBox" layoutX="200" layoutY="200">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+            </HBox>
+            <HBox fx:id="comboboxHbox2">
+                <Label styleClass="heading1" fx:id="EndLabel"/>
+                <ComboBox fx:id="timeComboBox2" layoutX="200" layoutY="200">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+            </HBox>
+            <HBox fx:id="TotalTimeHBox">
+                <Label styleClass="heading1" fx:id="totalTimeLabel"/>
+                <Label styleClass="heading1" fx:id="totalTime"/>
+            </HBox>
+            <HBox fx:id="TotalCreditsHBox">
+                <Label styleClass="heading1" fx:id="addedCreditLabel"/>
+                <Label styleClass="heading1" fx:id="addedCredit"/>
+            </HBox>
+            <Button text="Submit Log" onAction="#handleSubmitButtonClicked"/>
+            <Button text="Cancel" onAction="#handleCancelButtonClicked"/>
+        </VBox>
+    </center>
+</BorderPane>

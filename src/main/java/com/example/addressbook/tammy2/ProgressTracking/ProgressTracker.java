@@ -9,20 +9,30 @@ public class ProgressTracker {
     public List<String> logs;
     private final Date startDate;
 
-    // Constructor
+    /**
+     * Constructor
+     * @param initialCurrency user's initial currency
+     */
     public ProgressTracker(int initialCurrency){
         this.currency = initialCurrency;
         this.logs = new ArrayList<>();
         this.startDate = new Date(); // Set start date/time
     }
 
-    // Function to log progress and update currency
+    /**
+     * Function to log progress and update currency
+     * @param log the log recorded
+     * @param currencyChange change in currency from log
+     */
     public void logProgress(String log, int currencyChange){
         logs.add(log);
         currency += currencyChange;
     }
 
-    // Function to get progress based on current date/time compared with start
+    /**
+     * Function to get progress based on current date/time compared with start
+     * @return returns the progress made and elapsed time
+     */
     public String getProgress(){
         Date currentDate = new Date();
         long elapsedTime = currentDate.getTime() - startDate.getTime();

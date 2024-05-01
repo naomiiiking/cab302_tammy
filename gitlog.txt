@@ -1,0 +1,473 @@
+commit 006dc867251139cbf92d4d8e08b11b7ba25fa17e
+Author: Naomi <Naomi@torking.com.au>
+Date:   Wed May 1 14:24:56 2024 +1000
+
+    Finished adding session variables
+
+commit be564eeb1d95e609e5a46674561de62fa2ab3125
+Merge: 5927285 8329385
+Author: Naomi <Naomi@torking.com.au>
+Date:   Wed May 1 14:18:46 2024 +1000
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 59272852968cdf323e05c6ebe4fb07f77f24631e
+Author: Naomi <Naomi@torking.com.au>
+Date:   Wed May 1 14:18:37 2024 +1000
+
+    Added session variable for logged in user
+
+commit 8329385e6eafa993e2844f82f4b8cff193201a84
+Merge: 411fba1 5dbce61
+Author: chrispace03 <154659919+chrispace03@users.noreply.github.com>
+Date:   Wed May 1 14:08:12 2024 +1000
+
+    Merge pull request #17 from naomiiiking/ProgressTesting
+    
+    Progress testing
+
+commit 5dbce6114fc45ef140e46210b59e9ea8a85bc0a6
+Merge: fcec018 411fba1
+Author: chrispace03 <154659919+chrispace03@users.noreply.github.com>
+Date:   Wed May 1 14:07:59 2024 +1000
+
+    Merge branch 'master' into ProgressTesting
+
+commit fcec0189b0c7034dd3b700ebfd2a468816376b89
+Author: chrispace03 <chrispace03@gmail.com>
+Date:   Wed May 1 13:56:32 2024 +1000
+
+    Tests Fixed
+
+commit 411fba116aacb588ba810d8b5a019a5102817d12
+Author: Naomi <Naomi@torking.com.au>
+Date:   Wed May 1 13:54:25 2024 +1000
+
+    Added updated to UserAccountDAO back
+
+commit dc04ffbba406e1723e6ddea6ca639b7ac264b89f
+Merge: d9ef614 35850cf
+Author: Naomi King <82499114+naomiiiking@users.noreply.github.com>
+Date:   Wed May 1 13:27:22 2024 +1000
+
+    Merge pull request #16 from naomiiiking/Tammycreation
+    
+    Tammycreation
+
+commit 35850cf6e365ad2a2d37c49f8553045ae2c0e95f
+Merge: a2bb47c d9ef614
+Author: Naomi <Naomi@torking.com.au>
+Date:   Wed May 1 13:27:04 2024 +1000
+
+    Merging with master
+
+commit a2bb47c59b90091c355e4690684d31d7e825a1e0
+Author: CaneNei <104665042+CaneNei@users.noreply.github.com>
+Date:   Wed May 1 13:20:01 2024 +1000
+
+    Changed SDK to 17
+
+commit d9ef6149e93cedb94ff7065bbeb81b16dec183d9
+Author: Naomi <Naomi@torking.com.au>
+Date:   Wed May 1 13:16:17 2024 +1000
+
+    Added javadocs and database connection testing
+
+commit 4c695a37592b6258f511664722cdeac8d21940ec
+Author: Naomi <Naomi@torking.com.au>
+Date:   Wed May 1 12:32:27 2024 +1000
+
+    Added menu testing
+
+commit f76f4625e4a5fa590e0fbccda837cede39f921f2
+Author: Naomi <Naomi@torking.com.au>
+Date:   Wed May 1 11:53:05 2024 +1000
+
+    Had to add "test" into some of Brooke's helloApplication() calls
+
+commit b785367524fdc7e29839db77d224f6ad1b8eddc9
+Merge: c732e7b 92a7a6f
+Author: Naomi King <82499114+naomiiiking@users.noreply.github.com>
+Date:   Wed May 1 11:49:02 2024 +1000
+
+    Merge pull request #13 from naomiiiking/User-Logs
+    
+    new memory logs, fixed user login with tammy database
+
+commit 92a7a6f6ba38c4124a2267200002b9fec2c210ea
+Merge: e4d2943 c732e7b
+Author: Naomi <Naomi@torking.com.au>
+Date:   Wed May 1 11:48:03 2024 +1000
+
+    Added menu page but haven't linked with database
+
+commit c732e7ba79f98f286caefdd2733861435943dde7
+Merge: 2d3bef9 5642293
+Author: Naomi King <82499114+naomiiiking@users.noreply.github.com>
+Date:   Wed May 1 11:37:26 2024 +1000
+
+    Merge pull request #11 from naomiiiking/LoggingFE
+    
+    LoggingFE
+
+commit 5642293a9e5ad765e2b640dfec6cb74cf221f946
+Merge: 6054ab1 2d3bef9
+Author: Naomi King <82499114+naomiiiking@users.noreply.github.com>
+Date:   Wed May 1 11:37:06 2024 +1000
+
+    Merge branch 'master' into LoggingFE
+
+commit 2d3bef9d7b6dfd9dffba80a45c34822ee195366e
+Merge: 43a6569 9c666ec
+Author: Naomi King <82499114+naomiiiking@users.noreply.github.com>
+Date:   Wed May 1 11:36:12 2024 +1000
+
+    Merge pull request #12 from naomiiiking/menuPage
+    
+    Added menu page but haven't linked with database
+
+commit 9c666ecf2e18064b4e99e51d5145425c5e28df56
+Author: Naomi <Naomi@torking.com.au>
+Date:   Wed May 1 11:35:17 2024 +1000
+
+    Added menu page but haven't linked with database
+
+commit e4b692272117a4d668a6e79512a0a97eb7e7a03e
+Author: CaneNei <104665042+CaneNei@users.noreply.github.com>
+Date:   Wed May 1 09:33:57 2024 +1000
+
+    Test cases working good to pull into master
+
+commit 2c92e1485ba9c0cd761639fc232adaa4067df8e1
+Author: CaneNei <104665042+CaneNei@users.noreply.github.com>
+Date:   Wed May 1 09:27:17 2024 +1000
+
+    added a gitignore message to databases
+
+commit c13211076072881749c2e80240e21e11e10ad345
+Author: CaneNei <caneneil24@gmail.com>
+Date:   Tue Apr 30 18:53:01 2024 +1000
+
+    Commiting tammy creation with the GUI, not final one trying to fix test errors
+
+commit 43a6569a4f8dc791188750c1197f2e12b8823ec4
+Author: Naomi <Naomi@torking.com.au>
+Date:   Mon Apr 29 23:21:05 2024 +1000
+
+    Added and semi styled help pag!
+
+commit 6054ab1623fe49dad799009c5ca15ab272b63237
+Author: brooke <n11033436@qut.edu.au>
+Date:   Mon Apr 29 16:26:02 2024 +1000
+
+    Brooke Commit
+
+commit 6f17e89b16a01d4508781a5bfccb45f1ae75f42e
+Author: chrispace03 <chrispace03@gmail.com>
+Date:   Mon Apr 29 15:34:10 2024 +1000
+
+    Implemented javadoc comments in Item and Shop
+
+commit 129157b9def3a92147b99a9bda21e26420fb02c2
+Author: chrispace03 <chrispace03@gmail.com>
+Date:   Mon Apr 29 15:17:18 2024 +1000
+
+    Implemented javadoc comments in ProgressTracker
+
+commit 1310e9d8e499bf628da6a89420fc844637c913db
+Author: brooke <n11033436@qut.edu.au>
+Date:   Mon Apr 29 15:05:26 2024 +1000
+
+    Brooke Commit
+
+commit 11254f4d50f819a4f7509029bb002539ce856c24
+Author: chrispace03 <chrispace03@gmail.com>
+Date:   Sun Apr 28 14:40:23 2024 +1000
+
+    ShopTest created, test classes still not working
+
+commit e4d294335725006c99dc7ef4b0c6651139569cc2
+Author: Laura <lauraagallowayy@gmail.com>
+Date:   Sun Apr 28 10:15:29 2024 +1000
+
+    new memory logs, fixed user login with tammy database
+
+commit 4a8a380417ee3c12e57245f56fb275447d6237a8
+Author: chrispace03 <chrispace03@gmail.com>
+Date:   Fri Apr 26 19:57:43 2024 +1000
+
+    test methods created
+
+commit 88a2168113ba862093b43b9670c04996b46f0f9a
+Author: Brooke <n11033436@qut.edu.au>
+Date:   Wed Apr 24 15:57:54 2024 +1000
+
+    Brooke Commit
+
+commit c49acf7391525e810525f07ce19488a6582e4f3e
+Author: CaneNei <104665042+CaneNei@users.noreply.github.com>
+Date:   Wed Apr 24 14:53:41 2024 +1000
+
+    Merging tammy database applications
+
+commit 1c3075d087581228a6a2106e132a0c70018bdbad
+Merge: 44f7fc1 9daa000
+Author: Naomi King <82499114+naomiiiking@users.noreply.github.com>
+Date:   Wed Apr 24 14:23:38 2024 +1000
+
+    Merge pull request #7 from naomiiiking/frontendAuthen
+    
+    Frontend authen
+
+commit 9daa0002bfcc195d6d3a7f6088554e631eae2805
+Merge: 259050a 44f7fc1
+Author: Naomi <Naomi@torking.com.au>
+Date:   Wed Apr 24 14:23:25 2024 +1000
+
+    added files
+
+commit 44f7fc12e19cdf7d12be057a6793fb6170e9eca8
+Merge: 3a3152c 1188573
+Author: Naomi King <82499114+naomiiiking@users.noreply.github.com>
+Date:   Wed Apr 24 14:16:49 2024 +1000
+
+    Merge pull request #6 from naomiiiking/User-Logs
+    
+    User logs
+
+commit 1188573f1ce7717a55c4184f4ed9e618446ca906
+Author: Laura <lauraagallowayy@gmail.com>
+Date:   Wed Apr 24 14:15:10 2024 +1000
+
+    User logs, and User login updated data still need to delete
+
+commit 3a3152cab61ecfe129c8f1393d03a6ad8192a238
+Merge: c7d610e 5c1e2c9
+Author: Naomi King <82499114+naomiiiking@users.noreply.github.com>
+Date:   Wed Apr 24 14:01:24 2024 +1000
+
+    Merge pull request #5 from naomiiiking/ShopBackEnd
+    
+    Shop back end
+
+commit 82b807f19e8133f678ba217c2e9058ec13fbe579
+Author: Brooke <n11033436@qut.edu.au>
+Date:   Wed Apr 24 13:12:06 2024 +1000
+
+    Brooke Commit
+
+commit 259050a8032a447bf38166f8cba1df58daa6012f
+Author: Naomi <Naomi@torking.com.au>
+Date:   Tue Apr 23 09:16:23 2024 +1000
+
+    Got rid of username hardcoding for loading home page
+
+commit 5c1e2c92fe980f794c74157fa8022578f61f6731
+Author: chrispace03 <chrispace03@gmail.com>
+Date:   Mon Apr 22 11:44:31 2024 +1000
+
+    shop class created and progress tracker updated
+
+commit 3acda75a2660a43eb6976e6122ebd8f6a93c524a
+Author: chrispace03 <chrispace03@gmail.com>
+Date:   Mon Apr 22 09:54:44 2024 +1000
+
+    item class created
+
+commit 7d0868d6f5eb8377a451098afd6703505bd34b14
+Author: chrispace03 <chrispace03@gmail.com>
+Date:   Mon Apr 22 09:43:37 2024 +1000
+
+    Initial Commit for ShopBackEnd branch
+
+commit 4bec76200ece81de47048ea9ee0f2be2f84b2c80
+Author: Naomi <Naomi@torking.com.au>
+Date:   Sun Apr 21 20:57:28 2024 +1000
+
+    Created basic functions for login and register in front end
+
+commit 59b080be1f16726102ba1bef462c152c1f880422
+Author: Laura <lauraagallowayy@gmail.com>
+Date:   Sun Apr 21 18:09:45 2024 +1000
+
+    updated with correct users form of emails etc
+
+commit 429c9285494f82994719ba6477136cd6b1412766
+Author: Naomi <Naomi@torking.com.au>
+Date:   Sun Apr 21 13:09:37 2024 +1000
+
+    Created front end for authentication page
+
+commit c7d610eff84681abbfdb03b7023ec4a1770f8589
+Merge: 76699f4 0934f7f
+Author: chrispace03 <154659919+chrispace03@users.noreply.github.com>
+Date:   Wed Apr 17 13:51:11 2024 +1000
+
+    Merge pull request #4 from naomiiiking/ProgressTracking
+    
+    Progress tracking
+
+commit 0934f7f539805ffb03f3fbcc0db0de15f04702ac
+Merge: a8496d5 76699f4
+Author: chrispace03 <154659919+chrispace03@users.noreply.github.com>
+Date:   Wed Apr 17 13:50:44 2024 +1000
+
+    Merge branch 'master' into ProgressTracking
+
+commit 76699f4c82848080b29471cbedb194e758637bf1
+Merge: d3868ea 8526b47
+Author: CaneNei <104665042+CaneNei@users.noreply.github.com>
+Date:   Wed Apr 17 13:29:20 2024 +1000
+
+    Merge pull request #3 from naomiiiking/Tammy-Class
+    
+    Tammy Class java files, has the base tammy methods and structure
+
+commit d3868ead6ddb4f2854b4d6f8b3a7a32a68397ea0
+Merge: 0b489c8 e3d8167
+Author: Naomi King <82499114+naomiiiking@users.noreply.github.com>
+Date:   Wed Apr 17 13:20:23 2024 +1000
+
+    Merge pull request #2 from naomiiiking/AuthenLog
+    
+    Authen log
+
+commit e3d81674dfcd15ccf7c7ee0a4009b76ffd9d2079
+Merge: ca5fb47 0b489c8
+Author: Naomi King <82499114+naomiiiking@users.noreply.github.com>
+Date:   Wed Apr 17 13:20:09 2024 +1000
+
+    Merge branch 'master' into AuthenLog
+
+commit 0b489c85c90c335571b65663f6da51680a2c6d61
+Author: Naomi <Naomi@torking.com.au>
+Date:   Wed Apr 17 12:58:35 2024 +1000
+
+    Replacing hardcoded values
+
+commit ca5fb470b7c22b64bc3a2bd12348b9ac216c2765
+Author: Laura <lauraagallowayy@gmail.com>
+Date:   Wed Apr 17 11:50:30 2024 +1000
+
+    Back end of login and register with database
+
+commit e3c57cd9420c03bf01d5e6276969fed5a7762264
+Author: Laura <lauraagallowayy@gmail.com>
+Date:   Wed Apr 17 11:49:33 2024 +1000
+
+    Back end of login and register with database
+
+commit 7292b762d35b3a455d3bc86b2e332cfdbede22fa
+Merge: af09374 05f7fe3
+Author: Naomi King <82499114+naomiiiking@users.noreply.github.com>
+Date:   Wed Apr 17 00:13:14 2024 +1000
+
+    Merge pull request #1 from naomiiiking/frontEndTest
+    
+    Front end test
+
+commit 05f7fe38d6c230ba1d12d320c4887870eede04ac
+Author: Naomi <Naomi@torking.com.au>
+Date:   Wed Apr 17 00:09:55 2024 +1000
+
+    Styling
+
+commit 3b73a8e30441d6a53e67f60c4d1dde4d2eda6914
+Author: Naomi <Naomi@torking.com.au>
+Date:   Tue Apr 16 22:46:00 2024 +1000
+
+    Added navigation and different pages from homepage. Added components onto homepage
+
+commit 8526b47951f5e7fbaea87cb5859c165bc787899f
+Author: CaneNei <caneneil24@gmail.com>
+Date:   Fri Apr 12 21:53:16 2024 +1000
+
+    Tammy Class java files, has the base tammy methods and structure
+
+commit a8496d5663a566b5d2b177fe4e874ddb8f3548be
+Author: chrispace03 <chrispace03@gmail.com>
+Date:   Fri Apr 12 09:20:29 2024 +1000
+
+    Created seperate ProgressTracker class for methods.
+
+commit c1047e4902704d71a909f78af580e26ec9423c49
+Author: chrispace03 <chrispace03@gmail.com>
+Date:   Fri Apr 12 09:19:34 2024 +1000
+
+    Created seperate ProgressTracker class for methods.
+
+commit 6c34eaecc8f1adfc9d9dea4b953cb12726b4c119
+Author: chrispace03 <chrispace03@gmail.com>
+Date:   Fri Apr 12 09:13:41 2024 +1000
+
+    Implemented logProgress and getProgress methods.
+
+commit 7aad74c52929838cbd18fa41dbb5227ab360270c
+Author: chrispace03 <chrispace03@gmail.com>
+Date:   Fri Apr 12 08:59:26 2024 +1000
+
+    Initialisation of variables and implemented constructor.
+
+commit 933fecc6d2ecb54e4b5b2bf2934a3ccdce702ef3
+Author: Naomi <Naomi@torking.com.au>
+Date:   Wed Apr 10 16:25:42 2024 +1000
+
+    Fixed photo not appearing and resized window
+
+commit f3851ab13c629d8c98f26826079775dc7c562f02
+Author: chrispace03 <chrispace03@gmail.com>
+Date:   Wed Apr 10 14:15:15 2024 +1000
+
+    fix chris message
+
+commit 8196074d43ff234b96820fa27334d4de5d0439e1
+Merge: 596039d af09374
+Author: Laura <lauraagallowayy@gmail.com>
+Date:   Wed Apr 10 14:11:07 2024 +1000
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #       src/main/java/com/example/addressbook/tammy2/HelloApplication.java
+
+commit 596039d664cc36cbdf9cd346dcfeac5d4ffb8239
+Author: Laura <lauraagallowayy@gmail.com>
+Date:   Wed Apr 10 14:10:03 2024 +1000
+
+    Laura Message
+
+commit af09374434d4b3dcbb787b85b51c54c24221fec1
+Author: chrispace03 <chrispace03@gmail.com>
+Date:   Wed Apr 10 14:09:51 2024 +1000
+
+    chris message
+
+commit 8afa25352ca651b816e2918c53731a6c06706ead
+Author: Laura <lauraagallowayy@gmail.com>
+Date:   Wed Apr 10 14:07:32 2024 +1000
+
+    Laura Message
+
+commit 8a228c1cabb841cd8767e41e56e2c2c8986ef85b
+Author: Laura <lauraagallowayy@gmail.com>
+Date:   Wed Apr 10 14:07:20 2024 +1000
+
+    Laura Message
+
+commit 3856de21a9040dc3e870466fc2b2d468a84c9985
+Author: Laura <lauraagallowayy@gmail.com>
+Date:   Wed Apr 10 14:06:16 2024 +1000
+
+    Laura Message
+
+commit da28b4ba409a913028c4509604b96757473a7542
+Author: Laura <lauraagallowayy@gmail.com>
+Date:   Wed Apr 10 14:05:27 2024 +1000
+
+    Laura Message
+
+commit 06ab28dded6e0db1b399b9a78d1d4f61ebd395ca
+Author: Naomi <Naomi@torking.com.au>
+Date:   Wed Apr 10 13:51:17 2024 +1000
+
+    git init

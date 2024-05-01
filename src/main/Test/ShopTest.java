@@ -24,7 +24,8 @@ public class ShopTest {
     @Test
     public void testPurchaseItemInsufficientCurrency() {
         // Test purchase failure due to insufficient currency
-        assertFalse(shop.purchaseItem("Food", new ProgressTracker(10))); // New tracker with only 10 currency
+        tracker.updateCurrency(-40);
+        assertFalse(shop.purchaseItem("Food", tracker)); // New tracker with only 10 currency
         assertEquals(10, tracker.getCurrency(), "Currency should not change.");
     }
 

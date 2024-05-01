@@ -32,6 +32,7 @@ public class Shop {
         for (Item item : items) {
             if (item.getName().equalsIgnoreCase(itemName) && tracker.getCurrency() >= item.getPrice()) {
                 tracker.updateCurrency(-item.getPrice()); // Deduct the price from the user's currency
+                System.out.print(tracker.getCurrency());
                 return true; // Purchase successful
             }
         }

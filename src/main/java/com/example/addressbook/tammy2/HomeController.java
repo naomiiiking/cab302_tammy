@@ -44,6 +44,11 @@ public class HomeController {
     @FXML
     private ProgressBar happinessProgressBar;
 
+    // Stored and used to select the users Tammy
+    private static int UserID;
+
+    public static void setUserID(int id){UserID = id;}
+
     public static void setUsername(String UserName){
         username = UserName;
     }

@@ -9,11 +9,9 @@ public class UserAccountDAO {
 
     public UserAccountDAO() {
         connection = DatabaseConnection.getInstance();
+
     }
 
-    /**
-     * Creates a table in the database if one doesn't exist
-     */
     public void createTable() {
         try {
             Statement createTable = connection.createStatement();
@@ -28,12 +26,8 @@ public class UserAccountDAO {
         } catch (SQLException ex) {
             System.err.println(ex);
         }
-    }
+        }
 
-    /**
-     * Inserts the user's account into the table
-     * @param userAccount
-     */
     public static void insert(UserAccount userAccount){
         try {
             PreparedStatement insertAccount = connection.prepareStatement(
@@ -48,33 +42,6 @@ public class UserAccountDAO {
         }
     }
 
-    /**
-     * DELETE LATER I just made this function to convert a username
-     * into an ID for the update function in the menu page.
-     * There must be a better way to do this like send the user ID into the front end?
-     * @param username User's username
-     * @return int variable of the user's ID
-     */
-    public static int findIDFromName(String username){
-        try {
-            PreparedStatement getUserID = connection.prepareStatement(
-                    "SELECT id FROM username WHERE username = ?"
-            );
-            getUserID.setString(1, username);
-            ResultSet result = getUserID.executeQuery();
-            if (result.next()) {
-                return result.getInt("id");
-            }
-        }  catch (SQLException ex) {
-            System.err.println(ex);
-        }
-        return 0;
-    }
-
-    /**
-     * Update a user's details
-     * @param userAccount
-     */
     public static void update(UserAccount userAccount) {
         try {
             PreparedStatement updateAccount = connection.prepareStatement(
@@ -89,20 +56,12 @@ public class UserAccountDAO {
             System.err.println(ex);
         }
 
-    }
+         }
 
-    /**
-     * Delete user based off their ID
-     * @param id
-     */
     public void delete(int id) {
         // Todo Later: Create a PreparedStatement to run the DELETE query
     }
 
-    /**
-     * Get all users
-     * @return a list of all user accounts
-     */
     public static List<UserAccount> getAll() {
         List<UserAccount> accounts = new ArrayList<>();
         try {
@@ -124,11 +83,6 @@ public class UserAccountDAO {
         return accounts;
     }
 
-    /**
-     * Get a user account with their ID
-     * @param id user's id
-     * @return user account
-     */
     public static UserAccount getById(int id) {
         try {
             PreparedStatement getAccount = connection.prepareStatement("SELECT * FROM UserAccounts WHERE id = ?");
@@ -149,40 +103,13 @@ public class UserAccountDAO {
         return null;
     }
 
-    // Inside the UserAccountDAO class
 
-    /**
-     * Close the database
-     */
     public static void close() {
         try {
             connection.close();
         } catch (SQLException ex) {
             System.err.println(ex);
         }
-    }
-
-    /**
-     * Gets an account by it's username
-     * @param username username of account
-     * @return user account
-     */
-    public static UserAccount getByUsername(String username) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM UserAccounts WHERE username = ?");
-            statement.setString(1, username);
-            ResultSet resultSet = statement.executeQuery();
-
-            if (resultSet.next()) {
-                int id = resultSet.getInt("id");
-                String email = resultSet.getString("email");
-                String password = resultSet.getString("password");
-                return new UserAccount(id, username, email, password);
-            }
-        } catch (SQLException ex) {
-            System.err.println(ex);
-        }
-        return null;
     }
 }
 

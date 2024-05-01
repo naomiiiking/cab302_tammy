@@ -1,5 +1,6 @@
 package com.example.addressbook.tammy2;
 
+import com.example.addressbook.tammy2.AuthenLog.UserAccount;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -28,6 +29,7 @@ public class HelloApplication extends Application {
 
     public static void showHomePage(String UserName) throws Exception {
         HomeController.setUsername(UserName);
+        HomeController.setUserID(UserAccount.getID());
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("home-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1100, 750);
         String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();

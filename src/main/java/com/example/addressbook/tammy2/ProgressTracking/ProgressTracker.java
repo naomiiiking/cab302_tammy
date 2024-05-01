@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Tracks the progress of a user's currency and log activities over time.
+ */
 public class ProgressTracker {
     public int currency;
     public List<String> logs;
@@ -12,6 +15,7 @@ public class ProgressTracker {
     /**
      * Constructor
      * @param initialCurrency user's initial currency
+
      */
     public ProgressTracker(int initialCurrency){
         this.currency = initialCurrency;
@@ -19,10 +23,11 @@ public class ProgressTracker {
         this.startDate = new Date(); // Set start date/time
     }
 
-    /**
+    /**  
      * Function to log progress and update currency
      * @param log the log recorded
      * @param currencyChange change in currency from log
+
      */
     public void logProgress(String log, int currencyChange){
         logs.add(log);
@@ -32,6 +37,7 @@ public class ProgressTracker {
     /**
      * Function to get progress based on current date/time compared with start
      * @return returns the progress made and elapsed time
+
      */
     public String getProgress(){
         Date currentDate = new Date();
@@ -41,11 +47,30 @@ public class ProgressTracker {
         return "Progress: " + elapsedTime + " time passed.";
     }
 
+    /**
+     * Returns the current amount of currency.
+     *
+     * @return the current currency.
+     */
     public int getCurrency() {
         return currency;
     }
 
+    /**
+     * Updates the currency by a specified amount.
+     *
+     * @param amount the amount to add or subtract from the current currency.
+     */
     public void updateCurrency(int amount) {
         currency += amount;
+    }
+
+    /**
+     * Returns the list of all progress logs.
+     *
+     * @return a list of progress log entries.
+     */
+    public List<String> getLogs() {
+        return logs;
     }
 }

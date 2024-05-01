@@ -12,8 +12,6 @@ public class Main {
         UserAccountDAO userAccountDAO = new UserAccountDAO();
         userAccountDAO.createTable();
 
-
-
         // Create a scanner object to read user input
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to User Registration and Login System!");
@@ -25,7 +23,7 @@ public class Main {
         // Perform action based on user selection
         switch (option) {
             case 1:
-                registerUser();
+                registerUser(userAccountDAO);
                 break;
             case 2:
                 loginUser();
@@ -41,7 +39,7 @@ public class Main {
     }
 
     // Method to register a new user
-    public static void registerUser() {
+    public static void registerUser(UserAccountDAO userAccountDAO) {
         Scanner scanner = new Scanner(System.in);
 
         // Get username
@@ -71,6 +69,15 @@ public class Main {
         // Hash the password
         String hashedPassword = hashPassword(password);
 
+        // Get Tammy information
+        System.out.println("Enter your Tammy's name:");
+        String tammyName = scanner.nextLine();
+        System.out.println("Enter your Tammy's type (sleep, study, or fitness):");
+        String tammyType = scanner.nextLine();
+        System.out.println("Enter your Tammy's species (rabbit, shell, or fish):");
+        String tammySpecies = scanner.nextLine();
+
+
         // Check if the username is already registered
         List<UserAccount> accounts = UserAccountDAO.getAll();
         for (UserAccount acc : accounts) {
@@ -85,6 +92,16 @@ public class Main {
         UserAccount userAccount = new UserAccount(username, email, hashedPassword);
         UserAccountDAO.insert(userAccount);
         System.out.println("User registered successfully!");
+
+        // Get the userID of the newly inserted user
+        UserAccount newUser = userAccountDAO.getByUsername(username);
+        int userID = newUser.getID();
+
+        // Insert Tammy information into TammyInfo table
+        TammyInfoDAO tammyInfoDAO = new TammyInfoDAO();
+        tammyInfoDAO.createTammyInfoTable();
+        tammyInfoDAO.insertTammyInfo( username, tammyName, tammyType, tammySpecies);
+
     }
 
     // Method to authenticate a user
@@ -141,13 +158,33 @@ public class Main {
     //        userAccountDAO.insert(new UserAccount("JaneS", "JaneS23@hotmail.com", "CAB203!"));
     //        userAccountDAO.insert(new UserAccount("AliceM", "Smith", "CAB302&"));
 
+            // Retrieve all records
+    //        List<UserAccount> accounts = UserAccountDAO.getAll();
+    //        for (UserAccount acc : accounts) {
+    //            System.out.println(acc);
+    //        }
+
+    //        // Retrieve a record by ID
+    //        UserAccount account = UserAccountDAO.getById(2);
+    //        System.out.println(account);
+
+//        // Retrieve a record by ID
+//        UserAccount account = UserAccountDAO.getById(3);
+//        System.out.println("Before update:");
+//        System.out.println(account);
+
+        // Update a record
+
+//        account.setEmail("1234smith@hotmail.com.au");
+//        UserAccountDAO.update(account);
+//        System.out.println("After update email:");
+//        System.out.println(UserAccountDAO.getById(3));
+//
+//        UserAccountDAO.close();
 
 
 
-
-
-
-
+    // Inside the Main class
 
 //    public static void loginUser() {
 //        Scanner scanner = new Scanner(System.in);
@@ -183,4 +220,3 @@ public class Main {
 //case 2:
 //    loginUser();
 //    break;
-

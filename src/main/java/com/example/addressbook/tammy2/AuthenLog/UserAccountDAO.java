@@ -125,12 +125,33 @@ public class UserAccountDAO {
         return null;
     }
 
+    // Inside the UserAccountDAO class
+
+
     public static void close() {
         try {
             connection.close();
         } catch (SQLException ex) {
             System.err.println(ex);
         }
+    }
+
+    public static UserAccount getByUsername(String username) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM UserAccounts WHERE username = ?");
+            statement.setString(1, username);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String email = resultSet.getString("email");
+                String password = resultSet.getString("password");
+                return new UserAccount(id, username, email, password);
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return null;
     }
 }
 

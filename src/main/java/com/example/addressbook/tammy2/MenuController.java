@@ -55,6 +55,10 @@ public class MenuController {
 
     }
 
+    /**
+     * Submit account change by collecting textfield data
+     * and calling update function
+     */
     public void submitAccountChange(){
         // Get user ID from username then get userAccount from userID
         // int userID = UserAccountDAO.findIDFromName(username);

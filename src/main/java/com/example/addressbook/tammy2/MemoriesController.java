@@ -24,6 +24,9 @@ public class MemoriesController {
         tableView.setMaxHeight(1000.0);
     }
 
+    /**
+     * Returns to homepage
+     */
     @FXML
     private void handleCancelButtonClicked() {
         try {
@@ -36,6 +39,13 @@ public class MemoriesController {
     }
 
     // Define a class for MemoryEntry
+
+    /**
+     * Creates a memory entry record
+     * @param date date of memory
+     * @param timeStudied time spent studying
+     * @param creditsGained credits gained
+     */
         public record MemoryEntry(String date, int timeStudied, double creditsGained) {
     }
 }

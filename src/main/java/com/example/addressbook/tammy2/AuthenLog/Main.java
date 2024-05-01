@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
         // Initialize the UserAccountDAO and create the table if it doesn't exist
         UserAccountDAO userAccountDAO = new UserAccountDAO();
         userAccountDAO.createTable();
@@ -38,7 +39,10 @@ public class Main {
         UserAccountDAO.close();
     }
 
-    // Method to register a new user
+    /**
+     * Method to register a new user
+     * @param userAccountDAO
+     */
     public static void registerUser(UserAccountDAO userAccountDAO) {
         Scanner scanner = new Scanner(System.in);
 
@@ -104,7 +108,9 @@ public class Main {
 
     }
 
-    // Method to authenticate a user
+    /**
+     * Method to authenticate a user
+     */
     public static void loginUser() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter username:");
@@ -126,7 +132,11 @@ public class Main {
         System.out.println("Invalid username or password.");
     }
 
-    // Method to hash the password using SHA-256 algorithm
+    /**
+     * Method to hash the password using SHA-256 algorithm
+     * @param password a user's password
+     * @return String of the hashed password
+     */
     public static String hashPassword(String password) {
         try {
             // Create MessageDigest instance for SHA-256

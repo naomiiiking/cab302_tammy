@@ -11,6 +11,9 @@ public class UserAccountDAO {
         connection = DatabaseConnection.getInstance();
     }
 
+    /**
+     * Creates a table in the database if one doesn't exist
+     */
     public void createTable() {
         try {
             Statement createTable = connection.createStatement();
@@ -25,8 +28,12 @@ public class UserAccountDAO {
         } catch (SQLException ex) {
             System.err.println(ex);
         }
-        }
+    }
 
+    /**
+     * Inserts the user's account into the table
+     * @param userAccount
+     */
     public static void insert(UserAccount userAccount){
         try {
             PreparedStatement insertAccount = connection.prepareStatement(
@@ -64,6 +71,10 @@ public class UserAccountDAO {
         return 0;
     }
 
+    /**
+     * Update a user's details
+     * @param userAccount
+     */
     public static void update(UserAccount userAccount) {
         try {
             PreparedStatement updateAccount = connection.prepareStatement(
@@ -78,12 +89,20 @@ public class UserAccountDAO {
             System.err.println(ex);
         }
 
-         }
+    }
 
+    /**
+     * Delete user based off their ID
+     * @param id
+     */
     public void delete(int id) {
         // Todo Later: Create a PreparedStatement to run the DELETE query
     }
 
+    /**
+     * Get all users
+     * @return a list of all user accounts
+     */
     public static List<UserAccount> getAll() {
         List<UserAccount> accounts = new ArrayList<>();
         try {
@@ -105,6 +124,11 @@ public class UserAccountDAO {
         return accounts;
     }
 
+    /**
+     * Get a user account with their ID
+     * @param id user's id
+     * @return user account
+     */
     public static UserAccount getById(int id) {
         try {
             PreparedStatement getAccount = connection.prepareStatement("SELECT * FROM UserAccounts WHERE id = ?");
@@ -127,7 +151,9 @@ public class UserAccountDAO {
 
     // Inside the UserAccountDAO class
 
-
+    /**
+     * Close the database
+     */
     public static void close() {
         try {
             connection.close();
@@ -136,6 +162,11 @@ public class UserAccountDAO {
         }
     }
 
+    /**
+     * Gets an account by it's username
+     * @param username username of account
+     * @return user account
+     */
     public static UserAccount getByUsername(String username) {
         try {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM UserAccounts WHERE username = ?");

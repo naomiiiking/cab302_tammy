@@ -16,6 +16,9 @@ public class TammyInfoDAO {
         }
     }
 
+    /**
+     * Creates tammy info table if not already created
+     */
     public void createTammyInfoTable() {
         try {
             Statement statement = connection.createStatement();
@@ -33,7 +36,13 @@ public class TammyInfoDAO {
         }
     }
 
-
+    /**
+     * Inserts tammy info into the table
+     * @param username User's username
+     * @param tammyName Tammy's name
+     * @param tammyType Tammy's type
+     * @param tammySpecies Tammy's species
+     */
     public void insertTammyInfo(String username, String tammyName, String tammyType, String tammySpecies) {
         try {
             PreparedStatement statement = connection.prepareStatement(
@@ -49,7 +58,9 @@ public class TammyInfoDAO {
         }
     }
 
-
+    /**
+     * Closes connection
+     */
     public void close() {
         try {
             connection.close();

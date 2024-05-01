@@ -35,7 +35,12 @@ public class Main {
         studyLogsDAO.close();
     }
 
-    // Method to handle user login or registration
+    /**
+     * Method to handle user login or registration
+     * @param scanner
+     * @param userAccountDAO
+     * @return
+     */
     private static UserAccount loginOrRegister(Scanner scanner, UserAccountDAO userAccountDAO) {
         UserAccount user = null;
         boolean loggedIn = false;

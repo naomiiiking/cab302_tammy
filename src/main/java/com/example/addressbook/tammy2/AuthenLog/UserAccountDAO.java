@@ -9,8 +9,12 @@ public class UserAccountDAO {
 
     public UserAccountDAO() {
         connection = DatabaseConnection.getInstance();
+
     }
 
+    /**
+     * Creates database table if it doesn't exist already
+     */
     public void createTable() {
         try {
             Statement createTable = connection.createStatement();
@@ -25,8 +29,12 @@ public class UserAccountDAO {
         } catch (SQLException ex) {
             System.err.println(ex);
         }
-        }
+    }
 
+    /**
+     * Inserts user account into table
+     * @param userAccount
+     */
     public static void insert(UserAccount userAccount){
         try {
             PreparedStatement insertAccount = connection.prepareStatement(
@@ -41,6 +49,10 @@ public class UserAccountDAO {
         }
     }
 
+    /**
+     * Updates user account
+     * @param userAccount account to update
+     */
     public static void update(UserAccount userAccount) {
         try {
             PreparedStatement updateAccount = connection.prepareStatement(
@@ -54,13 +66,20 @@ public class UserAccountDAO {
         } catch (SQLException ex) {
             System.err.println(ex);
         }
+    }
 
-         }
-
+    /**
+     * Deletes user account
+     * @param id ID of account to delete
+     */
     public void delete(int id) {
         // Todo Later: Create a PreparedStatement to run the DELETE query
     }
 
+    /**
+     * Gets all user accounts
+     * @return list of user accounts
+     */
     public static List<UserAccount> getAll() {
         List<UserAccount> accounts = new ArrayList<>();
         try {
@@ -82,6 +101,11 @@ public class UserAccountDAO {
         return accounts;
     }
 
+    /**
+     * Get user account by ID
+     * @param id ID used to get user accounts
+     * @return
+     */
     public static UserAccount getById(int id) {
         try {
             PreparedStatement getAccount = connection.prepareStatement("SELECT * FROM UserAccounts WHERE id = ?");
@@ -101,6 +125,30 @@ public class UserAccountDAO {
 
         return null;
     }
+
+    /**
+     * Get user account by username
+     * @param username username required
+     * @return returns user account
+     */
+    public static UserAccount getByUsername(String username) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM UserAccounts WHERE username = ?");
+            statement.setString(1, username);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String email = resultSet.getString("email");
+                String password = resultSet.getString("password");
+                return new UserAccount(id, username, email, password);
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return null;
+    }
+
 
     public static void close() {
         try {

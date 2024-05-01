@@ -27,7 +27,7 @@
             <Button onAction="#handleLogButtonClicked" text = "Log"/>
             <Button onAction="#handleMemoriesButtonClicked" text = "Memories"/>
             <HBox fx:id = "buttonsHbox">
-                <Button onAction="#handleHelpButtonClicked" text = "?"/>
+                <Button onAction="#handleHelpButtonClicked" text = "Help"/>
                 <Button onAction="#handleMenuButtonClicked" text = "Menu"/>
             </HBox>
         </VBox>

@@ -13,9 +13,9 @@ public class ProgressTracker {
     private final Date startDate;
 
     /**
-     * Constructs a new ProgressTracker with an initial currency amount.
-     *
-     * @param initialCurrency the initial amount of currency the user has.
+     * Constructor
+     * @param initialCurrency user's initial currency
+
      */
     public ProgressTracker(int initialCurrency){
         this.currency = initialCurrency;
@@ -23,11 +23,11 @@ public class ProgressTracker {
         this.startDate = new Date(); // Set start date/time
     }
 
-    /**
-     * Logs a new progress entry and updates the currency based on a provided change.
-     *
-     * @param log the progress log to add.
-     * @param currencyChange the change in currency to apply.
+    /**  
+     * Function to log progress and update currency
+     * @param log the log recorded
+     * @param currencyChange change in currency from log
+
      */
     public void logProgress(String log, int currencyChange){
         logs.add(log);
@@ -35,10 +35,9 @@ public class ProgressTracker {
     }
 
     /**
-     * Returns a string describing the current progress based on the time elapsed
-     * since the start date.
-     *
-     * @return a string representing the elapsed time and progress.
+     * Function to get progress based on current date/time compared with start
+     * @return returns the progress made and elapsed time
+
      */
     public String getProgress(){
         Date currentDate = new Date();

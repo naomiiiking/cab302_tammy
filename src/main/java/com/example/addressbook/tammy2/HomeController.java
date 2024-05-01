@@ -7,6 +7,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+
 import java.io.IOException;
 
 
@@ -41,6 +42,11 @@ public class HomeController {
     private ProgressBar foodProgressBar;
     @FXML
     private ProgressBar happinessProgressBar;
+
+    // Stored and used to select the users Tammy
+    private static int UserID;
+
+    public static void setUserID(int id){UserID = id;}
 
     public static void setUsername(String UserName){
         username = UserName;
@@ -100,7 +106,7 @@ public class HomeController {
     @FXML
     private void handleHelpButtonClicked(){
         try {
-            HelloApplication.showHelpPage();
+            HelloApplication.showHelpPage(username);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -111,7 +117,7 @@ public class HomeController {
     @FXML
     private void handleMenuButtonClicked(){
         try {
-            HelloApplication.showMenuPage();
+            HelloApplication.showMenuPage(username);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {

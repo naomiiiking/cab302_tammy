@@ -6,6 +6,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
 
@@ -14,7 +16,7 @@ public class HomeController {
 
     @FXML
     private Label userNameLabel;
-    private String username =  new String("Naomi"); //Replace this with query to get username from database
+    private static String username; //Replace this with query to get username from database
     @FXML
     private Label creditsLabel;
     private int credits =  20; //Replace this with query to get credits from database
@@ -42,6 +44,9 @@ public class HomeController {
     @FXML
     private ProgressBar happinessProgressBar;
 
+    public static void setUsername(String UserName){
+        username = UserName;
+    }
 
     public void initialize() {
         // Initialize Menu Section
@@ -97,7 +102,7 @@ public class HomeController {
     @FXML
     private void handleHelpButtonClicked(){
         try {
-            HelloApplication.showHelpPage();
+            HelloApplication.showHelpPage(username);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -108,7 +113,7 @@ public class HomeController {
     @FXML
     private void handleMenuButtonClicked(){
         try {
-            HelloApplication.showMenuPage();
+            HelloApplication.showMenuPage(username);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {

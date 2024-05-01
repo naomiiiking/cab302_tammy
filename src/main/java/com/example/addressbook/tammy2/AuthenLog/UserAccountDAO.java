@@ -41,6 +41,29 @@ public class UserAccountDAO {
         }
     }
 
+    /**
+     * DELETE LATER I just made this function to convert a username
+     * into an ID for the update function in the menu page.
+     * There must be a better way to do this like send the user ID into the front end?
+     * @param username User's username
+     * @return int variable of the user's ID
+     */
+    public static int findIDFromName(String username){
+        try {
+            PreparedStatement getUserID = connection.prepareStatement(
+                    "SELECT id FROM username WHERE username = ?"
+            );
+            getUserID.setString(1, username);
+            ResultSet result = getUserID.executeQuery();
+            if (result.next()) {
+                return result.getInt("id");
+            }
+        }  catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return 0;
+    }
+
     public static void update(UserAccount userAccount) {
         try {
             PreparedStatement updateAccount = connection.prepareStatement(

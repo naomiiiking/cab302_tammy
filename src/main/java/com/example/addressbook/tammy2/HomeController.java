@@ -18,7 +18,7 @@ public class HomeController {
 
     @FXML
     private Label userNameLabel;
-    private static String username = String.valueOf(loggedInUser); //Replace this with query to get username from database
+    private static String username = UserAccount.getUsername(); //Replace this with query to get username from database
     @FXML
     private Label creditsLabel;
     private int credits =  20; //Replace this with query to get credits from database

@@ -107,7 +107,7 @@ public class LogController {
     @FXML
     private void handleSubmitButtonClicked(){
         try {
-            HelloApplication.showHomePage();
+            HelloApplication.showHomePage("test"); //needs a username
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -118,7 +118,7 @@ public class LogController {
     @FXML
     private void handleCancelButtonClicked(){
         try {
-            HelloApplication.showHomePage();
+            HelloApplication.showHomePage("test"); //needs a username
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {

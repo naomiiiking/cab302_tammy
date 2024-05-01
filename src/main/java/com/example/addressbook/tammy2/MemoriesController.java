@@ -27,7 +27,7 @@ public class MemoriesController {
     @FXML
     private void handleCancelButtonClicked() {
         try {
-            HelloApplication.showHomePage();
+            HelloApplication.showHomePage("test"); //needs a username
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {

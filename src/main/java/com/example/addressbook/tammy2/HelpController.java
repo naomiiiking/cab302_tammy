@@ -31,6 +31,6 @@ public class HelpController {
 
     @FXML
     void handleBackButton() throws Exception {
-        HelloApplication.showHomePage(username);
+        HelloApplication.showHomePage();
     }
 }

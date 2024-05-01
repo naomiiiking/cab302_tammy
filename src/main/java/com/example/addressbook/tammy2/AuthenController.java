@@ -9,9 +9,12 @@ import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import com.example.addressbook.tammy2.tammy.Tammys;
+import java.util.HashMap;
+import java.util.Map;
 
 import java.util.List;
 
+import static com.example.addressbook.tammy2.HelloApplication.showHelpPage;
 import static com.example.addressbook.tammy2.HelloApplication.showHomePage;
 
 public class AuthenController {
@@ -60,8 +63,12 @@ public class AuthenController {
     public AuthenController(){
         tammyDAO = new TammyDAO();
     }
+    // Map for storing user session
+    static Map<String, UserAccount> userSession = new HashMap<>();
 
     public void initialize(){
+
+
         // Top buttons
         topButtons.setSpacing(5);
         topButtons.setAlignment(Pos.CENTER);
@@ -126,6 +133,11 @@ public class AuthenController {
 //        UserAccountDAO.close();
     }
 
+    // Method to get the current logged-in user
+    public static UserAccount getCurrentUser() {
+        return userSession.get("loggedInUser");
+    }
+
     // Makes login elements appear when clicked
     public void handleLoginButtonClicked(){
         registerContent.setVisible(false);
@@ -157,7 +169,7 @@ public class AuthenController {
 
         // Load homepage
 
-        showHomePage(UserAccount.getUsername());
+        //showHomePage(UserAccount.getUsername());
     }
 
     // Login submit button clicked
@@ -172,7 +184,9 @@ public class AuthenController {
         List<UserAccount> accounts = UserAccountDAO.getAll();
         for (UserAccount acc : accounts) {
             if (UserAccount.getUsername().equals(loginUserNameInput.getText()) && UserAccount.getPassword().equals(loginPasswordInput.getText())) {
-                showHomePage(UserAccount.getUsername());
+                // Store the logged-in user's information in the session map
+                userSession.put("loggedInUser", acc);
+                showHomePage();
                 return;
             }
             else {

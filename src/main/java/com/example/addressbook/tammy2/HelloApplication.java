@@ -27,8 +27,7 @@ public class HelloApplication extends Application {
         mainStage.show();
     }
 
-    public static void showHomePage(String UserName) throws Exception {
-        HomeController.setUsername(UserName);
+    public static void showHomePage() throws Exception {
         HomeController.setUserID(UserAccount.getID());
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("home-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1100, 750);

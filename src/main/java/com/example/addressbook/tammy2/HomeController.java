@@ -1,4 +1,5 @@
 package com.example.addressbook.tammy2;
+import com.example.addressbook.tammy2.AuthenLog.UserAccount;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -6,16 +7,18 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import com.example.addressbook.tammy2.AuthenLog.UserAccountDAO;
 
 
 import java.io.IOException;
 
 
 public class HomeController {
+    static UserAccount loggedInUser = AuthenController.getCurrentUser();
 
     @FXML
     private Label userNameLabel;
-    private static String username; //Replace this with query to get username from database
+    private static String username = String.valueOf(loggedInUser); //Replace this with query to get username from database
     @FXML
     private Label creditsLabel;
     private int credits =  20; //Replace this with query to get credits from database

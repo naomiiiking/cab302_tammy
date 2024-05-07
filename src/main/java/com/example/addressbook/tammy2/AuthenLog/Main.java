@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
 
         // Initialize the UserAccountDAO and create the table if it doesn't exist
@@ -35,7 +36,7 @@ public class Main {
         // Close the scanner
         scanner.close();
         // Close the database connection
-        UserAccountDAO.close();
+        userAccountDAO.close();
     }
 
     /**
@@ -82,7 +83,7 @@ public class Main {
 
 
         // Check if the username is already registered
-        List<UserAccount> accounts = UserAccountDAO.getAll();
+        List<UserAccount> accounts = userAccountDAO.getAll();
         for (UserAccount acc : accounts) {
             if (acc.getUsername().equals(username)) {
                 System.out.println("Username already exists. Please login instead.");
@@ -93,7 +94,7 @@ public class Main {
 
         // Register the user with hashed password
         UserAccount userAccount = new UserAccount(username, email, hashedPassword);
-        UserAccountDAO.insert(userAccount);
+        userAccountDAO.insert(userAccount);
         System.out.println("User registered successfully!");
 
         // Get the userID of the newly inserted user
@@ -111,6 +112,7 @@ public class Main {
      * Method to authenticate a user
      */
     public static void loginUser() {
+        UserAccountDAO userAccountDAO = new UserAccountDAO();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter username:");
         String username = scanner.nextLine();
@@ -121,7 +123,7 @@ public class Main {
         String hashedPassword = hashPassword(password);
 
         // Check if the username and hashed password match any entry in the database
-        List<UserAccount> accounts = UserAccountDAO.getAll();
+        List<UserAccount> accounts = userAccountDAO.getAll();
         for (UserAccount acc : accounts) {
             if (acc.getUsername().equals(username) && acc.getPassword().equals(hashedPassword)) {
                 System.out.println("Login successful!");

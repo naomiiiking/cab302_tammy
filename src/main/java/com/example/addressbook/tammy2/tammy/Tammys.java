@@ -1,6 +1,8 @@
 package com.example.addressbook.tammy2.tammy;
 
-public class Tammys implements ITammy {
+import com.example.addressbook.tammy2.functions.TimeCalculators;
+
+public class Tammys implements ITammy{
 
     private String name;
     private int OwnerID;

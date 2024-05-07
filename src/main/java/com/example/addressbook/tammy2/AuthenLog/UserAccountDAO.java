@@ -35,14 +35,14 @@ public class UserAccountDAO {
      * Inserts user account into table
      * @param userAccount
      */
-    public static void insert(UserAccount userAccount){
+    public void insert(UserAccount userAccount){
         try {
             PreparedStatement insertAccount = connection.prepareStatement(
                     "INSERT INTO UserAccounts (username, email, password) VALUES (?, ?, ?)"
             );
-            insertAccount.setString(1, UserAccount.getUsername());
-            insertAccount.setString(2, UserAccount.getEmail());
-            insertAccount.setString(3, UserAccount.getPassword());
+            insertAccount.setString(1, userAccount.getUsername());
+            insertAccount.setString(2, userAccount.getEmail());
+            insertAccount.setString(3, userAccount.getPassword());
             insertAccount.execute();
         } catch (SQLException ex) {
             System.err.println(ex);
@@ -53,15 +53,15 @@ public class UserAccountDAO {
      * Updates user account
      * @param userAccount account to update
      */
-    public static void update(UserAccount userAccount) {
+    public void update(UserAccount userAccount) {
         try {
             PreparedStatement updateAccount = connection.prepareStatement(
                     "UPDATE UserAccounts SET username = ?, email = ?, password = ? WHERE id = ?"
             );
-            updateAccount.setString(1, UserAccount.getUsername());
-            updateAccount.setString(2, UserAccount.getEmail());
-            updateAccount.setString(3, UserAccount.getPassword());
-            updateAccount.setInt(4, UserAccount.getID());
+            updateAccount.setString(1, userAccount.getUsername());
+            updateAccount.setString(2, userAccount.getEmail());
+            updateAccount.setString(3, userAccount.getPassword());
+            updateAccount.setInt(4, userAccount.getID());
             updateAccount.execute();
         } catch (SQLException ex) {
             System.err.println(ex);
@@ -80,7 +80,7 @@ public class UserAccountDAO {
      * Gets all user accounts
      * @return list of user accounts
      */
-    public static List<UserAccount> getAll() {
+    public List<UserAccount> getAll() {
         List<UserAccount> accounts = new ArrayList<>();
         try {
             Statement getAll = connection.createStatement();
@@ -106,7 +106,7 @@ public class UserAccountDAO {
      * @param id ID used to get user accounts
      * @return
      */
-    public static UserAccount getById(int id) {
+    public UserAccount getById(int id) {
         try {
             PreparedStatement getAccount = connection.prepareStatement("SELECT * FROM UserAccounts WHERE id = ?");
             getAccount.setInt(1, id);
@@ -131,7 +131,7 @@ public class UserAccountDAO {
      * @param username username required
      * @return returns user account
      */
-    public static UserAccount getByUsername(String username) {
+    public UserAccount getByUsername(String username) {
         try {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM UserAccounts WHERE username = ?");
             statement.setString(1, username);
@@ -150,7 +150,7 @@ public class UserAccountDAO {
     }
 
 
-    public static void close() {
+    public void close() {
         try {
             connection.close();
         } catch (SQLException ex) {

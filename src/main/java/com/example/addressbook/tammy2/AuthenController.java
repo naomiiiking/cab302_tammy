@@ -3,6 +3,7 @@ package com.example.addressbook.tammy2;
 import com.example.addressbook.tammy2.AuthenLog.UserAccount;
 import com.example.addressbook.tammy2.AuthenLog.UserAccountDAO;
 import com.example.addressbook.tammy2.TammyDatabase.TammyDAO;
+import com.example.addressbook.tammy2.functions.TimeCalculators;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
@@ -60,11 +61,18 @@ public class AuthenController {
 
     private TammyDAO tammyDAO;
 
+    private UserAccountDAO userAccountDAO;
+    private TimeCalculators timeCalculators;
+
     public AuthenController(){
         tammyDAO = new TammyDAO();
+        userAccountDAO = new UserAccountDAO();
+        timeCalculators = new TimeCalculators();
     }
     // Map for storing user session
     static Map<String, UserAccount> userSession = new HashMap<>();
+
+    static Map<String, Tammys> tammySession = new HashMap<>();
 
     public void initialize(){
 
@@ -137,6 +145,9 @@ public class AuthenController {
     public static UserAccount getCurrentUser() {
         return userSession.get("loggedInUser");
     }
+    public static Tammys getCurrentTammy(){
+        return tammySession.get("loggedInTammy");
+    }
 
     // Makes login elements appear when clicked
     public void handleLoginButtonClicked(){
@@ -159,16 +170,22 @@ public class AuthenController {
         }
 
         UserAccount userAccount = new UserAccount(registerUserNameInput.getText(), registerUserEmailInput.getText(), registerPasswordInput.getText());
-        UserAccountDAO.insert(userAccount);
+        userAccountDAO.insert(userAccount);
+        //System.out.println(UserAccountDAO.getByUsername(UserAccount.getUsername()).getId());
 
-        Tammys tammy = new Tammys(1,tammyNameInput.getText(),tammyTypeInput.getSelectedToggle().toString(), tammySpeciesInput.getSelectedToggle().toString());
-        System.out.println(tammySpeciesInput.getSelectedToggle().toString());
+        System.out.println(userAccountDAO.getByUsername(userAccount.getUsername()));
+
+        int i = userAccountDAO.getByUsername(userAccount.getUsername()).getId();
+
+        Tammys tammy = new Tammys(i,tammyNameInput.getText(),tammyTypeInput.getSelectedToggle().toString(), tammySpeciesInput.getSelectedToggle().toString());
+        //System.out.println(tammySpeciesInput.getSelectedToggle().toString());
         tammyDAO.addTammy(tammy);
 
-        UserAccountDAO.close();
+        userAccountDAO.close();
 
         // Load homepage
         userSession.put("loggedInUser", userAccount);
+        tammySession.put("loggedInTammy", tammy);
         showHomePage();
     }
 
@@ -181,11 +198,14 @@ public class AuthenController {
         }
 
         // Check if the username and password match any entry in the database
-        List<UserAccount> accounts = UserAccountDAO.getAll();
+        List<UserAccount> accounts = userAccountDAO.getAll();
         for (UserAccount acc : accounts) {
-            if (UserAccount.getUsername().equals(loginUserNameInput.getText()) && UserAccount.getPassword().equals(loginPasswordInput.getText())) {
+            if (acc.getUsername().equals(loginUserNameInput.getText()) && acc.getPassword().equals(loginPasswordInput.getText())) {
                 // Store the logged-in user's information in the session map
                 userSession.put("loggedInUser", acc);
+                Tammys tam = tammyDAO.getTammy(acc.getID());
+                ChangeTammyWaterFood(tam);
+                tammySession.put("loggedInTammy", tammyDAO.getTammy(acc.getId()));
                 showHomePage();
                 return;
             }
@@ -193,6 +213,17 @@ public class AuthenController {
                 showInvalidLoginAlert();
             }
         }
+    }
+
+    private void ChangeTammyWaterFood(Tammys tammy){
+        // this currently only works for one tammy, need to change if more tammys are needed
+        String oldDate = tammyDAO.getTammyTime(tammy.getOwnerId());
+        int timePassed = Math.toIntExact(timeCalculators.TimePassed(oldDate));
+        int waterLoss = (int) (timePassed * -1.5);
+        int foodLoss = (int) (timePassed * -1.2);
+        //add TAMMY
+        tammyDAO.updateTammyFood(tammy,foodLoss);
+        tammyDAO.updateTammyWater(tammy,waterLoss);
     }
 
     // Displays missing information alert box

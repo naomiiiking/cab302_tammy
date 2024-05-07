@@ -284,7 +284,7 @@ commit 4bec76200ece81de47048ea9ee0f2be2f84b2c80
 Author: Naomi <Naomi@torking.com.au>
 Date:   Sun Apr 21 20:57:28 2024 +1000
 
-    Created basic functions for login and register in front end
+    Created basic com.example.addressbook.tammy2.functions for login and register in front end
 
 commit 59b080be1f16726102ba1bef462c152c1f880422
 Author: Laura <lauraagallowayy@gmail.com>

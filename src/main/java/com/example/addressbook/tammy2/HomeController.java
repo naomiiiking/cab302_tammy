@@ -1,5 +1,6 @@
 package com.example.addressbook.tammy2;
 import com.example.addressbook.tammy2.AuthenLog.UserAccount;
+import com.example.addressbook.tammy2.tammy.Tammys;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -15,10 +16,11 @@ import java.io.IOException;
 
 public class HomeController {
     static UserAccount loggedInUser = AuthenController.getCurrentUser();
+    static Tammys loggedInTammy = AuthenController.getCurrentTammy();
 
     @FXML
     private Label userNameLabel;
-    private static String username = UserAccount.getUsername(); //Replace this with query to get username from database
+    private String username = loggedInUser.getUsername(); //Replace this with query to get username from database
     @FXML
     private Label creditsLabel;
     private int credits =  20; //Replace this with query to get credits from database
@@ -37,21 +39,20 @@ public class HomeController {
     private String tammyImageAddress = "/assets/1.png";
     @FXML
     private Label tammyName;
+    private String tammyNameString = loggedInTammy.getName();
+
     @FXML
     private VBox vitalsVbox;
     @FXML
     private ProgressBar waterProgressBar;
+    private float waterprogress = (float) loggedInTammy.getWaterVar() / 100;
     @FXML
     private ProgressBar foodProgressBar;
+    private float foodprogress = (float) loggedInTammy.getFoodVar() / 100;
     @FXML
     private ProgressBar happinessProgressBar;
 
-    // Stored and used to select the users Tammy
-    private static int UserID;
-
-    public static void setUserID(int id){UserID = id;}
-
-    public static void setUsername(String UserName){
+    public void setUsername(String UserName){
         username = UserName;
     }
 
@@ -66,15 +67,15 @@ public class HomeController {
         // Initialize Tammy Image and Name
         Image image = new Image(getClass().getResourceAsStream(tammyImageAddress));
         tammyImage.setImage(image);
-        tammyName.setText("Mr Bean");
+        tammyName.setText(tammyNameString);
         imageVbox.setSpacing(5);
 
         // Initialize Vitals Progressbars
         vitalsVbox.setSpacing(5);
-        waterProgressBar.setProgress(0.5);
+        waterProgressBar.setProgress(waterprogress);
         waterProgressBar.setMinHeight(30);
         waterProgressBar.setMinWidth(200);
-        foodProgressBar.setProgress(0.75);
+        foodProgressBar.setProgress(foodprogress);
         foodProgressBar.setMinHeight(30);
         foodProgressBar.setMinWidth(200);
         happinessProgressBar.setProgress(0.25);

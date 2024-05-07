@@ -1,11 +1,11 @@
 package com.example.addressbook.tammy2.AuthenLog;
 
 public class UserAccount {
-    private static int ID;
+    private int ID;
     private int id;
-    private static String username;
-    private static String email;
-    private static String password;
+    private String username;
+    private String email;
+    private String password;
 
     /**
      * User account contructor
@@ -38,27 +38,27 @@ public class UserAccount {
      * Get user ID
      * @return user's ID
      */
-    public static int getID() {
+    public int getID() {
         return ID;
     }
 
-    public static void setID(int id) {
-        UserAccount.ID = id;
+    public void setID(int id) {
+        this.ID = id;
     }
 
     public int getId() {
         return id;
     }
 
-    public static String getUsername() {
+    public String getUsername() {
         return username;
     }
 
-    public static String getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    public static String getPassword() {
+    public String getPassword() {
         return password;
     }
 

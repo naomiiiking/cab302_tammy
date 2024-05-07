@@ -14,7 +14,8 @@ import java.io.IOException;
 
 
 public class HomeController {
-    static UserAccount loggedInUser = AuthenController.getCurrentUser();
+    static String loggedInUser = "test";
+            //= AuthenController.getCurrentUser();
 
     @FXML
     private Label userNameLabel;

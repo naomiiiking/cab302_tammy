@@ -27,6 +27,26 @@ public class HelloApplication extends Application {
         mainStage.show();
     }
 
+    public static void showLoginPage() throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-content.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1100, 750);
+        String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
+        scene.getStylesheets().add(stylesheet);
+        mainStage.setTitle("Login");
+        mainStage.setScene(scene);
+        mainStage.show();
+    }
+
+    public static void showRegisterPage() throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("register-content.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1100, 750);
+        String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
+        scene.getStylesheets().add(stylesheet);
+        mainStage.setTitle("Register");
+        mainStage.setScene(scene);
+        mainStage.show();
+    }
+
     public static void showHomePage() throws Exception {
         HomeController.setUserID(UserAccount.getID());
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("home-view.fxml"));

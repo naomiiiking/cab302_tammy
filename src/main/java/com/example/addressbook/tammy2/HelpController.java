@@ -1,5 +1,6 @@
 package com.example.addressbook.tammy2;
 
+import com.example.addressbook.tammy2.AuthenLog.UserAccount;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -12,18 +13,19 @@ public class HelpController {
     @FXML
     private Text helpText;
     // Set username on help page and set back button to take user back to homepage
+
+    //static UserAccount loggedInUser = AuthenController.getCurrentUser();
     @FXML
-    private Label usernameLabel;
+    private Label userNameLabel;
+    private static String username = UserAccount.getUsername(); //Replace this with query to get username from database
     @FXML
     private VBox helpPage;
-
-    private static String username;
     public static void setUsername(String UserName){
         username = UserName;
     }
 
     void initialize() {
-        usernameLabel.setText(username);
+        userNameLabel.setText("User:");
         helpPage.setAlignment(Pos.CENTER);
         helpPage.setSpacing(5);
         helpText.setWrappingWidth(0);

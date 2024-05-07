@@ -1,4 +1,6 @@
 package com.example.addressbook.tammy2;
+import Memorylogs.StudyLogsDAO;
+import com.example.addressbook.tammy2.AuthenLog.UserAccount;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -14,6 +16,20 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 
 public class LogController {
+    private UserAccount user;
+    static UserAccount loggedInUser = AuthenController.getCurrentUser();
+
+    public void setUser(UserAccount user) {
+        this.user = user;
+    }
+    public LogController() {
+        this.studyLogsDAO = new StudyLogsDAO(); // Initialize studyLogsDAO here
+    }
+
+    public void setStudyLogsDAO(StudyLogsDAO studyLogsDAO) {
+        this.studyLogsDAO = studyLogsDAO;
+    }
+    //private static String username = UserAccount.getUsername();
     public VBox buttonsVbox;
     public Label totalTimeLabel;
     public Label totalTime;
@@ -30,9 +46,10 @@ public class LogController {
     @FXML
     private ComboBox<String> timeComboBox2;
 
-    @FXML
-    private Label date;
 
+    public Label date;
+    private StudyLogsDAO studyLogsDAO;
+    //private UserAccount user;
     public void initialize() {
 
         StartLabel.setText("Study From:");
@@ -56,10 +73,11 @@ public class LogController {
         TotalCreditsHBox.setAlignment(Pos.CENTER);
 
         populateComboBox();
-        setDateText();
 
         timeComboBox.setOnAction(event -> calculateTotalTime());
         timeComboBox2.setOnAction(event -> calculateTotalTime());
+
+        setDateText();
 
     }
     private void populateComboBox() {
@@ -84,7 +102,7 @@ public class LogController {
         date.setText(formattedDate);
     }
 
-    private void calculateTotalTime() {
+    public void calculateTotalTime() {
         if (timeComboBox.getValue() != null && timeComboBox2.getValue() != null) {
             LocalTime startTime = LocalTime.parse(timeComboBox.getValue());
             LocalTime endTime = LocalTime.parse(timeComboBox2.getValue());
@@ -98,7 +116,6 @@ public class LogController {
 
             long totalMinutes = duration.toMinutes();
             long credits = totalMinutes / 30; // 30 minutes = 1 credit
-
             String creditsString = String.format("$%d", credits);
             addedCredit.setText(creditsString);
         }
@@ -107,6 +124,39 @@ public class LogController {
     @FXML
     private void handleSubmitButtonClicked(){
         try {
+            if (timeComboBox.getValue() != null && timeComboBox2.getValue() != null) {
+                // Get the selected start and end times
+                LocalTime startTime = LocalTime.parse(timeComboBox.getValue());
+                LocalTime endTime = LocalTime.parse(timeComboBox2.getValue());
+
+                // Calculate duration in minutes
+                long totalMinutes = Duration.between(startTime, endTime).toMinutes();
+
+                // Calculate credits earned (assuming 30 minutes = 1 credit)
+                long credits = totalMinutes / 30;
+
+                // Get current date
+                LocalDate currentDate = LocalDate.now();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                String formattedDate = currentDate.format(formatter);
+
+                // Format total time
+                long hours = totalMinutes / 60;
+                long remainingMinutes = totalMinutes % 60;
+                String totalTimeString = String.format("%02d:%02d", hours, remainingMinutes);
+
+                // Format credits earned
+                String creditsString = String.format("$%d", credits);
+                int creditsInt = (int) credits;
+
+
+                // Set the user object
+                setUser(loggedInUser);
+
+                // Insert study log into the database
+                studyLogsDAO.insertStudyLog(user.getId(), formattedDate, totalTimeString, creditsInt);
+
+            }
             HelloApplication.showHomePage(); //needs a username
         } catch (IOException e) {
             e.printStackTrace();

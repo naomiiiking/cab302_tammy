@@ -87,7 +87,7 @@ public class HomeController {
     @FXML
     private void handleLogButtonClicked(){
         try {
-            HelloApplication.showLogPage();
+            HelloApplication.showLogPage(loggedInUser);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {

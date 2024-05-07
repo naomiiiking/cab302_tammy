@@ -24,9 +24,10 @@ public class AuthenController {
     @FXML
     private HBox topButtons;
 
+
     public void initialize() {
         // Top buttons
-        topButtons.setSpacing(5);
+        topButtons.setSpacing(20);
         topButtons.setAlignment(Pos.CENTER);
     }
 

@@ -28,8 +28,6 @@ import static com.example.addressbook.tammy2.HelloApplication.showHomePage;
 
 public class LoginController {
     @FXML
-    private HBox topButtons;
-    @FXML
     private VBox logInContent;
     @FXML
     private TextField loginUserNameInput;
@@ -46,6 +44,8 @@ public class LoginController {
         // Create connection to user account database and insert new record
         UserAccountDAO userAccountDAO = new UserAccountDAO();
         userAccountDAO.createTable();
+        logInContent.setAlignment(Pos.CENTER);
+        logInContent.setSpacing(30);
 
 
         // Insert some new records

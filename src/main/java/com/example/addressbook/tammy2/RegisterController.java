@@ -60,9 +60,9 @@ public class RegisterController {
         userAccountDAO.createTable();
 
         // Register content
-        registerContent.setSpacing(7);
+        registerContent.setSpacing(8);
         registerContent.setAlignment(Pos.CENTER);
-        registerContent.setMaxWidth(300);
+
 
         // Tammy type buttons
         tammyTypeInput = new ToggleGroup();

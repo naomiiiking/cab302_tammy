@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.*?>
 
 <VBox fx:controller="com.example.addressbook.tammy2.AuthenController" xmlns:fx="http://javafx.com/fxml"
-             styleClass="body" alignment="TOP_CENTER">
+             styleClass="bodyAuthen" alignment="TOP_CENTER">
 
-
+    <Label styleClass="gameTitle">TammyTime</Label>
     <HBox fx:id = "topButtons" >
         <Button onAction="#handleLoginButtonClicked" text = "Log In"/>
         <Button onAction="#handleRegisterButtonClicked" text = "Register"/>

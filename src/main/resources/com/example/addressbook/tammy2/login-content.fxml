@@ -9,10 +9,10 @@
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.addressbook.tammy2.LoginController"
-            prefHeight="400.0" prefWidth="600.0">
+            styleClass="body">
 
 
-    <VBox fx:id="logInContent" xmlns:fx="http://javafx.com/fxml">
+    <VBox styleClass="logInContent" fx:id="logInContent" xmlns:fx="http://javafx.com/fxml">
         <!-- Login content -->
         <Label styleClass="heading1">Username: </Label>
         <TextField fx:id="loginUserNameInput"/>

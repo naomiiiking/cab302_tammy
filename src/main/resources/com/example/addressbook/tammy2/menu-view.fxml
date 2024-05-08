@@ -6,37 +6,26 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:controller="com.example.addressbook.tammy2.MenuController" xmlns:fx="http://javafx.com/fxml"
-      prefHeight="200" prefWidth="320" styleClass="body">
-
-    <Label text="Menu" styleClass="heading1"/>
+<VBox fx:controller="com.example.addressbook.tammy2.MenuController" xmlns:fx="http://javafx.com/fxml"  styleClass="body">
 
     <!-- Settings modules -->
     <VBox fx:id="settingsBody" styleClass="settingsBody">
-
+        <Label text="Menu" styleClass="pageTitle"/>
         <!-- Change name setting -->
-        <HBox fx:id="usernameSection">
-            <Label text="Change Name:" styleClass="heading2"/>
-            <Label fx:id="currentUserName"/>
-        </HBox>
+        <Label fx:id="currentUserName" styleClass="heading2"/>
         <TextField fx:id="userNameField"/>
 
         <!-- Change email setting -->
-        <HBox fx:id="emailSection">
-            <Label text="Change email:" styleClass="heading2"/>
-            <Label fx:id="currentEmail"/>
-        </HBox>
+        <Label fx:id="currentEmail" styleClass="heading2"/>
         <TextField fx:id="emailField"/>
 
         <!-- Change password setting -->
-        <HBox fx:id="passwordSection">
-            <Label text="Change password:" styleClass="heading2"/>
-            <Label fx:id="currentPassword"/>
-        </HBox>
+        <Label text="Change password:" styleClass="heading2"/>
         <TextField fx:id="passwordField"/>
-
+    </VBox>
+    <VBox fx:id="settingsButtons" styleClass="settingsButtons">
         <Button text="Submit" onAction="#submitAccountChange"/>
-
+        <Button text="Back" onAction="#handleBackButton"/>
     </VBox>
 
 </VBox>

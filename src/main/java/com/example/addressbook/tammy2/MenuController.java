@@ -18,41 +18,35 @@ public class MenuController {
     @FXML
     private VBox settingsBody;
     @FXML
-
-    private HBox usernameSection;
-    @FXML
     private Label currentUserName;
     @FXML
     private TextField userNameField;
-
-    @FXML
-    private HBox emailSection;
     @FXML
     private Label currentEmail;
     @FXML
     private TextField emailField;
-
-    @FXML
-    private HBox passwordSection;
-    @FXML
-    private Label currentPassword;
     @FXML
     private TextField passwordField;
+    @FXML
+    private VBox settingsButtons;
 
     public void initialize() {
-        settingsBody.setSpacing(5);
+        settingsBody.setSpacing(10);
         settingsBody.setAlignment(Pos.CENTER);
 
-        usernameSection.setSpacing(5);
         currentUserName.setText("Current username: " + username);
-        //userNameField.setMaxWidth(200);
+        userNameField.setMaxWidth(400);
+        userNameField.setPromptText("Change username");
 
-        emailSection.setSpacing(5);
-        //emailField.setMaxWidth(200);
+        currentEmail.setText("Current email: null");
+        emailField.setMaxWidth(400);
+        emailField.setPromptText("Change email");
 
-        passwordSection.setSpacing(5);
-        //passwordField.setMaxWidth(200);
+        passwordField.setMaxWidth(400);
+        passwordField.setPromptText("Change password");
 
+        settingsButtons.setAlignment(Pos.CENTER);
+        settingsButtons.setSpacing(10);
     }
 
     /**
@@ -66,5 +60,9 @@ public class MenuController {
 
         // Use user ID to update user's details with modified details
         // UserAccountDAO.update(userAccount);
+    }
+
+    public void handleBackButton() throws Exception {
+        HelloApplication.showHomePage();
     }
 }

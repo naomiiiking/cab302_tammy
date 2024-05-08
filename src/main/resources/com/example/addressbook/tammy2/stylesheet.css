@@ -66,12 +66,12 @@
     -fx-font: 20 Verdana;
     -fx-padding: 0 10 0 10;
 }
+
+/* -------------------------------------- Homepage -------------------------------------- */
 .bodyContentLeft{
     -fx-padding: 70 0 0 100;
     -fx-text-fill: white;
 }
-
-/* -------------------------------------- Homepage -------------------------------------- */
 .bodyContentRight{
     -fx-padding: 100 0 0 30;
     -fx-text-fill: white;
@@ -91,17 +91,20 @@
 
 /* -------------------------------------- Settings -------------------------------------- */
 .settingsBody{
-    -fx-padding: 50 0 50 150;
+    -fx-padding: 100 90 0 90;
+}
+.settingsButtons{
+    -fx-padding: 60 100 0 100;
 }
 
 /* -------------------------------------- Help -------------------------------------- */
 .helpPage {
-    -fx-padding: 100 70 0 100;
+    -fx-padding: 100 100 0 100;
 }
 .helpText{
     -fx-font: 20 Verdana;
     -fx-text-fill: white;
 }
 .backButton{
-    -fx-padding: 180 450 0 450;
+    -fx-padding: 160 400 0 400;
 }

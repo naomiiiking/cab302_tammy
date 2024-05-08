@@ -4,18 +4,17 @@ import com.example.addressbook.tammy2.AuthenLog.UserAccount;
 import com.example.addressbook.tammy2.AuthenLog.UserAccountDAO;
 import com.example.addressbook.tammy2.TammyDatabase.TammyDAO;
 import com.example.addressbook.tammy2.functions.TimeCalculators;
+import com.example.addressbook.tammy2.tammy.Tammys;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import com.example.addressbook.tammy2.tammy.Tammys;
+
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-import java.util.List;
-
-import static com.example.addressbook.tammy2.HelloApplication.showHelpPage;
 import static com.example.addressbook.tammy2.HelloApplication.showHomePage;
 
 public class AuthenController {
@@ -182,6 +181,7 @@ public class AuthenController {
         tammyDAO.addTammy(tammy);
 
         userAccountDAO.close();
+        tammyDAO.close();
 
         // Load homepage
         userSession.put("loggedInUser", userAccount);
@@ -203,9 +203,10 @@ public class AuthenController {
             if (acc.getUsername().equals(loginUserNameInput.getText()) && acc.getPassword().equals(loginPasswordInput.getText())) {
                 // Store the logged-in user's information in the session map
                 userSession.put("loggedInUser", acc);
-                Tammys tam = tammyDAO.getTammy(acc.getID());
-                ChangeTammyWaterFood(tam);
                 tammySession.put("loggedInTammy", tammyDAO.getTammy(acc.getId()));
+                // update Tammy water and food with value below
+                ChangeTammyWaterFood(getCurrentTammy());
+                //tammyDAO.close();
                 showHomePage();
                 return;
             }
@@ -213,17 +214,27 @@ public class AuthenController {
                 showInvalidLoginAlert();
             }
         }
+
     }
 
     private void ChangeTammyWaterFood(Tammys tammy){
         // this currently only works for one tammy, need to change if more tammys are needed
         String oldDate = tammyDAO.getTammyTime(tammy.getOwnerId());
+        System.out.println(oldDate);
         int timePassed = Math.toIntExact(timeCalculators.TimePassed(oldDate));
         int waterLoss = (int) (timePassed * -1.5);
         int foodLoss = (int) (timePassed * -1.2);
+        System.out.println(tammy);
+        tammy.setFoodVar(tammy.getFoodVar() + foodLoss);
+        tammy.setWaterVar(tammy.getWaterVar() + waterLoss);
+        System.out.println(getCurrentTammy().getFoodVar());
+        System.out.println(getCurrentTammy().getWaterVar());
         //add TAMMY
-        tammyDAO.updateTammyFood(tammy,foodLoss);
-        tammyDAO.updateTammyWater(tammy,waterLoss);
+        // db locked error
+        tammyDAO.updateTammy(tammy);
+//        tammyDAO.updateTammy(tammy,Math.toIntExact(timeCalculators.TimePassed(oldDate)));
+//        tammyDAO.updateTammyWater(tammy,waterLoss);
+//        tammyDAO.updateTammyTime(tammy.getOwnerId());
     }
 
     // Displays missing information alert box

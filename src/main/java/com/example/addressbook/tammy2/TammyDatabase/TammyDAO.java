@@ -1,14 +1,13 @@
 package com.example.addressbook.tammy2.TammyDatabase;
 
 import com.example.addressbook.tammy2.AuthenLog.DatabaseConnection;
-import com.example.addressbook.tammy2.AuthenLog.UserAccountDAO;
-import com.example.addressbook.tammy2.tammy.Tammys;
 import com.example.addressbook.tammy2.functions.TimeCalculators;
+import com.example.addressbook.tammy2.tammy.Tammys;
 
 import java.sql.*;
 
 public class TammyDAO{
-    private final Connection connection;
+    private static Connection connection;
     TimeCalculators timecalc;
 
     public TammyDAO() {
@@ -30,7 +29,7 @@ public class TammyDAO{
             statement.setString(5, tammys.getCharacteristic());
             statement.setString(6, tammys.getSpecies());
             statement.setString(7, timecalc.GetTime());
-            statement.executeUpdate();
+            statement.execute();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -40,7 +39,7 @@ public class TammyDAO{
             PreparedStatement statement = connection.prepareStatement("UPDATE Tammy SET name = ? WHERE name = ?");
             statement.setString(1, newName);
             statement.setString(2, tammys.getName());
-            statement.executeUpdate();
+            statement.execute();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -48,10 +47,10 @@ public class TammyDAO{
 
     public void updateTammyTime(int id){
         try {
-            PreparedStatement statement = connection.prepareStatement("UPDATE Tammy SET LastLogin WHERE ownerId = ?");
+            PreparedStatement statement = connection.prepareStatement("UPDATE Tammy SET LastLogin = ? WHERE ownerId = ?");
             statement.setString(1, timecalc.GetTime());
             statement.setInt(2, id);
-            statement.executeUpdate();
+            statement.execute();
             }
         catch (SQLException e) {
             e.printStackTrace();
@@ -60,7 +59,7 @@ public class TammyDAO{
 
     public String getTammyTime(int id){
         try{
-            PreparedStatement statement = connection.prepareStatement("SELECT LastLogin FROM Tammy WHERE ownerId");
+            PreparedStatement statement = connection.prepareStatement("SELECT LastLogin FROM Tammy WHERE ownerId = ?");
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
@@ -74,22 +73,15 @@ public class TammyDAO{
     }
 
 
-    public void updateTammyFood(Tammys tammy, int amount){
+    public void updateTammy(Tammys tammy){
         try {
-            PreparedStatement statement = connection.prepareStatement("UPDATE Tammy SET food = ? WHERE ownerId = ?");
-            int foodVal = 0;
-            if(amount > 0){foodVal = tammy.getFoodVar() + amount;}
-            else{foodVal = tammy.getFoodVar() - amount;}
+            PreparedStatement statement = connection.prepareStatement("UPDATE Tammy SET food = ?, water = ?, LastLogin = ? WHERE ownerId = ?");
 
-            if(foodVal > 100){
-                foodVal = 100;
-            }
-            else if(foodVal < 0){
-                foodVal = 0;
-            }
-            statement.setInt(1, foodVal);
-            statement.setInt(2, tammy.getOwnerId());
-            statement.executeUpdate();
+            statement.setInt(1, tammy.getFoodVar());
+            statement.setInt(2, tammy.getWaterVar());
+            statement.setString(3, timecalc.GetTime());
+            statement.setInt(4, tammy.getOwnerId());
+            statement.execute();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -110,6 +102,9 @@ public class TammyDAO{
             statement.setInt(1, waterVal);
             statement.setInt(2, tammy.getOwnerId());
             statement.executeUpdate();
+
+            tammy.setWaterVar(waterVal);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

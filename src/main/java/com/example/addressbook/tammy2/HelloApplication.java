@@ -1,6 +1,8 @@
 package com.example.addressbook.tammy2;
 
+import Memorylogs.StudyLogsDAO;
 import com.example.addressbook.tammy2.AuthenLog.UserAccount;
+import com.example.addressbook.tammy2.AuthenLog.UserAccountDAO;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -63,6 +65,12 @@ public class HelloApplication extends Application {
     }
 
     public static void showLogPage() throws Exception {
+        LogController logController = new LogController();
+        UserAccountDAO userAccountDAO = new UserAccountDAO();
+        userAccountDAO.createTable();
+        StudyLogsDAO studyLogsDAO = new StudyLogsDAO();
+        studyLogsDAO.createStudyLogsTable();
+      //  logController.setUser(); // Set the user object in LogController
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("log-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 750);
         String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();

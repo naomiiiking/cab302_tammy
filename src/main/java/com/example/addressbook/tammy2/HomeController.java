@@ -7,38 +7,60 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import com.example.addressbook.tammy2.AuthenLog.UserAccountDAO;
 
 
 import java.io.IOException;
 
+import static com.example.addressbook.tammy2.HelloApplication.*;
+
 
 public class HomeController {
-    static UserAccount loggedInUser = AuthenController.getCurrentUser();
+    /**
+     * To access the current logged in, call the following at the top of your controller
+     * static UserAccount loggedInUser = HomeController.loggedInUser;
+     * This will return a UserAccount object that is stored in a session hash map.
+     * Or just use
+     * private static final String username = UserAccount.getUsername();
+     * You can now operate on it using all the usual UserAccount functions as normal
+     */
+    public static UserAccount loggedInUser = AuthenController.userSession.get("loggedInUser");
+    private static final String username = UserAccount.getUsername();
+
+    // Stored and used to select the users Tammy
+    private static int UserID;
+    public static void setUserID(int id){UserID = id;}
+
 
     @FXML
     private Label userNameLabel;
-    private static String username = UserAccount.getUsername(); //Replace this with query to get username from database
     @FXML
     private Label creditsLabel;
-    private int credits =  20; //Replace this with query to get credits from database
+    private int credits =  20; //TODO: Replace this with query to get credits from database
     @FXML
     private Label streakLabel;
-    private int streak =  45; //Replace this with query to get streak from database
+    private int streak =  45; //TODO: Replace this with streak variable from database
     @FXML
     private VBox buttonsVbox;
     @FXML
-    private HBox buttonsHbox;
+    private HBox buttonsHbox1;
+    @FXML
+    private HBox buttonsHbox2;
     @FXML
     private ImageView tammyImage;
     @FXML
     private VBox imageVbox;
     @FXML
-    private String tammyImageAddress = "/assets/1.png";
+    private String tammyImageAddress = "/assets/1.png"; //TODO: Replace this with image depending on type of tammy from database
     @FXML
     private Label tammyName;
     @FXML
     private VBox vitalsVbox;
+    @FXML
+    private HBox vitalsHbox1;
+    @FXML
+    private HBox vitalsHbox2;
+    @FXML
+    private HBox vitalsHbox3;
     @FXML
     private ProgressBar waterProgressBar;
     @FXML
@@ -46,31 +68,28 @@ public class HomeController {
     @FXML
     private ProgressBar happinessProgressBar;
 
-    // Stored and used to select the users Tammy
-    private static int UserID;
-
-    public static void setUserID(int id){UserID = id;}
-
-    public static void setUsername(String UserName){
-        username = UserName;
-    }
-
     public void initialize() {
         // Initialize Menu Section
         userNameLabel.setText("Welcome back: " + username);
         creditsLabel.setText("Credits: $" + credits);
         streakLabel.setText("Streak: " + streak + " days");
         buttonsVbox.setSpacing(5);
-        buttonsHbox.setSpacing(5);
+        buttonsHbox1.setSpacing(5);
+        buttonsHbox2.setSpacing(5);
 
         // Initialize Tammy Image and Name
         Image image = new Image(getClass().getResourceAsStream(tammyImageAddress));
         tammyImage.setImage(image);
+        tammyImage.setFitWidth(400);
+        tammyImage.setFitHeight(400);
         tammyName.setText("Mr Bean");
         imageVbox.setSpacing(5);
 
         // Initialize Vitals Progressbars
         vitalsVbox.setSpacing(5);
+        vitalsHbox1.setSpacing(2);
+        vitalsHbox2.setSpacing(2);
+        vitalsHbox3.setSpacing(3);
         waterProgressBar.setProgress(0.5);
         waterProgressBar.setMinHeight(30);
         waterProgressBar.setMinWidth(200);
@@ -83,11 +102,13 @@ public class HomeController {
 
     }
 
-    // Functions for handling page navigation
+    /**
+     * Show log page when clicked
+     */
     @FXML
     private void handleLogButtonClicked(){
         try {
-            HelloApplication.showLogPage();
+            showLogPage();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -95,10 +116,13 @@ public class HomeController {
         }
     }
 
+    /**
+     * Show log memories when clicked
+     */
     @FXML
     private void handleMemoriesButtonClicked(){
         try {
-            HelloApplication.showMemoriesPage();
+            showMemoriesPage();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -106,10 +130,13 @@ public class HomeController {
         }
     }
 
+    /**
+     * Show log help when clicked
+     */
     @FXML
     private void handleHelpButtonClicked(){
         try {
-            HelloApplication.showHelpPage(username);
+            showHelpPage();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -117,10 +144,13 @@ public class HomeController {
         }
     }
 
+    /**
+     * Show log menu when clicked
+     */
     @FXML
     private void handleMenuButtonClicked(){
         try {
-            HelloApplication.showMenuPage(username);
+            showMenuPage();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {

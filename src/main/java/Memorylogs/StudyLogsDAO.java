@@ -34,15 +34,15 @@ public class StudyLogsDAO {
     }
 
 
-    public void insertStudyLog(int userId, String date, float hoursStudied, float moneyEarned) {
+    public void insertStudyLog(int userId, String date, String hoursStudied, int moneyEarned) {
         try {
             PreparedStatement statement = connection.prepareStatement(
                     "INSERT INTO StudyLogs (user_id, date, hours_studied, money_earned) VALUES (?, ?, ?, ?)"
             );
             statement.setInt(1, userId);
-            statement.setString(2, date);
-            statement.setFloat(3, hoursStudied);
-            statement.setFloat(4, moneyEarned);
+            statement.setString(2, date.toString());
+            statement.setString(3, hoursStudied.toString());
+            statement.setString(4, String.valueOf(moneyEarned));
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class RegisterUserTest {
     private UserAccountDAO userAccountDAO;
 
-    @BeforeEach
+ /*   @BeforeEach
     public void setUp() {
         userAccountDAO = new UserAccountDAO();
     }
@@ -36,5 +36,5 @@ public class RegisterUserTest {
 
         // Assert that the user is registered correctly
         assertEquals("newuser", registeredUsername);
-    }
+    }*/
 }

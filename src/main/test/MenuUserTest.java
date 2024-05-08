@@ -12,12 +12,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class MenuUserTest{
     private UserAccountDAO userAccountDAO;
 
-    @BeforeEach
+ /*   @BeforeEach
     public void setUp() {
-        userAccountDAO = new UserAccountDAO(); }
+        userAccountDAO = new UserAccountDAO(); }*/
 
  //   @Test
-    public void testUserChanges() {
+/*    public void testUserChanges() {
         // Register a test user
         Main.registerUser(userAccountDAO);
 
@@ -49,5 +49,5 @@ public class MenuUserTest{
             //System.setIn(originalIn);
         }
     }
-
+*/
 }

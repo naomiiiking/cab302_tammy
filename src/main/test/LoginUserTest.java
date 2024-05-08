@@ -12,13 +12,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class LoginUserTest {
     private UserAccountDAO userAccountDAO;
 
-    @BeforeEach
+  /*  @BeforeEach
     public void setUp() {
         userAccountDAO = new UserAccountDAO();
     }
 
     //@Test
-    public void testLoginUser() {
+  /*  public void testLoginUser() {
         // Register a test user
         Main.registerUser(userAccountDAO);
 
@@ -44,5 +44,5 @@ public class LoginUserTest {
             // Restore original System.in
             System.setIn(originalIn);
         }
-    }
+    }*/
 }

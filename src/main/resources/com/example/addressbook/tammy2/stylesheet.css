@@ -1,22 +1,4 @@
-/* Styling for landing page*/
-.bodyAuthen {
-    -fx-padding: 40;
-       -fx-background-size: contain, contain, contain, contain, contain, contain;
-       -fx-background-position: bottom, bottom, bottom, bottom, bottom, bottom;
-       -fx-background-repeat: repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x;
-       -fx-background-image:
-           url("background1.png");
-}
-
-.gameTitle {
-    -fx-font: 100 Verdana;
-    -fx-font-weight: 900;
-    -fx-padding: 130;
-    -fx-text-fill: white;
-    -fx-text-shadow: 10
-}
-
-/* Styling for all page bodies*/
+/* -------------------------------------- Styling for all page bodies -------------------------------------- */
 .body {
     -fx-padding: 40;
        -fx-background-size: contain, contain, contain, contain, contain, contain;
@@ -25,32 +7,11 @@
        -fx-background-image:
            url("background2.png");
 }
-
-/* LogIn and register content */
-.logInContent{
-    -fx-padding: 200 0 0 460;
-    -fx-text-fill: white;
-}
-
-.registerContent{
-    -fx-padding: 70 200 0 200;
-    -fx-text-fill: white;
-}
-
-/* Toggle box text*/
-.toggleBox{
-    -fx-text-fill: white;
-    -fx-font: 20 Verdana;
-    -fx-padding: 0 10 0 10;
-}
-
-/* Page title */
 .pageTitle {
-    -fx-text-fill: white;
     -fx-font: 60 Verdana;
+    -fx-text-fill: white;
     -fx-font-weight: 800;
 }
-
 /* Label options 1 */
 .heading1 {
     -fx-font: 30 Verdana;
@@ -60,7 +21,6 @@
     -fx-font: 20 Verdana;
     -fx-text-fill: white;
 }
-
 /* All buttons are purple, rounded and have white text */
 .button {
     -fx-background-color: white;
@@ -68,30 +28,60 @@
     -fx-border-radius: 5;
     -fx-font: 30 Verdana;
 }
-
 .button:hover {
     -fx-background-color: #CF9FFF;
     -fx-text-fill: white;
 }
 
+/* -------------------------------------- Landing page -------------------------------------- */
+.bodyAuthen {
+    -fx-padding: 40;
+       -fx-background-size: contain, contain, contain, contain, contain, contain;
+       -fx-background-position: bottom, bottom, bottom, bottom, bottom, bottom;
+       -fx-background-repeat: repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x;
+       -fx-background-image:
+           url("background1.png");
+}
+.gameTitle {
+    -fx-font: 100 Verdana;
+    -fx-font-weight: 900;
+    -fx-padding: 130;
+    -fx-text-fill: white;
+    -fx-text-shadow: 10
+}
+
+/* -------------------------------------- Login and register pages -------------------------------------- */
+/* Login and register content VBOXs */
+.logInContent{
+    -fx-padding: 200 0 0 460;
+    -fx-text-fill: white;
+}
+.registerContent{
+    -fx-padding: 70 200 0 200;
+    -fx-text-fill: white;
+}
+/* Toggle box text*/
+.toggleBox{
+    -fx-text-fill: white;
+    -fx-font: 20 Verdana;
+    -fx-padding: 0 10 0 10;
+}
 .bodyContentLeft{
     -fx-padding: 70 0 0 100;
     -fx-text-fill: white;
 }
 
+/* -------------------------------------- Homepage -------------------------------------- */
 .bodyContentRight{
     -fx-padding: 100 0 0 30;
     -fx-text-fill: white;
 }
-
 .bodyContentLeftVbox{
     -fx-padding: 30 0 0 0;
 }
-
 .tammyImage {
     -fx-background-color: BLACK;
 }
-
 .tammyName {
     -fx-font: 50 Verdana;
     -fx-font-weight: 700;
@@ -99,6 +89,19 @@
     -fx-padding: 20 0 0 80;
 }
 
+/* -------------------------------------- Settings -------------------------------------- */
 .settingsBody{
     -fx-padding: 50 0 50 150;
+}
+
+/* -------------------------------------- Help -------------------------------------- */
+.helpPage {
+    -fx-padding: 100 70 0 100;
+}
+.helpText{
+    -fx-font: 20 Verdana;
+    -fx-text-fill: white;
+}
+.backButton{
+    -fx-padding: 180 450 0 450;
 }

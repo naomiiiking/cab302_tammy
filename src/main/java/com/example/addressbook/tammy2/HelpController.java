@@ -11,7 +11,13 @@ import javafx.scene.text.Text;
 public class HelpController {
 
     @FXML
-    private Text helpText;
+    private Label helpText;
+    // creates a triangle.
+    public String helpTextContents =
+            "Feeling a bit lost? The Tammy app is made to help you get back on track\n" +
+                    "Now that you have created your Tammy, keep it happy with food, water and pats.\n" +
+                    "All of which you can buy at the store! To get credits, fill out your logs daily\n" +
+                    "to keep track of your progress!\n";
     // Set username on help page and set back button to take user back to homepage
 
     //static UserAccount loggedInUser = AuthenController.getCurrentUser();
@@ -24,11 +30,12 @@ public class HelpController {
         username = UserName;
     }
 
-    void initialize() {
+    public void initialize() {
         userNameLabel.setText("User:");
-        helpPage.setAlignment(Pos.CENTER);
         helpPage.setSpacing(5);
-        helpText.setWrappingWidth(0);
+
+        helpText.setText(helpTextContents);
+        helpText.setWrapText(true);
     }
 
     @FXML

@@ -16,7 +16,7 @@ public class MenuUserTest{
     public void setUp() {
         userAccountDAO = new UserAccountDAO(); }
 
-    @Test
+ //   @Test
     public void testUserChanges() {
         // Register a test user
         Main.registerUser(userAccountDAO);

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:controller="com.example.addressbook.tammy2.AuthenController" xmlns:fx="http://javafx.com/fxml"
+             styleClass="bodyAuthen" alignment="TOP_CENTER">
+
+    <Label styleClass="gameTitle">TammyTime</Label>
+    <HBox fx:id = "topButtons" >
+        <Button onAction="#handleLoginButtonClicked" text = "Log In"/>
+        <Button onAction="#handleRegisterButtonClicked" text = "Register"/>
+    </HBox>
+
+</VBox>

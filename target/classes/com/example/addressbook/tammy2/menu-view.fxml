@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:controller="com.example.addressbook.tammy2.MenuController" xmlns:fx="http://javafx.com/fxml"  styleClass="body">
+
+    <!-- Settings modules -->
+    <VBox fx:id="settingsBody" styleClass="settingsBody">
+        <Label text="Menu" styleClass="pageTitle"/>
+        <!-- Change name setting -->
+        <Label fx:id="currentUserName" styleClass="heading2"/>
+        <TextField fx:id="userNameField"/>
+
+        <!-- Change email setting -->
+        <Label fx:id="currentEmail" styleClass="heading2"/>
+        <TextField fx:id="emailField"/>
+
+        <!-- Change password setting -->
+        <Label text="Change password:" styleClass="heading2"/>
+        <TextField fx:id="passwordField"/>
+    </VBox>
+    <VBox fx:id="settingsButtons" styleClass="settingsButtons">
+        <Button text="Submit" onAction="#submitAccountChange"/>
+        <Button text="Back" onAction="#handleBackButton"/>
+    </VBox>
+
+</VBox>

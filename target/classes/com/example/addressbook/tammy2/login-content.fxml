@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.addressbook.tammy2.LoginController"
+            styleClass="body">
+
+
+    <VBox styleClass="logInContent" fx:id="logInContent" xmlns:fx="http://javafx.com/fxml">
+        <!-- Login content -->
+        <Label styleClass="heading1">Username: </Label>
+        <TextField fx:id="loginUserNameInput"/>
+
+        <Label styleClass="heading1">Password: </Label>
+        <PasswordField fx:id="loginPasswordInput"/>
+
+        <Button text="Submit" onAction="#handleLoginSubmitButtonClicked"/>
+    </VBox>
+
+</AnchorPane>

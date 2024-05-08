@@ -14,7 +14,8 @@ import java.io.IOException;
 
 
 public class HomeController {
-    static UserAccount loggedInUser = AuthenController.getCurrentUser();
+    static String loggedInUser = "test";
+            //= AuthenController.getCurrentUser();
 
     @FXML
     private Label userNameLabel;
@@ -28,7 +29,9 @@ public class HomeController {
     @FXML
     private VBox buttonsVbox;
     @FXML
-    private HBox buttonsHbox;
+    private HBox buttonsHbox1;
+    @FXML
+    private HBox buttonsHbox2;
     @FXML
     private ImageView tammyImage;
     @FXML
@@ -39,6 +42,12 @@ public class HomeController {
     private Label tammyName;
     @FXML
     private VBox vitalsVbox;
+    @FXML
+    private HBox vitalsHbox1;
+    @FXML
+    private HBox vitalsHbox2;
+    @FXML
+    private HBox vitalsHbox3;
     @FXML
     private ProgressBar waterProgressBar;
     @FXML
@@ -51,8 +60,7 @@ public class HomeController {
 
     public static void setUserID(int id){UserID = id;}
 
-    public static void setUsername(String UserName){
-        username = UserName;
+    public static void setUsername(String UserName){username = UserName;
     }
 
     public void initialize() {
@@ -61,16 +69,22 @@ public class HomeController {
         creditsLabel.setText("Credits: $" + credits);
         streakLabel.setText("Streak: " + streak + " days");
         buttonsVbox.setSpacing(5);
-        buttonsHbox.setSpacing(5);
+        buttonsHbox1.setSpacing(5);
+        buttonsHbox2.setSpacing(5);
 
         // Initialize Tammy Image and Name
         Image image = new Image(getClass().getResourceAsStream(tammyImageAddress));
         tammyImage.setImage(image);
+        tammyImage.setFitWidth(400);
+        tammyImage.setFitHeight(400);
         tammyName.setText("Mr Bean");
         imageVbox.setSpacing(5);
 
         // Initialize Vitals Progressbars
         vitalsVbox.setSpacing(5);
+        vitalsHbox1.setSpacing(2);
+        vitalsHbox2.setSpacing(2);
+        vitalsHbox3.setSpacing(3);
         waterProgressBar.setProgress(0.5);
         waterProgressBar.setMinHeight(30);
         waterProgressBar.setMinWidth(200);

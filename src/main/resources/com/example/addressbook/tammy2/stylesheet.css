@@ -29,10 +29,12 @@
 /* LogIn and register content */
 .logInContent{
     -fx-padding: 200 0 0 460;
+    -fx-text-fill: white;
 }
 
 .registerContent{
     -fx-padding: 70 200 0 200;
+    -fx-text-fill: white;
 }
 
 /* Toggle box text*/
@@ -44,13 +46,18 @@
 
 /* Page title */
 .pageTitle {
+    -fx-text-fill: white;
     -fx-font: 60 Verdana;
-    -fx-padding: 0,0,1000,0;
+    -fx-font-weight: 800;
 }
 
-/* Heading 1 */
+/* Label options 1 */
 .heading1 {
     -fx-font: 30 Verdana;
+    -fx-text-fill: white;
+}
+.heading2 {
+    -fx-font: 20 Verdana;
     -fx-text-fill: white;
 }
 
@@ -67,17 +74,29 @@
     -fx-text-fill: white;
 }
 
+.bodyContentLeft{
+    -fx-padding: 70 0 0 100;
+    -fx-text-fill: white;
+}
+
+.bodyContentRight{
+    -fx-padding: 100 0 0 30;
+    -fx-text-fill: white;
+}
+
+.bodyContentLeftVbox{
+    -fx-padding: 30 0 0 0;
+}
+
 .tammyImage {
     -fx-background-color: BLACK;
 }
 
-.heading2 {
-    -fx-font: 15 arial;
-}
-
-#tammyName {
-    -fx-font: 50 arial;
-    -fx-padding: 0 20 0 0;
+.tammyName {
+    -fx-font: 50 Verdana;
+    -fx-font-weight: 700;
+    -fx-text-fill: white;
+    -fx-padding: 20 0 0 80;
 }
 
 .settingsBody{

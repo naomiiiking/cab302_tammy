@@ -8,9 +8,9 @@ import java.util.List;
  * Tracks the progress of a user's currency and log activities over time.
  */
 public class ProgressTracker {
-    public int currency;
-    public List<String> logs;
-    private final Date startDate;
+    public int currency; // needs to be integrated
+    public List<String> logs; // needs to be integrated or removed
+    private final Date startDate; // potentially not needed
 
     /**
      * Constructor

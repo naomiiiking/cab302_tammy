@@ -17,7 +17,7 @@ import java.time.format.DateTimeFormatter;
 
 public class LogController {
     private UserAccount user;
-    static UserAccount loggedInUser = AuthenController.getCurrentUser();
+    static UserAccount loggedInUser = LoginController.getCurrentUser();
 
     public void setUser(UserAccount user) {
         this.user = user;

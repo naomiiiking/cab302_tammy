@@ -64,13 +64,13 @@ public class HelloApplication extends Application {
         mainStage.show();
     }
 
-    public static void showLogPage(UserAccount user) throws Exception {
+    public static void showLogPage() throws Exception {
         LogController logController = new LogController();
         UserAccountDAO userAccountDAO = new UserAccountDAO();
         userAccountDAO.createTable();
         StudyLogsDAO studyLogsDAO = new StudyLogsDAO();
         studyLogsDAO.createStudyLogsTable();
-        logController.setUser(user); // Set the user object in LogController
+      //  logController.setUser(); // Set the user object in LogController
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("log-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 750);
         String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();

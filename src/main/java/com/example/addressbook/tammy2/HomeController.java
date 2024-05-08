@@ -14,8 +14,8 @@ import java.io.IOException;
 
 
 public class HomeController {
-    static String loggedInUser = "test";
-            //= AuthenController.getCurrentUser();
+    static String loggedInUser = "//= Log.getCurrentUser();";
+
 
     @FXML
     private Label userNameLabel;
@@ -101,7 +101,7 @@ public class HomeController {
     @FXML
     private void handleLogButtonClicked(){
         try {
-            HelloApplication.showLogPage(loggedInUser);
+            HelloApplication.showLogPage();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {

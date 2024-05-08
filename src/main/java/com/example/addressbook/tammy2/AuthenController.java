@@ -24,8 +24,11 @@ public class AuthenController {
     @FXML
     private HBox topButtons;
 
+    static Map<String, UserAccount> userSession = new HashMap<>();
+
 
     public void initialize() {
+
         // Top buttons
         topButtons.setSpacing(20);
         topButtons.setAlignment(Pos.CENTER);

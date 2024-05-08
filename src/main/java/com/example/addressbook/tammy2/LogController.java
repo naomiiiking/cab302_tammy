@@ -1,13 +1,10 @@
 package com.example.addressbook.tammy2;
 import Memorylogs.StudyLogsDAO;
 import com.example.addressbook.tammy2.AuthenLog.UserAccount;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -16,12 +13,9 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 
 public class LogController {
-    private UserAccount user;
-    static UserAccount loggedInUser = LoginController.getCurrentUser();
 
-    public void setUser(UserAccount user) {
-        this.user = user;
-    }
+    // Set logged in user
+    static UserAccount loggedInUser = HomeController.loggedInUser;
     public LogController() {
         this.studyLogsDAO = new StudyLogsDAO(); // Initialize studyLogsDAO here
     }
@@ -150,11 +144,8 @@ public class LogController {
                 int creditsInt = (int) credits;
 
 
-                // Set the user object
-                setUser(loggedInUser);
-
                 // Insert study log into the database
-                studyLogsDAO.insertStudyLog(user.getId(), formattedDate, totalTimeString, creditsInt);
+                studyLogsDAO.insertStudyLog(loggedInUser.getId(), formattedDate, totalTimeString, creditsInt);
 
             }
             HelloApplication.showHomePage(); //needs a username

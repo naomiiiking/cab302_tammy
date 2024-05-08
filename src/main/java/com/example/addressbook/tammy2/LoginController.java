@@ -38,7 +38,6 @@ public class LoginController {
         tammyDAO = new TammyDAO();
     }
     // Map for storing user session
-    static Map<String, UserAccount> userSession = new HashMap<>();
 
     public void initialize() {
         // Create connection to user account database and insert new record
@@ -78,9 +77,7 @@ public class LoginController {
 //        UserAccountDAO.close();
     }
     // Method to get the current logged-in user
-    public static UserAccount getCurrentUser() {
-        return userSession.get("loggedInUser");
-    }
+
 
     // Login submit button clicked
     public void handleLoginSubmitButtonClicked() throws Exception {
@@ -96,7 +93,7 @@ public class LoginController {
         for (UserAccount acc : accounts) {
             if (UserAccount.getUsername().equals(loginUserNameInput.getText()) && UserAccount.getPassword().equals(loginPasswordInput.getText())) {
                 // Store the logged-in user's information in the session map
-                userSession.put("loggedInUser", acc);
+                AuthenController.userSession.put("loggedInUser", acc);
                 showHomePage();
                 return;
             } else {
@@ -109,7 +106,6 @@ public class LoginController {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText("Fill in all fields before submitting.");
-
         alert.showAndWait();
     }
 
@@ -118,7 +114,6 @@ public class LoginController {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Invalid login");
         alert.setHeaderText("Incorrect username or password.");
-
         alert.showAndWait();
     }
 }

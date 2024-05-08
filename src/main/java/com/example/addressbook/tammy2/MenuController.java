@@ -10,10 +10,7 @@ import javafx.scene.layout.*;
 
 
 public class MenuController {
-    private static String username;
-    public static void setUsername(String UserName){
-        username = UserName;
-    }
+    private static final String username = UserAccount.getUsername();
 
     @FXML
     private VBox settingsBody;

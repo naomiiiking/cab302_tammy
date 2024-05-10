@@ -81,31 +81,68 @@ public class Tammys implements ITammy{
      */
     public void setFoodVar(int food){this.food = food;}
 
+    /**
+     * Sets the food variable by adding the param to the variable
+     * @param food the food variable of the TammyObject
+     */
     public void setADDFoodVar(int food){this.food += food;}
 
+    /**
+     * Sets the food variable by minusing the param to the variable
+     * @param food the food variable of the TammyObject
+     */
     public void setMINUSFoodVar(int food){this.food -= food;}
 
+    /**
+     * Returns the variable water of the tammy object
+     * @return water is the variable water
+     */
     @Override
     public int getWaterVar() {
         return water;
     }
 
+    /**
+     * sets the variable water
+     * @param water is the variable water
+     */
     public void setWaterVar(int water){this.water = water;}
 
+    /**
+     * Sets the water variable by adding the param to the variable
+     * @param water is the variable water
+     */
     public void setADDWaterVar(int water){this.water += water;}
 
+    /**
+     *  Sets the water variable by minusing the param to the variable
+     * @param water is the water variable
+     */
     public void setMINUSWaterVar(int water){this.water -= water;}
 
+    /**
+     * returns the variable Characteristic of the object
+     * @return Characteristic
+     */
     @Override
     public String getCharacteristic(){
         return this.Characteristic;
     }
 
+    /**
+     * returns the variable Species of the object
+     * @return Species
+     */
     @Override
     public String getSpecies() {
         return this.Species;
     }
 
+    /**
+     * Sets the variable Characteristic dependent on the param, it then sets Characteristic
+     * variable getting the enum from TammyType
+     * @param decider is a String which is gotten through radiobuttons in the register method
+     */
     public void setCharacteristic(String decider){
         if (decider.contains("Sleep")){
             this.Characteristic = TammyType.Sleep.GetCharacteristicName();
@@ -118,6 +155,11 @@ public class Tammys implements ITammy{
         }
     }
 
+    /**
+     * Sets the variable Species dependent on the param, it then sets Species variable
+     * getting the enum from TammySpecies
+     * @param decider is a String which is gotten through radiobutton in the register method
+     */
     public void setSpecies(String decider){
         if(decider.contains("Fish")){
             this.Species = TammySpecies.Fish.GetSpeciesName();
@@ -130,11 +172,19 @@ public class Tammys implements ITammy{
         }
     }
 
+    /**
+     * returns the objects variable name
+     * @return name
+     */
     @Override
     public String getName(){
         return name;
     }
 
+    /**
+     * Sets the objects name
+     * @param name is the variable name
+     */
     public void setName(String name){this.name = name;}
 
     //public abstract String ShowMood();

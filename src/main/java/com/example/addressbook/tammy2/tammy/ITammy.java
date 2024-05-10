@@ -2,15 +2,15 @@ package com.example.addressbook.tammy2.tammy;
 
 public interface ITammy {
 
-    public String getName();
+    String getName();
 
-    public int getOwnerId();
+    int getOwnerId();
 
-    public int getFoodVar();
+    int getFoodVar();
 
-    public int getWaterVar();
+    int getWaterVar();
 
-    public String getCharacteristic();
+    String getCharacteristic();
 
-    public String getSpecies();
+    String getSpecies();
 }

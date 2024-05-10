@@ -222,9 +222,10 @@ public class AuthenController {
         String oldDate = tammyDAO.getTammyTime(tammy.getOwnerId());
         System.out.println(oldDate);
         int timePassed = Math.toIntExact(timeCalculators.TimePassed(oldDate));
+        System.out.println(timePassed);
         int waterLoss = (int) (timePassed * -1.5);
         int foodLoss = (int) (timePassed * -1.2);
-        System.out.println(tammy);
+        System.out.println(getCurrentTammy().getName() + getCurrentTammy().getFoodVar() + getCurrentTammy().getWaterVar());
         tammy.setFoodVar(tammy.getFoodVar() + foodLoss);
         tammy.setWaterVar(tammy.getWaterVar() + waterLoss);
         System.out.println(getCurrentTammy().getFoodVar());

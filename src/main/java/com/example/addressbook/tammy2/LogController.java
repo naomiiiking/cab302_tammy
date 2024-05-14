@@ -15,7 +15,7 @@ import java.time.format.DateTimeFormatter;
 public class LogController {
 
     // Set logged in user
-    static UserAccount loggedInUser = HomeController.loggedInUser;
+    public static UserAccount loggedInUser = AuthenController.userSession.get("loggedInUser");
     public LogController() {
         this.studyLogsDAO = new StudyLogsDAO(); // Initialize studyLogsDAO here
     }
@@ -23,7 +23,8 @@ public class LogController {
     public void setStudyLogsDAO(StudyLogsDAO studyLogsDAO) {
         this.studyLogsDAO = studyLogsDAO;
     }
-    //private static String username = UserAccount.getUsername();
+
+    private static final Integer UserID = UserAccount.getID();
     public VBox buttonsVbox;
     public Label totalTimeLabel;
     public Label totalTime;
@@ -148,7 +149,11 @@ public class LogController {
                 studyLogsDAO.insertStudyLog(loggedInUser.getId(), formattedDate, totalTimeString, creditsInt);
 
             }
-            HelloApplication.showHomePage(); //needs a username
+            studyLogsDAO.close();
+            HelloApplication.showHomePage();//needs a username
+
+
+
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {

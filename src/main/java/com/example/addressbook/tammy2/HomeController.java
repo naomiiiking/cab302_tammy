@@ -1,5 +1,6 @@
 package com.example.addressbook.tammy2;
 import com.example.addressbook.tammy2.AuthenLog.UserAccount;
+import com.example.addressbook.tammy2.tammy.TammySpecies;
 import com.example.addressbook.tammy2.tammy.Tammys;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -36,7 +37,7 @@ public class HomeController {
     @FXML
     private VBox imageVbox;
     @FXML
-    private String tammyImageAddress = "/assets/1.png";
+    private String tammyImageAddress = loggedInTammy.getImage();
     @FXML
     private Label tammyName;
     private String tammyNameString = loggedInTammy.getName();
@@ -63,6 +64,7 @@ public class HomeController {
         streakLabel.setText("Streak: " + streak + " days");
         buttonsVbox.setSpacing(5);
         buttonsHbox.setSpacing(5);
+        //setImage(loggedInTammy.getSpecies());
 
         // Initialize Tammy Image and Name
         Image image = new Image(getClass().getResourceAsStream(tammyImageAddress));

@@ -10,8 +10,9 @@ public class Tammys implements ITammy{
     private int OwnerID;
     private int water;
     private int food;
-    public String Characteristic;
-    public String Species;
+    private String Characteristic;
+    private String Species;
+    private String Image;
 
     /**
      * Constructs a new Tammy with the specified TamOwner id, TamName, characteristic, species
@@ -28,6 +29,7 @@ public class Tammys implements ITammy{
         this.water = 100;
         setCharacteristic(characteristic);
         setSpecies(species);
+        setImage(species);
     }
 
     /**
@@ -47,6 +49,7 @@ public class Tammys implements ITammy{
         this.water = water;
         this.Characteristic = characteristic;
         this.Species = species;
+        setImage(species);
     }
 
     /**
@@ -170,6 +173,30 @@ public class Tammys implements ITammy{
         else {
             this.Species = TammySpecies.Shell.GetSpeciesName();
         }
+    }
+
+    /**
+     * Sets the image that will be displayed for this TammyObject in the home screen
+     * @param Species is the Species variable
+     */
+    private void setImage(String Species){
+        if(Species.contains(TammySpecies.Rabbit.GetSpeciesName())){
+            Image = "/assets/1.png";
+        } else if (Species.contains(TammySpecies.Shell.GetSpeciesName())) {
+            Image = "/assets/2.png";
+        }
+        else {
+            Image = "/assets/FishDraft.png";
+        }
+
+    }
+
+    /**
+     * returns the Tammy objects image filepath
+     * @return Image
+     */
+    public String getImage(){
+        return Image;
     }
 
     /**

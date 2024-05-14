@@ -37,6 +37,7 @@ public class Main {
 
     /**
      * Method to handle user login or registration
+     *
      * @param scanner
      * @param userAccountDAO
      * @return
@@ -104,7 +105,7 @@ public class Main {
         float moneyEarned = hoursStudied * 2;
 
         // Insert study log into database
-        studyLogsDAO.insertStudyLog(user.getId(), formattedDate, hoursStudied, moneyEarned);
+        //studyLogsDAO.insertStudyLog(user.getId(), formattedDate, hoursStudied, moneyEarned);
         System.out.println("Study log recorded successfully!");
     }
 }

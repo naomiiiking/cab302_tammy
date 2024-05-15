@@ -45,7 +45,7 @@ public class UserAccount {
     public void setID(int id) {
         this.ID = id;
     }
-
+    public void setId(int id) {this.id = id;}
     public int getId() {
         return id;
     }

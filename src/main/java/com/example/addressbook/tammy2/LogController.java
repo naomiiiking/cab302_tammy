@@ -151,7 +151,7 @@ public class LogController {
                 String creditsString = String.format("$%d", credits);
                 int creditsInt = (int) credits;
 
-                int userID = loggedInUser.getID();
+                int userID = loggedInUser.getId();
 
                 // Insert study log into the database
                 studyLogsDAO.insertStudyLog(userID, formattedDate, totalTimeString, creditsInt);

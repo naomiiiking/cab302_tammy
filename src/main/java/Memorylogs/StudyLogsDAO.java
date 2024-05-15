@@ -1,5 +1,8 @@
 package Memorylogs;
 
+import com.example.addressbook.tammy2.AuthenController;
+import com.example.addressbook.tammy2.AuthenLog.UserAccount;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +39,7 @@ public class StudyLogsDAO {
     }
 
     public void insertStudyLog(int userId, String date, String hoursStudied, int moneyEarned) {
+        //System.out.println("User ID is: " + userId);
         try {
             PreparedStatement statement = connection.prepareStatement(
                     "INSERT INTO StudyLogs (user_id, date, hours_studied, money_earned) VALUES (?, ?, ?, ?)"
@@ -57,6 +61,9 @@ public class StudyLogsDAO {
      */
     public List<MemoryEntry> getAllStudyLogs() throws SQLException {
         List<MemoryEntry> studyLogs = new ArrayList<>();
+
+        UserAccount loggedInUser = AuthenController.userSession.get("loggedInUser");
+        int userID = loggedInUser.getId();
 
         // Query to select all study logs from the database
         String query = "SELECT date, hours_studied, money_earned FROM StudyLogs";

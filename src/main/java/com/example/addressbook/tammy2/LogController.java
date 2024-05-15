@@ -98,7 +98,7 @@ public class LogController {
     }
     private void setDateText() {
         LocalDate currentDate = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
         String formattedDate = currentDate.format(formatter);
         date.setText(formattedDate);
     }
@@ -139,7 +139,7 @@ public class LogController {
 
                 // Get current date
                 LocalDate currentDate = LocalDate.now();
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
                 String formattedDate = currentDate.format(formatter);
 
                 // Format total time

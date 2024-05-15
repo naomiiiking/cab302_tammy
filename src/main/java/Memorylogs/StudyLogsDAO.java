@@ -63,23 +63,26 @@ public class StudyLogsDAO {
         List<MemoryEntry> studyLogs = new ArrayList<>();
 
         UserAccount loggedInUser = AuthenController.userSession.get("loggedInUser");
-        int userID = loggedInUser.getId();
+        int userId = loggedInUser.getId();
 
         // Query to select all study logs from the database
-        String query = "SELECT date, hours_studied, money_earned FROM StudyLogs";
+        String query = "SELECT date, hours_studied, money_earned FROM StudyLogs WHERE user_id = ?";
 
-        try (Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery(query)) {
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            // Set the user ID parameter
+            statement.setInt(1, userId);
 
-            // Iterate through the result set and create MemoryEntry objects
-            while (resultSet.next()) {
-                String date = resultSet.getString("date");
-                int hoursStudied = resultSet.getInt("hours_studied");
-                int creditsGained = resultSet.getInt("money_earned");
+            try (ResultSet resultSet = statement.executeQuery()) {
+                // Iterate through the result set and create MemoryEntry objects
+                while (resultSet.next()) {
+                    String date = resultSet.getString("date");
+                    int hoursStudied = resultSet.getInt("hours_studied");
+                    int creditsGained = resultSet.getInt("money_earned");
 
-                // Create a new MemoryEntry object and add it to the list
-                MemoryEntry memoryEntry = new MemoryEntry(date, hoursStudied, creditsGained);
-                studyLogs.add(memoryEntry);
+                    // Create a new MemoryEntry object and add it to the list
+                    MemoryEntry memoryEntry = new MemoryEntry(date, hoursStudied, creditsGained);
+                    studyLogs.add(memoryEntry);
+                }
             }
         }
 

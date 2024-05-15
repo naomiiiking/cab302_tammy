@@ -37,8 +37,10 @@
             <RadioButton styleClass="toggleBox" fx:id="shellTammy" text="Popcorn" toggleGroup="$tammySpeciesInput"/>
             <RadioButton styleClass="toggleBox" fx:id="fishTammy" text="Dorito" toggleGroup="$tammySpeciesInput"/>
         </HBox>
-
-        <Button text="Submit" onAction="#handleRegisterSubmitButtonClicked"/>
+        <HBox fx:id="bottomButtons">
+            <Button text="Back" onAction="#handleBackButtonClicked"/>
+            <Button text="Submit" onAction="#handleRegisterSubmitButtonClicked"/>
+        </HBox>
     </VBox>
 
 </VBox>

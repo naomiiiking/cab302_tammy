@@ -162,5 +162,14 @@ public class HomeController {
             throw new RuntimeException(e);
         }
     }
-
+    @FXML
+    private void handleShopButtonClicked(){
+        try {
+            showShopPage();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

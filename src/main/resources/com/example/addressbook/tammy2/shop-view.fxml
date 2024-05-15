@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.addressbook.tammy2.ShopController"
+      styleClass="body">
+    <HBox fx:id="bottomButtons">
+        <Button text="Back" onAction="#handleBackButtonClicked"/>
+    </HBox>
+
+
+</VBox>

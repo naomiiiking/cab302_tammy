@@ -1,7 +1,6 @@
 package com.example.addressbook.tammy2;
 
 import Memorylogs.StudyLogsDAO;
-import com.example.addressbook.tammy2.AuthenLog.UserAccount;
 import com.example.addressbook.tammy2.AuthenLog.UserAccountDAO;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -49,7 +48,6 @@ public class HelloApplication extends Application {
     }
 
     public static void showHomePage() throws Exception {
-        HomeController.setUserID(UserAccount.getID());
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("home-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1100, 750);
         String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();

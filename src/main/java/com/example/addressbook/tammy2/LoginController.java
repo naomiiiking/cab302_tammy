@@ -1,28 +1,18 @@
 package com.example.addressbook.tammy2;
 
 import com.example.addressbook.tammy2.AuthenLog.UserAccount;
+import com.example.addressbook.tammy2.AuthenLog.UserAccountDAO;
 import com.example.addressbook.tammy2.TammyDatabase.TammyDAO;
+import com.example.addressbook.tammy2.functions.TimeCalculators;
+import com.example.addressbook.tammy2.tammy.Tammys;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import com.example.addressbook.tammy2.TammyDatabase.TammyDAO;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import com.example.addressbook.tammy2.AuthenLog.UserAccount;
-import com.example.addressbook.tammy2.AuthenLog.UserAccountDAO;
-
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
-import javafx.scene.control.*;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import com.example.addressbook.tammy2.tammy.Tammys;
 
 import static com.example.addressbook.tammy2.HelloApplication.showHomePage;
 
@@ -34,8 +24,12 @@ public class LoginController {
     @FXML
     private PasswordField loginPasswordInput;
     private TammyDAO tammyDAO;
+    UserAccountDAO userAccountDAO;
+    TimeCalculators timeCalculators;
     public LoginController(){
         tammyDAO = new TammyDAO();
+        timeCalculators = new TimeCalculators();
+        userAccountDAO = new UserAccountDAO();
     }
     // Map for storing user session
 
@@ -89,17 +83,32 @@ public class LoginController {
         }
 
         // Check if the username and password match any entry in the database
-        List<UserAccount> accounts = UserAccountDAO.getAll();
+        List<UserAccount> accounts = userAccountDAO.getAll();
         for (UserAccount acc : accounts) {
-            if (UserAccount.getUsername().equals(loginUserNameInput.getText()) && UserAccount.getPassword().equals(loginPasswordInput.getText())) {
+            if (acc.getUsername().equals(loginUserNameInput.getText()) && acc.getPassword().equals(loginPasswordInput.getText())) {
                 // Store the logged-in user's information in the session map
                 AuthenController.userSession.put("loggedInUser", acc);
+                AuthenController.tammySession.put("loggedInTammy", tammyDAO.getTammy(acc.getId()));
+                ChangeTammyWaterFood(AuthenController.tammySession.get("loggedInTammy"));
                 showHomePage();
                 return;
             } else {
                 showInvalidLoginAlert();
             }
         }
+    }
+
+    private void ChangeTammyWaterFood(Tammys tammy){
+
+        String oldDate = tammyDAO.getTammyTime(tammy.getOwnerId());
+
+        int timePassed = Math.toIntExact(timeCalculators.TimePassed(oldDate));
+
+        tammy.setMINUSFoodVar(timePassed);
+        tammy.setMINUSWaterVar(timePassed);
+
+        tammyDAO.updateTammy(tammy);
+
     }
     // Displays missing information alert box
     private void showMissingInfoAlert() {

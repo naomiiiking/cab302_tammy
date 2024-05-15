@@ -1,23 +1,16 @@
 package com.example.addressbook.tammy2;
 
 import com.example.addressbook.tammy2.AuthenLog.UserAccount;
-import com.example.addressbook.tammy2.AuthenLog.UserAccountDAO;
-import com.example.addressbook.tammy2.TammyDatabase.TammyDAO;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
-import javafx.scene.control.*;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import com.example.addressbook.tammy2.tammy.Tammys;
+import javafx.fxml.FXML;
+import javafx.geometry.Pos;
+import javafx.scene.layout.HBox;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import java.util.List;
-
-import static com.example.addressbook.tammy2.HelloApplication.*;
+import static com.example.addressbook.tammy2.HelloApplication.showLoginPage;
+import static com.example.addressbook.tammy2.HelloApplication.showRegisterPage;
 
 public class AuthenController {
 
@@ -25,7 +18,7 @@ public class AuthenController {
     private HBox topButtons;
 
     static Map<String, UserAccount> userSession = new HashMap<>();
-
+    static Map<String, Tammys> tammySession = new HashMap<>();
 
     public void initialize() {
 

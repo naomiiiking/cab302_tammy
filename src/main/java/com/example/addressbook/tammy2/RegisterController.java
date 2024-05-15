@@ -11,8 +11,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 import static com.example.addressbook.tammy2.HelloApplication.showHomePage;
 
@@ -48,11 +46,13 @@ public class RegisterController {
     @FXML
     private ToggleGroup tammySpeciesInput;
     private TammyDAO tammyDAO;
+
+    private UserAccountDAO userAccountDAO;
     public RegisterController(){
         tammyDAO = new TammyDAO();
+        userAccountDAO = new UserAccountDAO();
     }
     // Map for storing user session
-    static Map<String, UserAccount> userSession = new HashMap<>();
 
     public void initialize(){
         // Create connection to user account database and insert new record
@@ -81,7 +81,7 @@ public class RegisterController {
 
     // Method to get the current logged-in user
     public static UserAccount getCurrentUser() {
-        return userSession.get("loggedInUser");
+        return AuthenController.userSession.get("loggedInUser");
     }
 
     // Register submit button clicked
@@ -94,16 +94,19 @@ public class RegisterController {
         }
 
         UserAccount userAccount = new UserAccount(registerUserNameInput.getText(), registerUserEmailInput.getText(), registerPasswordInput.getText());
-        UserAccountDAO.insert(userAccount);
+        userAccountDAO.insert(userAccount);
 
-        Tammys tammy = new Tammys(1,tammyNameInput.getText(),tammyTypeInput.getSelectedToggle().toString(), tammySpeciesInput.getSelectedToggle().toString());
+        int i = userAccountDAO.getByUsername(userAccount.getUsername()).getId();
+        Tammys tammy = new Tammys(i,tammyNameInput.getText(),tammyTypeInput.getSelectedToggle().toString(), tammySpeciesInput.getSelectedToggle().toString());
         System.out.println(tammySpeciesInput.getSelectedToggle().toString());
         tammyDAO.addTammy(tammy);
 
-        UserAccountDAO.close();
+        userAccountDAO.close();
+        tammyDAO.close();
 
         // Load homepage
-        userSession.put("loggedInUser", userAccount);
+        AuthenController.userSession.put("loggedInUser", userAccount);
+        AuthenController.tammySession.put("loggedInTammy", tammy);
         showHomePage();
     }
 

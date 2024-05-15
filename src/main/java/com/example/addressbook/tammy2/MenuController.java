@@ -1,16 +1,14 @@
 package com.example.addressbook.tammy2;
 
-import com.example.addressbook.tammy2.AuthenLog.UserAccount;
-import com.example.addressbook.tammy2.AuthenLog.UserAccountDAO;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.*;
+import javafx.scene.layout.VBox;
 
 
 public class MenuController {
-    private static final String username = UserAccount.getUsername();
+    private static final String username = AuthenController.userSession.get("loggedInUser").getUsername();
 
     @FXML
     private VBox settingsBody;

@@ -1,15 +1,11 @@
 package com.example.addressbook.tammy2;
 
-import com.example.addressbook.tammy2.AuthenLog.UserAccount;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 
 public class HelpController {
-    private static final String username = UserAccount.getUsername();
+    private static final String username = AuthenController.userSession.get("loggedInUser").getUsername();
     @FXML
     private Label helpText;
     public String helpTextContents =

@@ -12,6 +12,9 @@ module com.example.addressbook.tammy2 {
     opens com.example.addressbook.tammy2.ShopBackEnd;  
     opens com.example.addressbook.tammy2.AuthenLog;
 
+    opens Memorylogs to javafx.base; // Add this line
+    exports Memorylogs;
+
     exports com.example.addressbook.tammy2.ProgressTracking;
     exports com.example.addressbook.tammy2.ShopBackEnd;
     exports com.example.addressbook.tammy2;

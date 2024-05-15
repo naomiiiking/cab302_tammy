@@ -15,15 +15,19 @@ import java.time.format.DateTimeFormatter;
 public class LogController {
 
     // Set logged in user
-    static UserAccount loggedInUser = HomeController.loggedInUser;
+    public static UserAccount loggedInUser = AuthenController.userSession.get("loggedInUser");
     public LogController() {
         this.studyLogsDAO = new StudyLogsDAO(); // Initialize studyLogsDAO here
     }
 
+    public void updateLoggedInUser() {
+        loggedInUser = AuthenController.userSession.get("loggedInUser");
+    }
     public void setStudyLogsDAO(StudyLogsDAO studyLogsDAO) {
         this.studyLogsDAO = studyLogsDAO;
     }
-    //private static String username = UserAccount.getUsername();
+
+    //private static final Integer UserID = UserAccount.getID();
     public VBox buttonsVbox;
     public Label totalTimeLabel;
     public Label totalTime;
@@ -39,12 +43,15 @@ public class LogController {
     private ComboBox<String> timeComboBox;
     @FXML
     private ComboBox<String> timeComboBox2;
-
+    @FXML
+    private Integer UserID = loggedInUser.getID();
 
     public Label date;
     private StudyLogsDAO studyLogsDAO;
     //private UserAccount user;
     public void initialize() {
+
+        updateLoggedInUser();
 
         StartLabel.setText("Study From:");
         EndLabel.setText("            End:");
@@ -54,14 +61,14 @@ public class LogController {
         addedCredit.setText("$0");
 
 
-        buttonsVbox.setSpacing(40);
+        buttonsVbox.setSpacing(15);
         buttonsVbox.setAlignment(Pos.CENTER);
 
         comboboxHbox.setAlignment(Pos.CENTER);
-        comboboxHbox.setSpacing(10);
+        comboboxHbox.setSpacing(5);
 
         comboboxHbox2.setAlignment(Pos.CENTER);
-        comboboxHbox2.setSpacing(10);
+        comboboxHbox2.setSpacing(5);
 
         TotalTimeHBox.setAlignment(Pos.CENTER);
         TotalCreditsHBox.setAlignment(Pos.CENTER);
@@ -117,6 +124,7 @@ public class LogController {
 
     @FXML
     private void handleSubmitButtonClicked(){
+        updateLoggedInUser();
         try {
             if (timeComboBox.getValue() != null && timeComboBox2.getValue() != null) {
                 // Get the selected start and end times
@@ -143,12 +151,17 @@ public class LogController {
                 String creditsString = String.format("$%d", credits);
                 int creditsInt = (int) credits;
 
+                int userID = loggedInUser.getID();
 
                 // Insert study log into the database
-                studyLogsDAO.insertStudyLog(loggedInUser.getId(), formattedDate, totalTimeString, creditsInt);
+                studyLogsDAO.insertStudyLog(userID, formattedDate, totalTimeString, creditsInt);
 
             }
-            HelloApplication.showHomePage(); //needs a username
+            studyLogsDAO.close();
+            HelloApplication.showHomePage();//needs a username
+
+
+
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {

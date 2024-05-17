@@ -17,7 +17,7 @@ public class HelloApplication extends Application {
         showAuthenPage();
     }
 
-    public void showAuthenPage() throws Exception {
+    public static void showAuthenPage() throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("authen-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1100, 750);
         String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
@@ -59,13 +59,13 @@ public class HelloApplication extends Application {
 
     public static void showLogPage() throws Exception {
         LogController logController = new LogController();
-        UserAccountDAO userAccountDAO = new UserAccountDAO();
-        userAccountDAO.createTable();
+        //UserAccountDAO userAccountDAO = new UserAccountDAO();
+        //userAccountDAO.createTable();
         StudyLogsDAO studyLogsDAO = new StudyLogsDAO();
         studyLogsDAO.createStudyLogsTable();
       //  logController.setUser(); // Set the user object in LogController
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("log-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 750);
+        Scene scene = new Scene(fxmlLoader.load(), 1100, 750);
         String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
         scene.getStylesheets().add(stylesheet);
         mainStage.setTitle("Tammy");
@@ -95,6 +95,16 @@ public class HelloApplication extends Application {
 
     public static void showMenuPage() throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("menu-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1100, 750);
+        String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
+        scene.getStylesheets().add(stylesheet);
+        mainStage.setTitle("Tammy");
+        mainStage.setScene(scene);
+        mainStage.show();
+    }
+
+    public static void showShopPage() throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("shop-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1100, 750);
         String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
         scene.getStylesheets().add(stylesheet);

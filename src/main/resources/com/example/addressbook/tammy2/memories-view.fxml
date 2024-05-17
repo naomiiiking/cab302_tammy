@@ -8,39 +8,36 @@
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.addressbook.tammy2.MemoriesController"
-            prefHeight="400.0" prefWidth="600.0"
-            styleClass="body">
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.addressbook.tammy2.MemoriesController"
+      styleClass="body">
 
-    <top>
-        <Text styleClass="pageTitle" text="Memories"/>
-    </top>
+    <VBox styleClass="memoriesBody">
+        <Label styleClass="pageTitle">Memories</Label>
 
-    <center>
         <GridPane alignment="CENTER" hgap="10.0" vgap="10.0">
             <padding>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
             </padding>
             <TableView fx:id="tableView" GridPane.columnIndex="0"
-                       GridPane.rowIndex="1" prefHeight="600" prefWidth="1000">
+                       GridPane.rowIndex="1" prefHeight="300" prefWidth="800">
                 <columns>
                     <TableColumn fx:id="dateColumn" text="Date" prefWidth="250" styleClass="heading1">
                     </TableColumn>
                     <TableColumn fx:id="hoursColumn" text="Hours Studied" prefWidth="225" styleClass="heading1">
                     </TableColumn>
-                    <TableColumn fx:id="creditsColumn" text="Credits Gained" prefWidth="225" styleClass="heading1">
+                    <TableColumn fx:id="creditsColumn" text="Credits" prefWidth="225" styleClass="heading1">
                     </TableColumn>
                 </columns>
             </TableView>
         </GridPane>
-    </center>
 
-    <bottom>
+
+
         <VBox alignment="CENTER">
             <Button text="Back" onAction="#handleCancelButtonClicked"/>
         </VBox>
-    </bottom>
 
-</BorderPane>
+    </VBox>
+</VBox>

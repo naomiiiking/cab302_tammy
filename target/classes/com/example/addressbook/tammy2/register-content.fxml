@@ -33,12 +33,14 @@
 
         <Label styleClass="heading1">Tammy species: </Label>
         <HBox fx:id="tammySpecies">
-            <RadioButton styleClass="toggleBox" fx:id="rabbitTammy" text="Rabbit" toggleGroup="$tammySpeciesInput"/>
-            <RadioButton styleClass="toggleBox" fx:id="shellTammy" text="Shell" toggleGroup="$tammySpeciesInput"/>
-            <RadioButton styleClass="toggleBox" fx:id="fishTammy" text="Fish" toggleGroup="$tammySpeciesInput"/>
+            <RadioButton styleClass="toggleBox" fx:id="rabbitTammy" text="Bean" toggleGroup="$tammySpeciesInput"/>
+            <RadioButton styleClass="toggleBox" fx:id="shellTammy" text="Popcorn" toggleGroup="$tammySpeciesInput"/>
+            <RadioButton styleClass="toggleBox" fx:id="fishTammy" text="Dorito" toggleGroup="$tammySpeciesInput"/>
         </HBox>
-
-        <Button text="Submit" onAction="#handleRegisterSubmitButtonClicked"/>
+        <HBox fx:id="bottomButtons">
+            <Button text="Back" onAction="#handleBackButtonClicked"/>
+            <Button text="Submit" onAction="#handleRegisterSubmitButtonClicked"/>
+        </HBox>
     </VBox>
 
 </VBox>

@@ -17,7 +17,7 @@ public class AuthenController {
     @FXML
     private HBox topButtons;
 
-    static Map<String, UserAccount> userSession = new HashMap<>();
+    public static Map<String, UserAccount> userSession = new HashMap<>();
     static Map<String, Tammys> tammySession = new HashMap<>();
 
     public void initialize() {

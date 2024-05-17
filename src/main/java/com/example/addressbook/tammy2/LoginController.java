@@ -10,13 +10,17 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
 import java.util.List;
 
 import static com.example.addressbook.tammy2.HelloApplication.showHomePage;
 
 public class LoginController {
+    @FXML
+    public HBox bottomButtons;
     @FXML
     private VBox logInContent;
     @FXML
@@ -39,6 +43,9 @@ public class LoginController {
         userAccountDAO.createTable();
         logInContent.setAlignment(Pos.CENTER);
         logInContent.setSpacing(30);
+
+        // Submit and cancel buttons
+        //bottomButtons.setSpacing(10);
 
 
         // Insert some new records
@@ -124,5 +131,16 @@ public class LoginController {
         alert.setTitle("Invalid login");
         alert.setHeaderText("Incorrect username or password.");
         alert.showAndWait();
+    }
+
+    @FXML
+    private void handleBackButtonClicked(){
+        try {
+            HelloApplication.showAuthenPage(); //needs a username
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

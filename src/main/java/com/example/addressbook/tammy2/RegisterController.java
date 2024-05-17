@@ -10,11 +10,13 @@ import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
 import java.util.Arrays;
 
 import static com.example.addressbook.tammy2.HelloApplication.showHomePage;
 
 public class RegisterController {
+    public HBox bottomButtons;
     @FXML
     private VBox registerContent;
     @FXML
@@ -77,6 +79,10 @@ public class RegisterController {
         rabbitTammy.setToggleGroup(tammySpeciesInput);
         shellTammy.setToggleGroup(tammySpeciesInput);
         tammySpecies.setAlignment(Pos.CENTER);
+
+        // Submit and cancel buttons
+        bottomButtons.setAlignment(Pos.CENTER);
+        bottomButtons.setSpacing(10);
     }
 
     // Method to get the current logged-in user
@@ -97,6 +103,8 @@ public class RegisterController {
         userAccountDAO.insert(userAccount);
 
         int i = userAccountDAO.getByUsername(userAccount.getUsername()).getId();
+        userAccount.setID(i); // this one doesn't work
+        userAccount.setId(i); // this is the one that works
         Tammys tammy = new Tammys(i,tammyNameInput.getText(),tammyTypeInput.getSelectedToggle().toString(), tammySpeciesInput.getSelectedToggle().toString());
         System.out.println(tammySpeciesInput.getSelectedToggle().toString());
         tammyDAO.addTammy(tammy);
@@ -117,6 +125,17 @@ public class RegisterController {
         alert.setHeaderText("Fill in all fields before submitting.");
 
         alert.showAndWait();
+    }
+
+    @FXML
+    private void handleBackButtonClicked(){
+        try {
+            HelloApplication.showAuthenPage(); //needs a username
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
 // Inside the Main class

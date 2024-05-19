@@ -19,6 +19,7 @@ public class Shop {
         //Initialise shop with items
         items.add(new Item("Food", 20));
         items.add(new Item("Water", 10));
+        items.add(new Item("Pat", 5));
     }
 
     /**

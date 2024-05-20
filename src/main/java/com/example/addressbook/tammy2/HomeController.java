@@ -158,4 +158,18 @@ public class HomeController {
         }
     }
 
+    /**
+     * Show log shop when clicked
+     */
+    @FXML
+    private void handleShopButtonClicked(){
+        try {
+            showShopPage();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

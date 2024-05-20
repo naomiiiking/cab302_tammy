@@ -6,6 +6,7 @@ import com.example.addressbook.tammy2.AuthenLog.UserAccountDAO;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class HelloApplication extends Application {
@@ -101,6 +102,19 @@ public class HelloApplication extends Application {
         String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
         scene.getStylesheets().add(stylesheet);
         mainStage.setTitle("Tammy");
+        mainStage.setScene(scene);
+        mainStage.show();
+    }
+
+    public static void showShopPage() throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("shop.fxml"));
+        VBox shopLayout = fxmlLoader.load();
+        //ShopController controller = fxmlLoader.getController();
+        //controller.initialize(tracker, mainStage, mainStage.getScene());
+        Scene scene = new Scene(shopLayout, 1100, 750);
+        String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
+        scene.getStylesheets().add(stylesheet);
+        mainStage.setTitle("Shop");
         mainStage.setScene(scene);
         mainStage.show();
     }

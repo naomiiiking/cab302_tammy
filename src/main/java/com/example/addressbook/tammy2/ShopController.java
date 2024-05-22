@@ -18,14 +18,7 @@ public class ShopController {
     @FXML
     private Label creditsLabel;
 
-    @FXML
-    private TextField foodQuantityField;
 
-    @FXML
-    private TextField waterQuantityField;
-
-    @FXML
-    private TextField happinessQuantityField;
 
     public void initialize(ProgressTracker tracker, Stage primaryStage, Scene mainScene) {
         this.tracker = tracker;
@@ -37,17 +30,17 @@ public class ShopController {
 
     @FXML
     private void buyFood() {
-        buyItem("Food", 5, Integer.parseInt(foodQuantityField.getText()));
+        buyItem("Food");
     }
 
     @FXML
     private void buyWater() {
-        buyItem("Water", 2, Integer.parseInt(waterQuantityField.getText()));
+        buyItem("Water");
     }
 
     @FXML
     private void buyHappiness() {
-        buyItem("Happiness", 10, Integer.parseInt(happinessQuantityField.getText()));
+        buyItem("Happiness");
     }
 
     @FXML
@@ -55,15 +48,16 @@ public class ShopController {
         primaryStage.setScene(mainScene);
     }
 
-    private void buyItem(String itemName, int itemCost, int quantity) {
-        for (int i = 0; i < quantity; i++) {
-            if (shop.purchaseItem(itemName, tracker)) {
-                updateCreditsLabel();
-            }
+    private void buyItem(String itemName) {
+        if (shop.purchaseItem(itemName, tracker)) {
+            updateCreditsLabel();
         }
+
     }
 
     private void updateCreditsLabel() {
-        creditsLabel.setText("Credits: $" + tracker.getCurrency());
+        creditsLabel.setText("$" + tracker.getCurrency());
     }
+
+    private void updateProgressBar() {}
 }

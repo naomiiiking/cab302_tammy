@@ -106,7 +106,7 @@ public class RegisterController {
         userAccount.setID(i); // this one doesn't work
         userAccount.setId(i); // this is the one that works
         Tammys tammy = new Tammys(i,tammyNameInput.getText(),tammyTypeInput.getSelectedToggle().toString(), tammySpeciesInput.getSelectedToggle().toString());
-        System.out.println(tammySpeciesInput.getSelectedToggle().toString());
+        //System.out.println(tammy.getImage());
         tammyDAO.addTammy(tammy);
 
         userAccountDAO.close();

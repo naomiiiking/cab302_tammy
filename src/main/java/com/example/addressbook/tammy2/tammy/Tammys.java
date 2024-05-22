@@ -168,14 +168,14 @@ public class Tammys implements ITammy {
      * @param decider is a String which is gotten through radiobutton in the register method
      */
     public void setSpecies(String decider){
-        if(decider.contains("Fish")){
-            this.Species = TammySpecies.Fish.GetSpeciesName();
+        if(decider.contains("Bean")){
+            this.Species = TammySpecies.Bean.GetSpeciesName();
         }
-        else if(decider.contains("Rabbit")){
-            this.Species = TammySpecies.Rabbit.GetSpeciesName();
+        else if(decider.contains("Popcorn")){
+            this.Species = TammySpecies.Popcorn.GetSpeciesName();
         }
         else {
-            this.Species = TammySpecies.Shell.GetSpeciesName();
+            this.Species = TammySpecies.Dorito.GetSpeciesName();
         }
     }
 
@@ -184,15 +184,14 @@ public class Tammys implements ITammy {
      * @param Species is the Species variable
      */
     private void setImage(String Species){
-        if(Species.contains(TammySpecies.Rabbit.GetSpeciesName())){
+        if(Species.contains(TammySpecies.Bean.GetSpeciesName())){
             Image = "/assets/1.png";
-        } else if (Species.contains(TammySpecies.Shell.GetSpeciesName())) {
+        } else if (Species.contains(TammySpecies.Popcorn.GetSpeciesName())) {
             Image = "/assets/2.png";
         }
         else {
             Image = "/assets/3.png";
         }
-
     }
 
     /**

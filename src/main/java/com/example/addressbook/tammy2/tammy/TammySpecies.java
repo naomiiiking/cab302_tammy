@@ -1,9 +1,9 @@
 package com.example.addressbook.tammy2.tammy;
 
 public enum TammySpecies{
-    Rabbit("Rabbit"),
-    Shell("Shell"),
-    Fish("Fish");
+    Bean("Bean"),
+    Popcorn("Popcorn"),
+    Dorito("Dorito");
 
 
     private final String speciesName;

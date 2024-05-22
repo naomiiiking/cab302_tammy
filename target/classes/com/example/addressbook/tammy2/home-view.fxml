@@ -28,6 +28,7 @@
             <HBox fx:id = "buttonsHbox2">
                 <Button onAction="#handleHelpButtonClicked" text = "Help"/>
                 <Button onAction="#handleMenuButtonClicked" text = "Menu"/>
+                <Button onAction="#handleShopButtonClicked" text = "Shop"/>
             </HBox>
         </VBox>
 

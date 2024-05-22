@@ -59,5 +59,5 @@ public class ShopController {
         creditsLabel.setText("$" + tracker.getCurrency());
     }
 
-    private void updateProgressBar() {}
+    private void updateProgressBar() {} //function to update progress bars
 }

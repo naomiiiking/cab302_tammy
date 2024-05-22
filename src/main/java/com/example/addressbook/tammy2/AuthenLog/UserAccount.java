@@ -6,6 +6,7 @@ public class UserAccount {
     private String username;
     private String email;
     private String password;
+    private int credits;
 
     /**
      * User account contructor
@@ -14,11 +15,12 @@ public class UserAccount {
      * @param email user's email
      * @param password user's hashed password
      */
-    public UserAccount(int id, String username, String email, String password){
+    public UserAccount(int id, String username, String email, String password, int credits){
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
+        this.credits = credits;
     }
 
     /**
@@ -32,6 +34,7 @@ public class UserAccount {
         this.username = username;
         this.email = email;
         this.password = password;
+        credits = 0;
     }
 
     /**
@@ -73,6 +76,14 @@ public class UserAccount {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public int getCredits(){return credits;}
+
+    public void setCredits(int Credits){this.credits = Credits;}
+
+    public void addCredits(int Credits){this.credits += Credits;}
+
+    public void minusCredits(int Credits){this.credits -= Credits;}
 
     @Override
     public String toString() {

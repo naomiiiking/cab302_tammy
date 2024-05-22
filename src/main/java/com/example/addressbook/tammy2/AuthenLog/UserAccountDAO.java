@@ -23,7 +23,8 @@ public class UserAccountDAO {
                             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                             + "username VARCHAR NOT NULL, "
                             + "email VARCHAR NOT NULL, "
-                            + "password VARCHAR NOT NULL"
+                            + "password VARCHAR NOT NULL, "
+                            + "credits INTEGER NOT NULL"
                             + ")"
             );
         } catch (SQLException ex) {
@@ -38,11 +39,12 @@ public class UserAccountDAO {
     public void insert(UserAccount userAccount){
         try {
             PreparedStatement insertAccount = connection.prepareStatement(
-                    "INSERT INTO UserAccounts (username, email, password) VALUES (?, ?, ?)"
+                    "INSERT INTO UserAccounts (username, email, password, credits) VALUES (?, ?, ?, ?)"
             );
             insertAccount.setString(1, userAccount.getUsername());
             insertAccount.setString(2, userAccount.getEmail());
             insertAccount.setString(3, userAccount.getPassword());
+            insertAccount.setInt(4, userAccount.getCredits());
             insertAccount.execute();
         } catch (SQLException ex) {
             System.err.println(ex);
@@ -62,6 +64,19 @@ public class UserAccountDAO {
             updateAccount.setString(2, userAccount.getEmail());
             updateAccount.setString(3, userAccount.getPassword());
             updateAccount.setInt(4, userAccount.getID());
+            updateAccount.execute();
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+    }
+
+    public void updateCredits(UserAccount userAccount){
+        try {
+            PreparedStatement updateAccount = connection.prepareStatement(
+                    "UPDATE UserAccounts SET credits = ? WHERE id = ?"
+            );
+            updateAccount.setInt(1, userAccount.getCredits());
+            updateAccount.setInt(2, userAccount.getId());
             updateAccount.execute();
         } catch (SQLException ex) {
             System.err.println(ex);
@@ -91,7 +106,8 @@ public class UserAccountDAO {
                                 rs.getInt("id"),
                                 rs.getString("username"),
                                 rs.getString("email"),
-                                rs.getString("password")
+                                rs.getString("password"),
+                                rs.getInt("credits")
                         )
                 );
             }
@@ -116,7 +132,8 @@ public class UserAccountDAO {
                         rs.getInt("id"),
                         rs.getString("username"),
                         rs.getString("email"),
-                        rs.getString("password")
+                        rs.getString("password"),
+                        rs.getInt("credits")
                 );
             }
         } catch (SQLException ex) {
@@ -141,7 +158,8 @@ public class UserAccountDAO {
                 int id = resultSet.getInt("id");
                 String email = resultSet.getString("email");
                 String password = resultSet.getString("password");
-                return new UserAccount(id, username, email, password);
+                int credits = resultSet.getInt("credits");
+                return new UserAccount(id, username, email, password, credits);
             }
         } catch (SQLException ex) {
             System.err.println(ex);

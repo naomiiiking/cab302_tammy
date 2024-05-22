@@ -109,9 +109,6 @@ public class RegisterController {
         //System.out.println(tammy.getImage());
         tammyDAO.addTammy(tammy);
 
-        userAccountDAO.close();
-        tammyDAO.close();
-
         // Load homepage
         AuthenController.userSession.put("loggedInUser", userAccount);
         AuthenController.tammySession.put("loggedInTammy", tammy);

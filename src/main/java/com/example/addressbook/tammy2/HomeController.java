@@ -37,7 +37,7 @@ public class HomeController {
     private Label userNameLabel;
     @FXML
     private Label creditsLabel;
-    private int credits =  20; //TODO: Replace this with query to get credits from database
+    private int credits = loggedInUser.getCredits(); //TODO: Replace this with query to get credits from database
     @FXML
     private Label streakLabel;
     private int streak =  45; //TODO: Replace this with streak variable from database

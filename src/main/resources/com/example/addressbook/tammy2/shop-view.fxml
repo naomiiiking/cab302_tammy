@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -9,33 +10,61 @@
         <Insets bottom="10" left="10" right="10" top="10" />
     </padding>
     <Label text="SHOP">
-      <font>
-         <Font size="37.0" />
-      </font></Label>
-   <Label text="Credits:">
-      <font>
-         <Font size="16.0" />
-      </font>
-   </Label>
-   <Label fx:id="creditsLabel" text="\$20" underline="true">
-      <font>
-         <Font size="20.0" />
-      </font>
-   </Label>
+        <font>
+            <Font size="37.0" />
+        </font></Label>
+    <Label text="Credits:">
+        <font>
+            <Font size="16.0" />
+        </font>
+    </Label>
+    <Label fx:id="creditsLabel" text="\$20" underline="true">
+        <font>
+            <Font size="20.0" />
+        </font>
+    </Label>
 
     <VBox alignment="CENTER" spacing="10">
         <Label alignment="CENTER" text="Food" underline="true">
-         <font>
-            <Font size="23.0" />
-         </font></Label>
-      <ProgressBar prefWidth="200.0" progress="0.0" />
-      <Label text="Cost: $1">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
+            <font>
+                <Font size="23.0" />
+            </font></Label>
+        <ProgressBar prefWidth="200.0" progress="0.0" />
+        <Label text="Cost: $1">
+            <font>
+                <Font size="17.0" />
+            </font>
+        </Label>
         <Button onAction="#buyFood" text="Buy" />
     </VBox>
 
+    <VBox alignment="CENTER" spacing="10">
+        <Label text="Water" underline="true">
+            <font>
+                <Font size="23.0" />
+            </font></Label>
+        <ProgressBar prefWidth="200.0" progress="0.0" />
+        <Label text="Cost: $1">
+            <font>
+                <Font size="17.0" />
+            </font>
+        </Label>
+        <Button onAction="#buyWater" text="Buy" />
+    </VBox>
 
+    <VBox alignment="CENTER" spacing="10">
+        <Label alignment="CENTER" text="Happiness" underline="true">
+            <font>
+                <Font size="23.0" />
+            </font></Label>
+        <ProgressBar prefWidth="200.0" progress="0.0" />
+        <Label text="Cost: $5">
+            <font>
+                <Font size="17.0" />
+            </font>
+        </Label>
+        <Button onAction="#buyHappiness" text="Buy" />
+    </VBox>
+
+    <Button onAction="#goHome" text="HOME" />
 </VBox>

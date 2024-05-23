@@ -17,8 +17,9 @@ public class Shop {
     public Shop() {
         this.items = new ArrayList<>();
         //Initialise shop with items
-        items.add(new Item("Food", 20));
-        items.add(new Item("Water", 10));
+        items.add(new Item("Food", 1));
+        items.add(new Item("Water", 1));
+        items.add(new Item("Happiness", 5));
     }
 
     /**

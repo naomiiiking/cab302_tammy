@@ -3,7 +3,7 @@ package com.example.addressbook.tammy2.AuthenLog;
 public class UserAccount {
     private int ID;
     private int id;
-    private String username;
+    private static String username;
     private String email;
     private String password;
 
@@ -50,7 +50,7 @@ public class UserAccount {
         return id;
     }
 
-    public String getUsername() {
+    public static String getUsername() {
         return username;
     }
 

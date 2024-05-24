@@ -9,7 +9,7 @@ import java.util.List;
  * Represents a shop that manages a list of items and handles purchases.
  */
 public class Shop {
-    private List<Item> items;
+    private final List<Item> items;
 
     /**
      * Constructs a new Shop and initializes it with a set of default items.

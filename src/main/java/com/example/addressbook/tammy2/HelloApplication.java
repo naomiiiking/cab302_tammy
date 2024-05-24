@@ -2,9 +2,11 @@ package com.example.addressbook.tammy2;
 
 import Memorylogs.StudyLogsDAO;
 import com.example.addressbook.tammy2.AuthenLog.UserAccountDAO;
+import com.example.addressbook.tammy2.ProgressTracking.ProgressTracker;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class HelloApplication extends Application {
@@ -105,12 +107,17 @@ public class HelloApplication extends Application {
 
     public static void showShopPage() throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("shop-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1100, 750);
+        VBox shopLayout = fxmlLoader.load();
+        ProgressTracker tracker = new ProgressTracker(20);
+        ShopController controller = fxmlLoader.getController();
+        controller.initialize(tracker, mainStage, mainStage.getScene());
+        Scene scene = new Scene(shopLayout, 1100, 750);
         String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
         scene.getStylesheets().add(stylesheet);
-        mainStage.setTitle("Tammy");
+        mainStage.setTitle("Shop");
         mainStage.setScene(scene);
         mainStage.show();
+
     }
 
     public static void main(String[] args) {

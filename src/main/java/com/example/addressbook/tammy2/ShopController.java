@@ -3,10 +3,13 @@ package com.example.addressbook.tammy2;
 import com.example.addressbook.tammy2.ProgressTracking.ProgressTracker;
 import com.example.addressbook.tammy2.ShopBackEnd.Shop;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class ShopController {
@@ -17,6 +20,10 @@ public class ShopController {
 
     @FXML
     private Label creditsLabel;
+    @FXML
+    private VBox shopPage;
+    @FXML
+    private HBox shopOptions;
 
 
 
@@ -25,6 +32,9 @@ public class ShopController {
         this.primaryStage = primaryStage;
         this.mainScene = mainScene;
         this.shop = new Shop();
+        shopPage.setSpacing(5);
+        shopOptions.setSpacing(5);
+        shopOptions.setAlignment(Pos.CENTER);
         updateCreditsLabel();
     }
 

@@ -5,66 +5,44 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="374.0" prefWidth="532.0" spacing="10.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.addressbook.tammy2.ShopController">
-    <padding>
-        <Insets bottom="10" left="10" right="10" top="10" />
-    </padding>
-    <Label text="SHOP">
-        <font>
-            <Font size="37.0" />
-        </font></Label>
-    <Label text="Credits:">
-        <font>
-            <Font size="16.0" />
-        </font>
-    </Label>
-    <Label fx:id="creditsLabel" text="\$20" underline="true">
-        <font>
-            <Font size="20.0" />
-        </font>
-    </Label>
+<VBox styleClass="body" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.addressbook.tammy2.ShopController">
 
-    <VBox alignment="CENTER" spacing="10">
-        <Label alignment="CENTER" text="Food" underline="true">
-            <font>
-                <Font size="23.0" />
-            </font></Label>
-        <ProgressBar prefWidth="200.0" progress="0.0" />
-        <Label text="Cost: $1">
-            <font>
-                <Font size="17.0" />
-            </font>
-        </Label>
-        <Button onAction="#buyFood" text="Buy" />
+    <VBox styleClass="shopPage" fx:id="shopPage">
+        <VBox>
+            <Label text="SHOP" styleClass="pageTitle"/>
+
+            <HBox>
+                <Label text="Credits:" styleClass="heading1"/>
+                <Label fx:id="creditsLabel" text="\$20" underline="true" styleClass="heading1"/>
+            </HBox>
+        </VBox>
+
+        <HBox styleClass="shopOptions" fx:id="shopOptions">
+            <VBox>
+                <Label alignment="CENTER" text="Food" underline="true" styleClass="heading2"/>
+                <ProgressBar prefWidth="200.0" progress="0.0" />
+                <Label text="Cost: $1" styleClass="heading2"/>
+                <Button onAction="#buyFood" text="Buy" />
+            </VBox>
+
+            <VBox styleClass="heading2">
+                <Label text="Water" underline="true" styleClass="heading2"/>
+                <ProgressBar prefWidth="200.0" progress="0.0" />
+                <Label text="Cost: $1" styleClass="heading2"/>
+                <Button onAction="#buyWater" text="Buy" />
+            </VBox>
+
+            <VBox styleClass="heading2">
+                <Label alignment="CENTER" text="Happiness" underline="true" styleClass="heading2"/>
+                <ProgressBar prefWidth="200.0" progress="0.0" />
+                <Label text="Cost: $5" styleClass="heading2"/>
+                <Button onAction="#buyHappiness" text="Buy" />
+            </VBox>
+
+            <Button onAction="#goHome" text="HOME" />
+        </HBox>
+
     </VBox>
 
-    <VBox alignment="CENTER" spacing="10">
-        <Label text="Water" underline="true">
-            <font>
-                <Font size="23.0" />
-            </font></Label>
-        <ProgressBar prefWidth="200.0" progress="0.0" />
-        <Label text="Cost: $1">
-            <font>
-                <Font size="17.0" />
-            </font>
-        </Label>
-        <Button onAction="#buyWater" text="Buy" />
-    </VBox>
 
-    <VBox alignment="CENTER" spacing="10">
-        <Label alignment="CENTER" text="Happiness" underline="true">
-            <font>
-                <Font size="23.0" />
-            </font></Label>
-        <ProgressBar prefWidth="200.0" progress="0.0" />
-        <Label text="Cost: $5">
-            <font>
-                <Font size="17.0" />
-            </font>
-        </Label>
-        <Button onAction="#buyHappiness" text="Buy" />
-    </VBox>
-
-    <Button onAction="#goHome" text="HOME" />
 </VBox>

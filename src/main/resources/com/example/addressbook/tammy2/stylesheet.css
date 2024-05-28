@@ -130,3 +130,12 @@
 .table-cell {
     -fx-text-fill: black;
 }
+
+/* ------------------------------- Shop --------------------------------- */
+
+.shopPage {
+    -fx-padding: 100 100 0 100;
+}
+shopOptions {
+    -fx-padding: 100;
+}

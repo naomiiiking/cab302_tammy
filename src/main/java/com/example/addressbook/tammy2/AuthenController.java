@@ -18,7 +18,7 @@ public class AuthenController {
     private HBox topButtons;
 
     public static Map<String, UserAccount> userSession = new HashMap<>();
-    static Map<String, Tammys> tammySession = new HashMap<>();
+    public static Map<String, Tammys> tammySession = new HashMap<>();
 
     public void initialize() {
 

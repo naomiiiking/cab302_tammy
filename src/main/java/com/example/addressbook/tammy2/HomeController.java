@@ -1,5 +1,6 @@
 package com.example.addressbook.tammy2;
 import com.example.addressbook.tammy2.AuthenLog.UserAccount;
+import com.example.addressbook.tammy2.tammy.Tammys;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -24,7 +25,8 @@ public class HomeController {
      * You can now operate on it using all the usual UserAccount functions as normal
      */
     public static UserAccount loggedInUser = AuthenController.userSession.get("loggedInUser");
-    private static final String username = UserAccount.getUsername();
+    public static Tammys loggedInTammy = AuthenController.tammySession.get("loggedInTammy");
+    private static final String username = loggedInUser.getUsername();
 
     // Stored and used to select the users Tammy
     private static int UserID;
@@ -35,7 +37,7 @@ public class HomeController {
     private Label userNameLabel;
     @FXML
     private Label creditsLabel;
-    private int credits =  20; //TODO: Replace this with query to get credits from database
+    private int credits = loggedInUser.getCredits(); //TODO: Replace this with query to get credits from database
     @FXML
     private Label streakLabel;
     private int streak =  45; //TODO: Replace this with streak variable from database
@@ -50,9 +52,10 @@ public class HomeController {
     @FXML
     private VBox imageVbox;
     @FXML
-    private String tammyImageAddress = "/assets/1.png"; //TODO: Replace this with image depending on type of tammy from database
+    private String tammyImageAddress = loggedInTammy.getImage(); //TODO: Replace this with image depending on type of tammy from database
     @FXML
     private Label tammyName;
+    private String tammyNameString = loggedInTammy.getName();
     @FXML
     private VBox vitalsVbox;
     @FXML
@@ -63,10 +66,13 @@ public class HomeController {
     private HBox vitalsHbox3;
     @FXML
     private ProgressBar waterProgressBar;
+    private float waterprogress = (float) loggedInTammy.getWaterVar() / 100;
     @FXML
     private ProgressBar foodProgressBar;
+    private float foodprogress = (float) loggedInTammy.getFoodVar() / 100;
     @FXML
     private ProgressBar happinessProgressBar;
+    private float happinessprogress = (float) loggedInTammy.getHappiness() / 100;
 
     public void initialize() {
         // Initialize Menu Section
@@ -82,7 +88,7 @@ public class HomeController {
         tammyImage.setImage(image);
         tammyImage.setFitWidth(400);
         tammyImage.setFitHeight(400);
-        tammyName.setText("Mr Bean");
+        tammyName.setText(tammyNameString);
         imageVbox.setSpacing(5);
 
         // Initialize Vitals Progressbars
@@ -90,13 +96,13 @@ public class HomeController {
         vitalsHbox1.setSpacing(2);
         vitalsHbox2.setSpacing(2);
         vitalsHbox3.setSpacing(3);
-        waterProgressBar.setProgress(0.5);
+        waterProgressBar.setProgress(waterprogress);
         waterProgressBar.setMinHeight(30);
         waterProgressBar.setMinWidth(200);
-        foodProgressBar.setProgress(0.75);
+        foodProgressBar.setProgress(foodprogress);
         foodProgressBar.setMinHeight(30);
         foodProgressBar.setMinWidth(200);
-        happinessProgressBar.setProgress(0.25);
+        happinessProgressBar.setProgress(happinessprogress);
         happinessProgressBar.setMinHeight(30);
         happinessProgressBar.setMinWidth(200);
 

@@ -1,7 +1,6 @@
 package com.example.addressbook.tammy2.tammy;
 
 public class Tammys implements ITammy {
-
     private String name;
     private int OwnerID;
     private int water;
@@ -9,6 +8,7 @@ public class Tammys implements ITammy {
     private String Characteristic;
     private String Species;
     private String Image;
+    private int happiness;
 
     /**
      * Constructs a new Tammy with the specified TamOwner id, TamName, characteristic, species
@@ -23,6 +23,7 @@ public class Tammys implements ITammy {
         this.name = TamName;
         this.food = 100;
         this.water = 100;
+        this.happiness = 100;
         setCharacteristic(characteristic);
         setSpecies(species);
         setImage(species);
@@ -38,7 +39,7 @@ public class Tammys implements ITammy {
      * @param characteristic the Characteristic of the Tammys
      * @param species the Species of the Tammys
      */
-    public Tammys( int TamOwner, String TamName, int food, int water, String characteristic, String species){
+    public Tammys( int TamOwner, String TamName, int food, int water, String characteristic, String species, int happiness){
         this.OwnerID = TamOwner;
         this.name = TamName;
         this.food = food;
@@ -46,6 +47,7 @@ public class Tammys implements ITammy {
         this.Characteristic = characteristic;
         this.Species = species;
         setImage(species);
+        this.happiness = happiness;
     }
 
     /**
@@ -84,7 +86,9 @@ public class Tammys implements ITammy {
      * Sets the food variable by adding the param to the variable
      * @param food the food variable of the TammyObject
      */
-    public void setADDFoodVar(int food){this.food += food;}
+    public void setADDFoodVar(int food){
+        int Food = this.food + food;
+        this.food = (Food > 100) ? 100 : Food;}
 
     /**
      * Sets the food variable by minusing the param to the variable
@@ -115,7 +119,10 @@ public class Tammys implements ITammy {
      * Sets the water variable by adding the param to the variable
      * @param water is the variable water
      */
-    public void setADDWaterVar(int water){this.water += water;}
+    public void setADDWaterVar(int water){
+        int Water = this.water + water;
+        this.water = (Water > 100) ? 100 : Water;
+    }
 
     /**
      *  Sets the water variable by minusing the param to the variable
@@ -202,10 +209,19 @@ public class Tammys implements ITammy {
         return Image;
     }
 
-    /**
-     * returns the objects variable name
-     * @return name
-     */
+    public int getHappiness(){ return this.happiness; }
+
+    public void updateHappiness(int addHappy){
+        int Happiness = this.happiness + addHappy;
+        if (Happiness > 100){Happiness = 100;}
+        else if (Happiness < 0) {Happiness = 0;}
+        this.happiness = Happiness;
+    }
+
+        /**
+         * returns the objects variable name
+         * @return name
+         */
     @Override
     public String getName(){
         return name;

@@ -32,7 +32,7 @@ public class TammyDAO{
         /// want to add owner id onto this late by calling the users table and getting the persons logged in id but first
         /// need to implement the sequence of being able to log in and stay within process, should be fairly easy, however.
         try {
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO Tammy (ownerId, name, food, water, Characteristic, Species, LastLogin) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO Tammy (ownerId, name, food, water, Characteristic, Species, LastLogin, happiness) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             statement.setInt(1, tammys.getOwnerId());
             statement.setString(2, tammys.getName());
             statement.setInt(3, tammys.getFoodVar());
@@ -40,6 +40,7 @@ public class TammyDAO{
             statement.setString(5, tammys.getCharacteristic());
             statement.setString(6, tammys.getSpecies());
             statement.setString(7, timecalc.GetTime());
+            statement.setInt(8, tammys.getHappiness());
             statement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -111,11 +112,26 @@ public class TammyDAO{
      */
     public void updateTammy(Tammys tammy){
         try {
-            PreparedStatement statement = connection.prepareStatement("UPDATE Tammy SET food = ?, water = ?, LastLogin = ? WHERE ownerId = ?");
+            PreparedStatement statement = connection.prepareStatement("UPDATE Tammy SET food = ?, water = ?, LastLogin = ?, happiness = ? WHERE ownerId = ?");
 
             statement.setInt(1, tammy.getFoodVar());
             statement.setInt(2, tammy.getWaterVar());
             statement.setString(3, timecalc.GetTime());
+            statement.setInt(4, tammy.getHappiness());
+            statement.setInt(5, tammy.getOwnerId());
+            statement.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateTammyVitals(Tammys tammy){
+        try {
+            PreparedStatement statement = connection.prepareStatement("UPDATE Tammy SET food = ?, water = ?, happiness = ? WHERE ownerId = ?");
+
+            statement.setInt(1, tammy.getFoodVar());
+            statement.setInt(2, tammy.getWaterVar());
+            statement.setInt(3, tammy.getHappiness());
             statement.setInt(4, tammy.getOwnerId());
             statement.executeUpdate();
         } catch (Exception e) {
@@ -164,7 +180,8 @@ public class TammyDAO{
                 int water = resultSet.getInt("water");
                 String characteristic = resultSet.getString("Characteristic");
                 String species = resultSet.getString("Species");
-                return new Tammys(id, name, food, water, characteristic,species);
+                int happiness = resultSet.getInt("happiness");
+                return new Tammys(id, name, food, water, characteristic,species, happiness);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -185,6 +202,7 @@ public class TammyDAO{
                     + "name VARCHAR NOT NULL,"
                     + "food INTEGER NOT NULL,"
                     + "water INTEGER NOT NULL,"
+                    + "happiness INTEGER NOT NULL,"
                     + "Characteristic VARCHAR NOT NULL,"
                     + "Species VARCHAR NOT NULL,"
                     + "LastLogin VARCHAR NOT NULL"

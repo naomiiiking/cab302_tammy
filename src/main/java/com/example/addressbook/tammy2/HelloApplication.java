@@ -1,6 +1,7 @@
 package com.example.addressbook.tammy2;
 
 import Memorylogs.StudyLogsDAO;
+import com.example.addressbook.tammy2.AuthenLog.UserAccount;
 import com.example.addressbook.tammy2.AuthenLog.UserAccountDAO;
 import com.example.addressbook.tammy2.ProgressTracking.ProgressTracker;
 import javafx.application.Application;
@@ -108,7 +109,8 @@ public class HelloApplication extends Application {
     public static void showShopPage() throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("shop-view.fxml"));
         VBox shopLayout = fxmlLoader.load();
-        ProgressTracker tracker = new ProgressTracker(20);
+        UserAccount loggedInUser = AuthenController.userSession.get("loggedInUser");
+        ProgressTracker tracker = new ProgressTracker(loggedInUser.getCredits());
         ShopController controller = fxmlLoader.getController();
         controller.initialize(tracker, mainStage, mainStage.getScene());
         Scene scene = new Scene(shopLayout, 1100, 750);

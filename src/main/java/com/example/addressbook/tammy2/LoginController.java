@@ -27,7 +27,7 @@ public class LoginController {
     private TextField loginUserNameInput;
     @FXML
     private PasswordField loginPasswordInput;
-    private TammyDAO tammyDAO;
+    TammyDAO tammyDAO;
     UserAccountDAO userAccountDAO;
     TimeCalculators timeCalculators;
     public LoginController(){
@@ -113,6 +113,7 @@ public class LoginController {
 
         tammy.setMINUSFoodVar(timePassed);
         tammy.setMINUSWaterVar(timePassed);
+        tammy.updateHappiness(-(timePassed));
 
         tammyDAO.updateTammy(tammy);
 

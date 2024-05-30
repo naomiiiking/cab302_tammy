@@ -1,6 +1,7 @@
 package com.example.addressbook.tammy2;
 import Memorylogs.StudyLogsDAO;
 import com.example.addressbook.tammy2.AuthenLog.UserAccount;
+import com.example.addressbook.tammy2.AuthenLog.UserAccountDAO;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.ComboBox;
@@ -17,7 +18,8 @@ public class LogController {
     // Set logged in user
     public static UserAccount loggedInUser = AuthenController.userSession.get("loggedInUser");
     public LogController() {
-        this.studyLogsDAO = new StudyLogsDAO(); // Initialize studyLogsDAO here
+        this.studyLogsDAO = new StudyLogsDAO();// Initialize studyLogsDAO here
+        userAccountDAO = new UserAccountDAO();
     }
 
     public void updateLoggedInUser() {
@@ -48,6 +50,7 @@ public class LogController {
 
     public Label date;
     private StudyLogsDAO studyLogsDAO;
+    private UserAccountDAO userAccountDAO;
     //private UserAccount user;
     public void initialize() {
 
@@ -152,7 +155,9 @@ public class LogController {
                 int creditsInt = (int) credits;
 
                 int userID = loggedInUser.getId();
+                loggedInUser.addCredits(creditsInt);
 
+                userAccountDAO.updateCredits(loggedInUser);
                 // Insert study log into the database
                 studyLogsDAO.insertStudyLog(userID, formattedDate, totalTimeString, creditsInt);
 

@@ -105,7 +105,7 @@ public class TammyDAO{
     }
 
     /**
-     * Method updates the tammys food water and LastLogin columns in the database
+     * Method updates the tammys food water, happiness and LastLogin columns in the database
      * tammy param is used to get the tammys food water and id which is all set within other methods
      * in AuthenController
      * @param tammy the Tammys Object
@@ -124,6 +124,13 @@ public class TammyDAO{
             e.printStackTrace();
         }
     }
+
+    /**
+     * Method updates the tammys food water and happiness columns in the database
+     * tammy param is used to get the tammys food water happiness and id which is all set within other methods
+     * in AuthenController
+     * @param tammy the Tammys object
+     */
 
     public void updateTammyVitals(Tammys tammy){
         try {

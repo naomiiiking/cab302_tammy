@@ -209,8 +209,17 @@ public class Tammys implements ITammy {
         return Image;
     }
 
+    /**
+     * returns the Tammy objects happiness value
+     * @return happiness
+     */
     public int getHappiness(){ return this.happiness; }
 
+    /**
+     * sets the tammys objects happiness value whether it be adding or subtracting, also
+     * limits it to the bounds of 100 and 0
+     * @param addHappy the integer value to be added to happiness
+     */
     public void updateHappiness(int addHappy){
         int Happiness = this.happiness + addHappy;
         if (Happiness > 100){Happiness = 100;}

@@ -9,19 +9,24 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.collections.FXCollections?>
 
+<!-- Root VBox layout containing the entire interface -->
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.example.addressbook.tammy2.LogController"
       styleClass="body">
-
+    <!-- Placeholder for left body content -->
     <VBox styleClass="bodyContentLeft"/>
+    <!-- Label for the page title -->
     <Label styleClass="pageTitleLogMem">Log Hours</Label>
+    <!-- VBox containing the main content, buttons, and controls -->
     <VBox fx:id="buttonsVbox">
+        <!-- Label displaying the current date -->
         <Label fx:id="date" styleClass="pageTitle">
             <font>
                 <Font size="12.0"/>
             </font>
         </Label>
+        <!-- HBox for the start time combo box and its label -->
         <HBox fx:id="comboboxHbox">
             <Label styleClass="heading1" fx:id="StartLabel"/>
             <ComboBox fx:id="timeComboBox" layoutX="200" layoutY="200">
@@ -31,6 +36,7 @@
                 </items>
             </ComboBox>
         </HBox>
+        <!-- HBox for the end time combo box and its label -->
         <HBox fx:id="comboboxHbox2">
             <Label styleClass="heading1" fx:id="EndLabel"/>
             <ComboBox fx:id="timeComboBox2" layoutX="200" layoutY="200">
@@ -40,15 +46,19 @@
                 </items>
             </ComboBox>
         </HBox>
+        <!-- HBox for displaying total time studied -->
         <HBox fx:id="TotalTimeHBox">
             <Label styleClass="heading1" fx:id="totalTimeLabel"/>
             <Label styleClass="heading1" fx:id="totalTime"/>
         </HBox>
+        <!-- HBox for displaying total credits earned -->
         <HBox fx:id="TotalCreditsHBox">
             <Label styleClass="heading1" fx:id="addedCreditLabel"/>
             <Label styleClass="heading1" fx:id="addedCredit"/>
         </HBox>
+        <!-- Button for submitting the log -->
         <Button text="Submit Log" onAction="#handleSubmitButtonClicked"/>
+        <!-- Button for canceling and returning to the home page -->
         <Button text="Cancel" onAction="#handleCancelButtonClicked"/>
     </VBox>
 </VBox>

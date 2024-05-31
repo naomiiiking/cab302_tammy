@@ -15,21 +15,24 @@ import java.time.format.DateTimeFormatter;
 
 public class LogController {
 
-    // Set logged in user
+    // Static variable to hold the currently logged in user
     public static UserAccount loggedInUser = AuthenController.userSession.get("loggedInUser");
+    // Constructor to initialize DAOs
     public LogController() {
         this.studyLogsDAO = new StudyLogsDAO();// Initialize studyLogsDAO here
         userAccountDAO = new UserAccountDAO();
     }
 
+    // Method to update the logged in user from the session
     public void updateLoggedInUser() {
         loggedInUser = AuthenController.userSession.get("loggedInUser");
     }
+    // Setter for the studyLogsDAO, used for dependency injection
     public void setStudyLogsDAO(StudyLogsDAO studyLogsDAO) {
         this.studyLogsDAO = studyLogsDAO;
     }
 
-    //private static final Integer UserID = UserAccount.getID();
+    // FXML elements from the view
     public VBox buttonsVbox;
     public Label totalTimeLabel;
     public Label totalTime;
@@ -49,13 +52,15 @@ public class LogController {
     private Integer UserID = loggedInUser.getID();
 
     public Label date;
+    // DAO objects for study logs and user accounts
     private StudyLogsDAO studyLogsDAO;
     private UserAccountDAO userAccountDAO;
-    //private UserAccount user;
+    // Method called during initialization of the controller
     public void initialize() {
 
-        updateLoggedInUser();
+        updateLoggedInUser(); // Ensure the logged in user is updated
 
+        // Set labels text
         StartLabel.setText("Study From:");
         EndLabel.setText("            End:");
         totalTimeLabel.setText("Total Time:   ");
@@ -63,27 +68,26 @@ public class LogController {
         addedCreditLabel.setText("Credits Gained: ");
         addedCredit.setText("$0");
 
-
+        // Set alignment and spacing for various elements
         buttonsVbox.setSpacing(15);
         buttonsVbox.setAlignment(Pos.CENTER);
-
         comboboxHbox.setAlignment(Pos.CENTER);
         comboboxHbox.setSpacing(5);
-
         comboboxHbox2.setAlignment(Pos.CENTER);
         comboboxHbox2.setSpacing(5);
-
         TotalTimeHBox.setAlignment(Pos.CENTER);
         TotalCreditsHBox.setAlignment(Pos.CENTER);
 
-        populateComboBox();
+        populateComboBox(); // Populate the time selection combo boxes
 
+        // Set event handlers for combo box selection changes
         timeComboBox.setOnAction(event -> calculateTotalTime());
         timeComboBox2.setOnAction(event -> calculateTotalTime());
 
-        setDateText();
+        setDateText(); // Set the current date
 
     }
+    // Method to populate the time combo boxes with 30-minute intervals
     private void populateComboBox() {
         int hour = 0;
         int minute = 0;
@@ -99,13 +103,14 @@ public class LogController {
             }
         }
     }
+    // Method to set the current date in the date label
     private void setDateText() {
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
         String formattedDate = currentDate.format(formatter);
         date.setText(formattedDate);
     }
-
+    // Method to calculate the total study time and credits earned
     public void calculateTotalTime() {
         if (timeComboBox.getValue() != null && timeComboBox2.getValue() != null) {
             LocalTime startTime = LocalTime.parse(timeComboBox.getValue());
@@ -124,10 +129,10 @@ public class LogController {
             addedCredit.setText(creditsString);
         }
     }
-
+    // Method to handle the submit button click event
     @FXML
     private void handleSubmitButtonClicked(){
-        updateLoggedInUser();
+        updateLoggedInUser(); // Ensure the logged in user is updated
         try {
             if (timeComboBox.getValue() != null && timeComboBox2.getValue() != null) {
                 // Get the selected start and end times
@@ -154,14 +159,16 @@ public class LogController {
                 String creditsString = String.format("$%d", credits);
                 int creditsInt = (int) credits;
 
+                // Update user's credits
                 int userID = loggedInUser.getId();
                 loggedInUser.addCredits(creditsInt);
-
                 userAccountDAO.updateCredits(loggedInUser);
+
                 // Insert study log into the database
                 studyLogsDAO.insertStudyLog(userID, formattedDate, totalTimeString, creditsInt);
 
             }
+            // Close the studyLogsDAO and show the home page
             studyLogsDAO.close();
             HelloApplication.showHomePage();//needs a username
 
@@ -173,11 +180,11 @@ public class LogController {
             throw new RuntimeException(e);
         }
     }
-
+    // Method to handle the cancel button click event
     @FXML
     private void handleCancelButtonClicked(){
         try {
-            HelloApplication.showHomePage(); //needs a username
+            HelloApplication.showHomePage();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {

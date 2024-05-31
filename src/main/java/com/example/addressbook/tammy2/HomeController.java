@@ -163,6 +163,10 @@ public class HomeController {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * Show shop page when clicked
+     */
     @FXML
     private void handleShopButtonClicked(){
         try {
